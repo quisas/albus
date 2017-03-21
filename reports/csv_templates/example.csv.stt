@@ -1,0 +1,2 @@
+<?stt self at: #subjects do: [:subject | ?>"<?stt= subject ?>", "test"
+<?stt ] ?>

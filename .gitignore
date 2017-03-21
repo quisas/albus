@@ -1,0 +1,20 @@
+# Entwickler
+/deployment
+/pharo
+/dev
+
+# # Albus Ausgabepfade
+# /tmp
+# /export
+
+# Attachments, sind evt. mit symlink auf anderem Volume ausgelagert
+/attachments
+
+# Inhalt der schulspezifischen Ordner immer auslassen
+school/*
+
+# Tempfiles und anderes
+.~*
+_*
+*.*~
+.projectile

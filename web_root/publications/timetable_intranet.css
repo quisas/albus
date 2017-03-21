@@ -1,0 +1,23 @@
+
+body {
+  margin-top: 5px 0 5px 0;    
+  font-family: Verdana Narrow, Arial, Helvetica, sans-serif;
+}
+
+div.top_menu {
+  padding: 0 0 5px 0;
+  border-bottom: 1px solid silver;
+  float:left;
+  width:100%;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+a:hover {
+  text-decoration: none;
+  background: black;
+  color: white;
+}

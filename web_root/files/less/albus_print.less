@@ -1,0 +1,73 @@
+// -*- less-css-compile-at-save: t -*-
+
+
+@media print 
+{
+		@page {
+				size: A4 landscape;
+//				margin-left: 2cm;
+				margin-left: 1cm;
+		}
+
+		@page:right{
+				@bottom-right {
+						content: counter(page);
+				}
+		}
+
+		@page:left{
+				@bottom-left {
+						content: counter(page);
+				}
+		}
+		
+		// body {
+		// 		transform: scale(.7);
+		// }
+
+		table {
+				page-break-inside: avoid;
+		}
+		
+		.noPrint 
+		{
+				display:none;
+		}
+		
+		a,
+		a:visited {
+				text-decoration: none;
+		}
+
+		a[href]:after {
+				content: none;
+		}
+
+
+		// Notenliste
+		.marksList {
+				.btn-toolbar {
+						.noPrint()
+				}
+
+				h1 {
+						margin-top: 0;
+				}
+
+				table.marksList {
+						tr td {
+								padding-top: 2px;
+								padding-bottom: 2px;
+						}
+				}
+		}
+
+		div.componentCollectionItem{
+				page-break-after: always;
+		}
+
+		div.componentCollectionItem:last-child {
+				page-break-after: never !important;
+		}
+		
+}

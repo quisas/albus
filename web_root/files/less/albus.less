@@ -1,0 +1,1758 @@
+// -*- less-css-compile-at-save: t -*-
+
+
+@smallFontSize: 10px;
+
+@annotationColor:yellow;
+
+@canceledLessonColor:#F96;
+@addedLessonColor:lightgreen;
+@changedLessonColor:@addedLessonColor;
+@blankedLessonColor:@canceledLessonColor;
+@eventLessonColor:@annotationColor;
+
+@highlightColor: yellow;
+@highlightBorder: 1px solid red;
+
+@nonCurrentColor: #FCC;
+
+.footer {
+  margin-top: 45px;
+  padding: 35px 0 36px;
+  backgrounder-top: 1px solid #E5E5E5;
+}
+
+
+a:hover i {
+  text-decoration: none;
+}
+
+a.action {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+a.lowlight {
+  color: inherit;
+  
+  &:hover {
+    color:@link-color;
+  }
+}
+
+div.clear {
+  clear: both;
+}
+
+html
+{
+  height: 100%;
+}
+
+body
+{
+		min-height: 100%;
+
+		&.betaTest {
+				background-image: url("/files/img/beta-ribbon.png");
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-position: right 35px;
+		}
+
+		&.nonCurrentSemester {
+				//  background-color: #FFEEEE;
+				border-left: 30px solid @nonCurrentColor;
+				border-right: 30px solid @nonCurrentColor;
+		}
+
+		&.switchUserIsActive {
+				background-color: lighten(rgb(255,192,203), 10%);
+		}
+		
+}
+
+#switchUserIsActiveWarning {
+		position: fixed;
+		top: 50px;
+		left: 15px;
+		color: darken(pink, 10%);
+		font-size: 30px;
+}
+
+// ol,
+// ul {
+// 		list-style-position: inside;
+// 		padding-left: 0;
+// 		// margin-left: -20px;
+// }
+
+// ol ol,
+// ul ul {
+// 		padding-left: 10px;
+// }
+
+
+// Für Submitbuttons welche wie ein Link aussehen sollen
+input[type="submit"].hideButton,
+button[type="submit"].hideButton {
+		color: @link-color !important;
+		border: none !important;
+		background: transparent !important;
+		margin: 0 !important;
+		padding: 0 !important;
+
+		&:hover {
+				color: @link-hover-color !important;
+				text-decoration: @link-hover-decoration !important;
+		}
+}
+
+// Für Elemente die ein und ausgeblendet werden
+.displayNone {
+  display: none;
+}
+
+// Generell für Elemente, die markiert sind
+.selected {
+		background-color: @highlightColor;
+//		border: @highlightBorder;
+}
+
+
+textarea.likeTextInput {
+		// Hm, nicht ganz elegant...
+		height: 40px;
+}
+
+
+table.schedule {
+  tr {
+    .lessonInCell {
+      &.selected {
+        background-color: #dfd;
+      }
+      
+// Vermutlich nur bei Display nötig     white-space:nowrap;
+    }
+    
+    .annotationNumbers {
+      vertical-align:super;
+      font-size: 0.9em;
+      line-height: 0.5em;
+      margin-left: 2px;
+      font-weight: bold;
+    }
+    
+    .ALLesson {
+// Vermutlich nur bei Display nötig     white-space:nowrap;
+    }
+
+    .ALLessonFragment {
+      .ALLesson;
+    }
+    
+    
+    .ALAddedLesson {
+      .ALLesson;
+      .lessonLabel {
+        background-color: @addedLessonColor;
+      }
+    }
+
+    .ALTargetMovedLesson {
+      .ALLesson;
+      .ALAddedLesson;
+    }
+
+    .ALOriginMovedLesson {
+      .ALLesson;
+
+      .lessonLabel {
+        background-color: @canceledLessonColor;
+        text-decoration: line-through;
+      }
+    }
+    
+    .ALCanceledLesson {
+      .ALLesson;
+      
+      .lessonLabel {
+        background-color: @canceledLessonColor;
+        text-decoration: line-through;
+      }
+    }
+    
+    .ALAnnotatedLesson {
+      .ALLesson;
+      .lessonLabel {
+        background-color: @annotationColor;
+      }
+    }
+    
+    .ALBlankedLesson {
+      .ALLesson;
+
+      .lessonLabel {
+        background-color: @blankedLessonColor;
+        text-decoration: line-through;
+      }
+    }
+
+    .ALChangedLesson {
+      .ALLesson;
+      .lessonLabel {
+        background-color: @changedLessonColor;
+      }
+    }
+    
+    .ALEventLesson {
+      .ALLesson;
+      .lessonLabel {
+        background-color: @eventLessonColor;
+      }
+    }
+    
+    
+  }
+}
+
+div.ALWeekdayByTimeSchedule {
+  table.schedule {
+    table-layout: fixed;
+    
+    th.col0 {
+      width: 10%;
+    }
+    
+    th.col1, th.col2, th.col3, th.col4, th.col5 {
+      width: 18%;
+    }
+  }
+}
+
+
+// Eigene Styles für den Preview-Schedule fürs Sekretariat
+div.publicationPreviewSchedule {
+  .highlight {
+    border: 1px solid red;
+  }
+
+  table.schedule {
+
+    font-size: 90%;
+
+    // Keine spezielle Farbe für Links innerhalb Lektionen
+    a {
+      color: inherit;
+    }
+    
+    .lessonInCell {
+      &.highlight {
+        border: 2px solid red;
+      }
+
+			span.lessonMoreInfo {
+					.actionOnClick();
+					position: absolute;
+					visibility: hidden;
+					color: green;
+			}
+
+			&:hover {
+					span.lessonMoreInfo {
+							visibility: visible;
+					}
+			}
+			
+      white-space:nowrap;
+
+    }
+    
+    .ffLesson,
+    .pkLesson,
+    .projektLesson {
+      font-style: italic;
+    }
+    
+    th.col0 {
+      white-space: nowrap;
+    }
+    
+    th, td {
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+
+    .ALBlankedLesson {
+      background-color: @annotationColor;
+
+      .lessonLabel {
+        background-color: @annotationColor;
+        text-decoration: none;
+      }
+    }
+    
+    
+  }
+}
+
+
+
+#flashLog {
+  max-height: 75px;
+  overflow:auto;
+}
+
+
+#systemBar {
+//  background-color: #EEE;
+
+//  .container-fluid {
+//    background-color: #EEE;
+//  }
+
+  .brand {
+    padding-right: 0;
+    padding-left: 0;
+    margin-left: 20px;
+    float: right;
+  }
+
+  form.navbar-form {
+    margin-right: 0;
+    margin-left: 0;
+    padding: 0;
+  }
+
+	img.schoolLogo {
+			// object-fit: cover;
+			// width:230px;
+			height: 30px;
+	}
+  
+}
+
+
+.large-form-header {
+  background-color: white;
+
+  &.affix {
+    width: 100%;
+    top: 41px;
+    left: 5px;
+    z-index: 1030;
+    
+    h1.page-header {
+      border: none;
+      margin: 0;
+    }
+  }
+}
+
+/* Quick&dirty redefine Magritte errors */
+ul.errors {
+  .alert;
+  .alert-danger;
+  margin: 10px 0;
+  padding-left: 30px;
+}
+
+th.error {
+  color: red;
+}
+
+form {
+  span.dirtyFlag {
+    display: none;
+    color: white;
+/*    visibility: hidden; */
+    margin: 0 10px;
+    white-space: nowrap;
+  }
+  
+  .hiddenDirtyWarn {
+    display: none;
+    visibility: hidden;
+  }
+  
+  .showWhenDirty {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+form.dirty {
+  span.dirtyFlag {
+    display: inline;
+    color: black;
+    font-weight: bold;
+/*    visibility: visible; */
+  }
+  
+  input.dirtyWarn,
+  button.dirtyWarn {
+    .btn-warning;
+  }
+
+  .hiddenDirtyWarn {
+    visibility: visible;
+  }
+
+  div.hiddenDirtyWarn {
+    display: block;
+    margin: 5px 0px;
+  }
+
+  input.hiddenDirtyWarn,
+  button.hiddenDirtyWarn,
+  a.btn.hiddenDirtyWarn {
+    .btn-warning;
+    display: inline;
+  }
+
+  .hideWhenDirty {
+    display: none;
+    visibility: hidden;
+  }
+
+  .transparentWhenDirty {
+    visibility: hidden;
+  }
+  
+  a.btn.showWhenDirty {
+    visibility: visible;
+    display: inline-block;
+  }
+  
+}
+
+
+div.row.row-highlight:hover {
+  background-color: @gray-light;
+}
+
+a.search-result {
+  display: block;
+
+  &:hover {
+    background-color: @gray-lighter;
+  }
+
+}
+
+div.searchResults {
+//  border: 1px solid @gray-light;
+  background-color: #EEF4E5;
+  max-width: 600px;
+  overflow: auto;
+  padding: 3px 5px;
+  margin: 3px 0 5px 0;
+  
+  ul {
+    margin: 0px;
+  }
+}
+
+
+
+// div.trail {
+//  margin-bottom: 15px;
+// 
+// }
+
+
+th.ascending, th.descending {
+  background-color: @table-border-color;
+}
+
+div.magritteTableContainer {
+
+		span.auxiliaryRowsToggler {
+				.text-muted();
+				.actionOnClick();
+
+				font-size: 90%;
+		}
+
+		&:hover {
+				span.auxiliaryRowsToggler {
+						color: black;
+				}
+		}
+
+		table.table-magritte {
+				> tbody {
+						> tr {
+
+								&.auxiliaryRow {
+										&.beHidden {
+												display: none;
+										}
+
+										&.beVisible, &.nonEmpty {
+												display: table-row;
+										}
+
+										// > th {
+										// 		background-color: #f6f6f6;
+										// }
+								}
+								
+								> th {
+										//        white-space: nowrap;
+										background-color: #f6f6f6;
+										padding: 5px 3px 2px 5px;
+										border: 2px solid white;
+										width: 214px;
+										//        &:extend(.col-sm-4);
+										
+										&.required {
+												//          background-color: #f0f0f0;
+												border-left: 2px solid yellow;
+										}
+
+										div.htmlRemarks {
+												font-size: 90%;
+												font-weight: normal;
+										}
+
+										span.commentIcon {
+												margin-left: 10px;
+												float: right;
+												font-size: 18px;
+												vertical-align: middle;
+												color: #888;
+												cursor: pointer;
+												font-weight: normal;
+										}
+								}
+
+								> td {
+										padding: 1px 2px 1px 2px;
+										border: none;
+
+										div.htmlExtras {
+												.pull-right()
+										}
+
+								}
+						}
+				}
+				
+				&.table-form {
+
+						> tbody > tr {
+								> th {
+										height: 34px;
+								}
+								
+								> td.readonly {
+										padding-top: 5px;
+								}
+						}
+
+						.form-control {
+								display: inline;
+						}
+						
+						input.form-control,
+						select.form-control {
+								max-width: 220px;
+						}
+
+						textarea.form-control {
+								width: 220px;
+						}
+						
+						div.suggestedTags {
+								.text-muted();
+								max-width: 500px;
+						}
+				}
+
+				&.table-readonly {
+						> tbody > tr {
+								&:hover {
+										background-color: @table-border-color;
+								}
+								
+								> td, > th {
+										border-bottom: 1px solid @gray-lighter;
+								}
+						}
+				}
+
+				div.magritteInternalEditor {
+						border: 1px solid @table-border-color;
+						padding: 2px 2px 10px 5px;
+						margin-bottom: 10px;
+						width: 50%;
+						background-color: #f3f3f3;
+						
+						table.table-magritte {
+								width: 80%;
+								background-color: transparent;
+						}
+				}
+
+		}
+}
+
+#globalDirtyFlag {
+  display:none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+.breadcrumb {
+  background-color: transparent;
+  padding-left: 0;
+}
+
+a.jump {
+  cursor: pointer;
+}
+
+a.jumpAnchor {
+  display: block;
+  position: relative;
+  top: -45px;
+  visibility: hidden;
+}
+
+footer.model {
+  font-size: @smallFontSize;
+  color: @gray-light;
+  border-top: 1px solid @gray-lighter;
+  margin-top: 30px;
+  padding-top: 5px;
+  
+  a {
+    color: @gray-light;
+  }
+}
+
+div.protocol {
+  margin-top: 50px;
+  color: @gray-light;
+
+  td {
+    vertical-align: top;
+  }
+  
+  td.time,
+  td.date,
+  td.author {
+    white-space: nowrap;
+    padding-right: 5px;
+  }
+  
+}
+
+ul.modelsList li {
+  white-space: nowrap;
+}
+
+div.inputDialog textarea{
+  width: 85%;
+}
+
+h1 img, 
+h2 img, 
+h3 img, 
+h4 img {
+  vertical-align: bottom;
+}
+
+
+//
+// Fächli
+//
+
+table.outbox {
+  
+  td.dateAndTime {
+    white-space: nowrap;
+  }
+
+}
+
+table.inbox {
+  tr.unread {
+    background-color: #FF9;
+  }
+  
+  td.dateAndTime {
+    white-space: nowrap;
+  }
+
+}
+
+p.parcel-message {
+  max-width: 600px;
+}
+
+
+
+//
+// Generic table report
+//
+div.ALGenericTableReportComponent {
+  margin-top: 10px;
+  overflow: auto;
+
+  div.filterWarning {
+    margin: 0px 0px 5px 0px;
+  }
+
+  table.genericTableReport {
+    td.dateAndTime {
+      white-space: nowrap;
+    }
+  
+    th.filter {
+      white-space: nowrap;
+//      border-bottom-width: 1px;
+    }
+  
+    caption {
+				text-align: left;
+				font-weight: bold;
+				margin-bottom: 10px;
+				font-size: 120%;
+    }
+
+    tfoot {
+      td {
+        vertical-align: middle;
+      }
+    
+      tr.summary {
+        .text-muted()
+      }
+    }
+
+  }
+}
+
+.actionOnClick {
+  cursor: pointer;
+}
+
+.twoColumns {
+  .content-columns(2);
+}
+
+.threeColumns {
+  .content-columns(3);
+}
+
+.fourColumns {
+  .content-columns(4);
+}
+
+.fiveColumns {
+  .content-columns(5);
+}
+
+.sixColumns {
+  .content-columns(6);
+}
+
+div.choiceDialog {
+  margin-bottom: 200px;
+}
+
+#superuserPanel, #debugPanel {
+  display: inline-block;
+  font-size: 85%;
+  margin: 40px 0px 0px 0px;
+  background-color: #EEE;
+
+  a {
+    color: @gray-light;
+  }
+}
+
+label {
+  display: inline-block;
+}
+
+input[type="text"].time {
+  width: 60px;
+}
+
+input[type="text"].datepicker,
+input[type="text"].monthpicker {
+		width: 100px;
+		display: inline;
+}
+
+input,
+input.form-control,
+textarea.form-control {
+  &.input-mini {
+    width: 60px !important;
+    max-width: none !important;
+  }
+  &.input-small {
+    width: 90px !important;
+    max-width: none !important;
+  }
+  &.input-medium {
+    width: 150px !important;
+    max-width: none !important;
+  }
+  &.input-large {
+    width: 210px !important;
+    max-width: none !important;
+  }
+  &.input-xlarge {
+    width: 270px !important;
+    max-width: none !important;
+  }
+  &.input-xxlarge {
+    width: 530px !important;
+    max-width: none !important;
+  }
+}
+
+select,
+select.form-control {
+  width:auto;
+}
+
+span.helpIcon {
+  color: gray;
+  font-size: 1.1em;
+  font-weight: normal;
+}
+
+
+// Hinweis: Wegen der Print-Funktion müssen diese Styles so ausgelegt werden, dass auch das alleinige Element assignmentsCockpitTable von den styles erfasst wird
+div.ALAssignmentsCockpit {
+		.btn-block {
+				text-align: left;
+		}
+
+		div.assignmentsCockpitTable {
+				
+				@cellWidth: 280px;
+				
+				th.totalHours {
+						//    text-align: right;
+						padding-left: @cellWidth;
+						
+				}
+				
+				table.assignmentsSubTable {
+						width: 100%;
+						border-collapse: collapse;
+
+						td {
+								border: none;
+								background-color: transparent;
+								padding: 0;
+
+								&.assignmentLabel {
+										width: @cellWidth;
+								}
+
+								&.hours {
+										width: 30px;
+								}
+
+								&.actions {
+										//        width: 50px;
+										text-align: right;
+										padding-right: 10px;
+								}
+						}
+				}
+
+		}
+}
+
+table.statistics {
+  td.number {
+    text-align:right;
+  }
+}
+
+div.navbar {
+  a.dropdown-toggle.nonCurrentSemester {
+    color: red;
+  }
+
+  a.dropdown-toggle.switchUserIsActive {
+    color: darken(pink, 10%);
+  }
+}
+
+
+div.ALAddressLabelReportComponent {
+
+  margin-bottom: 50px; // For easy scroll to better view all address labels
+
+  div.addressLabels {
+    border: 1px solid @gray-light;
+    padding: 3px 20px 3px 5px;
+    margin: -3px -5px;
+    max-height: 400px;
+    overflow: auto;
+    
+//    div.well {
+//      width: 200px;
+//    }
+  }
+  
+  div.searchResults {
+    border: 1px solid @gray-light;
+    background-color: @gray-lighter;
+    max-height: 300px;
+    overflow: auto;
+    padding: 3px 5px;
+    margin: -3px -5px;
+  }
+}
+
+ul.nav-tabs {
+  div.closeTab {
+    position: absolute;
+    display: none;
+    font-weight: bold;
+    color: @gray-light;
+    cursor: pointer;
+    z-index: @zindex-navbar;
+//    margin-left: 10px;
+  }
+  
+  li:hover {
+    div.closeTab {
+      display: block;
+//      min-width: 50px;
+    }
+  }
+}
+
+div.ALTwoPeopleMergerWizard {      
+  form.settings {
+    select {
+      width: 400px;
+    }
+  }
+}
+
+@panelColor: orange;
+
+div.panelDecoration {
+  
+  margin: 10px 0px;
+  border: 5px solid @panelColor;
+  
+  div.panelTitle {
+    background-color: @panelColor;
+    font-weight: bold;
+    font-size: 120%;
+    margin-bottom: 20px;
+    padding: 0px 3px 8px 3px;
+    color: white;
+  }
+  
+  div.panelBody {
+    padding: 5px;
+  }
+}
+
+div.panel {
+		.panel-title {
+				font-weight: bold;
+		}
+}
+
+form.login input {
+  width: 200px;
+}
+
+div.ALLessonPlacingWizard {
+  div.courseTitle {
+    font-weight: bold;
+    font-size: 120%;
+    margin-bottom: 15px;
+    border-bottom: 1px solid black;
+  }
+
+  div.assignmentsList {
+    tr.current td {
+      background-color: #9D9;
+    }
+  }
+  
+  div.assignmentsEditor {
+    h1.page-header {
+      font-size: 160%;
+    }
+  }
+  
+  div.freeRooms {
+    font-size: 80%;
+    line-height: 12px;
+  }
+  
+  table.placementsList {
+    td {
+      padding-bottom: 10px;
+    }
+    
+    td.placementLabel, td.actions {
+      white-space: nowrap;
+    }
+  }
+  
+}
+
+div.ALLessonCollissionsWizard {
+  td.placementLabel,
+  td.severity {
+    white-space: nowrap;
+  }
+  
+  
+}
+
+.topBuffer {
+  margin-top: 10px;
+}
+
+.bottomBuffer {
+  margin-bottom: 10px;
+}
+
+.noBuffer {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.hairlineBuffer {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+// Rickshaw
+.rickshawGraphContainer {
+  float: left;
+  position: relative;
+//  width: 100%;
+  
+  .yAxis {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+  }
+
+  .xAxis {
+    position: relative;
+    left: 40px;
+    right: 0;
+    height: 40px;
+  }
+  
+  .chart {
+    position: relative;
+    left: 40px;
+    display: block;
+  }
+}
+
+
+div.ALStudentsSubjectChoicesWizard,
+div.ALStudentsOberstufeChoicesWizard {
+  tr.highlight {
+    background-color: @highlightColor;
+  }
+}
+
+div.ALDocumentReportsComponent {
+  div.reportSection {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dotted gray;
+  }
+
+	div.longContent {
+			overflow: auto;
+			max-height: 200px;
+	}
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+div.ALPhotoboothComponent {
+  .keyboardCatcher {
+    &:focus {
+      background-color: #C1F6C1;
+      color: black;
+    }
+    background-color: #EEE;
+    color: #CCC;
+    cursor: pointer;
+    padding: 2px;
+  }
+}
+
+ul.ui-sortable {
+  li {
+    cursor: move;
+  }
+}
+
+ul.klassenalarmStudentList {
+  min-height: 300px;
+  li.insertPlaceholder {
+    background-color: lightyellow;
+    height: 50px;
+    list-style-type: none;
+  }
+  
+  li.studentEntry {
+    background-color: #f6f6f6;
+  }
+}
+
+div.ALFreeRoomWizard {
+  table.schedule {
+
+    &:hover {
+      .lessonInCell {
+        color:black;
+      }
+    }
+
+    font-size: 80%;
+
+    th.col0 {
+      white-space: nowrap;
+    }
+
+    th, td {
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+
+    .lessonLabel {
+      display: block;
+      background-color: transparent;
+      text-align: center;
+    }
+
+    .lessonInCell {
+      color: transparent;
+//      color: #888;
+      white-space: nowrap;
+    }
+
+    .freeLesson {
+      background-color: lightgreen;
+    
+      a {
+        color: transparent;
+        display: block;
+        text-align: center;
+
+        &:hover {
+          color: black;
+        }
+
+      }
+    
+    }
+  
+    // Nicht mutierte Lektion blenden wir Text aus
+    .nonFreeLesson {
+      background-color: #ddd;
+      color: transparent;
+      
+//      &.ALLessonFragment {
+//        color: #ddd;
+        
+//        &:hover {
+//          color: black;
+//        }
+//      }
+
+    }
+  }
+}
+
+
+div.ALCalendarCockpit {
+//  tr.ALGeneralCalendarEntry {}
+  
+  tr.ALSchoolHolidaysCalendarEntry {
+    background-color: @gray-lighter;
+  }
+
+  tr.ALHolidayCalendarEntry {
+    background-color: @gray-lighter;
+  }
+
+  tr.ALStudyTripCalendarEntry {
+    background-color: yellow;
+  }
+
+}
+
+div.bazarEntry {
+		h4 {
+				margin-top: 0;
+		}
+
+		.status {
+				position: absolute;
+				right: 23px;
+				text-align: right;
+		}
+
+		div.selfStatement {
+				margin: 10px 0;
+				clear: both;
+				float: left;
+				width: 100%;
+		}
+
+		img.portraitImage {
+				float: left;
+				margin-right: 10px;
+		}
+}
+
+div.ALFreeformDesignerComponent {
+		@handleHeight: 130px;
+		
+		ul.freeformBricks {
+				li {
+
+						&.insertPlaceholder {
+								background-color: lightyellow;
+								height: @handleHeight;
+								list-style-type: none;
+								margin-left: -30px;
+						}
+
+						
+						&.freeformBrick {
+								margin-top: 10px;
+								min-height: @handleHeight;
+								background-color: #f6f6f6;
+
+								div.brickCode {
+										float: right;
+										margin-top: 5px;
+
+										label {
+												.text-muted();
+												font-weight: normal;
+												display: inline;
+												margin-right: 3px;
+										}
+
+										input[type=text] {
+												display: inline;
+												width: 100px;
+												padding: 0 3px;
+												height: 24px;
+										}
+								}
+						}
+
+						&.ALFfDivider {
+								min-height: @handleHeight/2;
+								hr {
+										border-top-color: black;
+								}
+						}
+						
+
+				}
+		}
+
+		fieldset {
+				border: 1px solid black;
+				padding: 20px;
+		}
+
+		div.brickHandle {
+				@transformOrigin: 100% 100%;
+				@transform: rotate(-90deg); 
+				
+				display: inline-block;
+				white-space: nowrap;
+				position: absolute;
+				left: (-1 * @handleHeight) - 3;
+				top: -22px;
+				width: @handleHeight;
+				background-color: #ddfadd;
+				color: #333;
+				font-weight: bold;
+				border: 1px solid #ccc;
+				padding: 1px 3px;
+				text-align: right;
+				transform: @transform;
+				-moz-transform: @transform;
+				-ms-transform: @transform;
+				-o-transform: @transform;
+				-webkit-transform: @transform;
+				transform-origin: @transformOrigin;
+				-moz-transform-origin: @transformOrigin;
+				-ms-transform-origin: @transformOrigin;
+				-o-transform-origin: @transformOrigin;
+				-webkit-transform-origin: @transformOrigin;
+		}
+
+}
+
+div.ALFreeformFillinComponent, div.ALFreeformFillinTestComponent {
+		// input[type=text].freeformTextInput {
+
+		// }
+
+		// textarea.freeformTextInput {
+		// 		height: 20px;
+		// }
+
+		// p.freeformText {
+		// 		background-color: lightyellow;
+		// }
+
+		div.freeformBrick {
+				&.important {
+						background-color: lightyellow;
+				}
+
+				&.required {
+//						border-left: 3px solid green;
+				}
+
+				&.invalid {
+						> label {
+								color: red;
+						}
+				}
+		}
+
+		span.priorityIndex {
+				display: inline-block;
+				border: 2px solid #888;
+				padding: 0 4px;
+				margin-bottom: 4px;
+		}
+}
+
+div.ALFreeformDisplayerComponent {
+		div.freeformBrick {
+				background-color: #efefef;
+				border-top: 1px solid #f9f9f9;
+				padding: 5px 0;
+		}		
+}
+
+#documentProgressbar {
+		position: fixed;
+		z-index: 999;
+		margin: 5% auto;
+		left: 20%;
+		right: 20%;
+}
+
+// Zeugnisse
+div.marksList {
+		table.marksList {
+				border: 2px solid black;
+
+				// Warnfarbe bei nichtaktuellen Noten
+				@media screen {
+						&.nonCurrentSeries {
+								border: 10px solid @nonCurrentColor;
+						}
+				}
+				
+				colgroup {
+						border-left: 2px solid black;
+						border-right: 2px solid black;
+
+						col {
+
+								&.markNumber, &.promotionsstand, &.repetition {
+										text-align: center;
+								}
+
+								// doppelt gemoppelt, wegen wkhtmltopdf
+								&:first-child {
+										border-left: 2px solid black !important;
+										border-right: 1px solid #ccc;
+								}
+								
+								&:last-child {
+										border-left: 1px solid #ccc;
+										border-right: 2px solid black !important;
+								}
+
+								&:not(:last-child):not(:first-child) {
+										border-left: 1px solid #ccc;
+										border-right: 1px solid #ccc;
+								}
+
+								&.Abs {
+										border-left: 2px solid black !important;
+								}
+
+
+						}
+
+				}
+
+				
+				th {
+						div.columnHeader {
+								text-align: center;
+								&.long {
+										white-space: nowrap;
+										transform: rotate(270deg);
+										width: 1em;
+								}
+								
+								&.BG, &.Mu {
+										font-style: italic;
+								}
+						}
+				}
+
+				td {
+						//text-align: right;
+
+						&.markNumber {
+								text-align: center;
+						}
+
+						&.number {
+								text-align: right;
+						}
+
+						&.studentName {
+								text-align: left;
+								white-space: nowrap;
+						}
+				}
+
+				// col {
+				// 		&.newSection {
+				// 				border-left: 1px solid black;
+				// 		}
+				// 		&.endSection {
+				// 				border-right: 1px solid black;
+				// 		}
+				// }
+		}
+
+		span.marksChecksum {
+				float: right;
+				margin-bottom: 20px;
+		}
+}
+
+span.marksChecksum {
+		.text-muted();
+		font-family: monospace;
+		font-size: 85%;
+		padding: 1px;
+		border: 1px dotted grey;
+}
+
+div.ALMarksReportSubmitter {
+
+		div.compactView & {
+				background-color: #eee;
+//				padding-bottom: 1px;
+		}
+
+		tr.dirty {
+				background-color: @btn-warning-bg;
+		}
+		
+		div.nonInputEntries {
+				margin-top: 50px;
+		}
+
+		table.marksReportInputTable {
+
+				td {
+						padding-left: 2px;
+						padding-right: 2px;
+				}
+				
+				&.compactView {
+						margin-bottom: 0;	
+				}
+				
+				col.colStudent {
+						width: 250px;
+				}
+
+				col.colSubjectCode {
+						width: 30px;
+				}
+
+				col.colSubjectTitle {
+						width: 120px;
+				}
+
+				col.colAttributes {
+						width: 80px;
+				}
+
+				col.colTeachers {
+						width: 200px;
+				}
+
+				col.colMark {
+						width: 350px;
+						white-space: nowrap;
+				}
+
+				col.colVisum {
+						width: 200px;
+				}
+
+				// col.colActions {
+				// 		width: 1px;
+				// }
+
+				@radioLabelGap: 15px;
+				label.radio-inline {
+						padding-left: @radioLabelGap;
+//						margin-right: 15px;
+
+						+.radio-inline {
+								margin-left: 15px;
+						}
+
+						input.radio {
+								margin-left: -@radioLabelGap;
+						}
+				}
+
+				input.markInput {
+						padding: 2px 5px;
+						margin: 0 10px 0 0;
+						// border: none;
+						height: 100%;
+				}
+
+				
+		}
+}
+
+div.ALMarksReportsMassWizard {
+		li.active, li.active a {
+				background-color: @component-active-bg;
+				color: @component-active-color;
+		}
+}
+
+// div.page-header.affix {
+// 		top: 20px;
+// 		width: 100%;
+// }
+
+div.ALStudentsCoursesAllocationWizard {
+		select.chzn-select {
+				width: 500px;
+		}
+}
+
+// Spezielle Styles für Markdown formattierte Abschnitte
+div.markdownTarget {
+		.generate-headers(4);
+
+		.generate-headers(@n, @i: 1) when (@i =< @n) {
+				h@{i} {
+				margin-top: 0;
+				font-size: 150% - (@i * 10%);
+		}
+				.generate-headers(@n, (@i + 1));
+		}
+
+		// ul, ol {
+		// 		margin-left: -10px;
+		// }
+}
+
+div.ALAdminMarksReportsCockpit {
+		div.progress {
+				margin-bottom: 5px;
+				
+				div.progress-bar.empty {
+						// min-width: 2em;
+						color: #666;
+				}
+		}
+}
+
+div.ALCoursesStudentsAllocationWizard {
+		div.highlight {
+				background-color: @highlightColor;
+				border: @highlightBorder;
+		}
+
+		div.highlightLastChecked {
+				background-color: lightgreen;
+//				border: @highlightBorder;
+		}
+
+		div.student {
+				font-size: 85%;
+
+				label {
+						font-weight:normal;
+						padding: 0;
+						margin: 0;
+				}
+		}
+
+		.table {
+				margin-bottom: 20px;
+		}
+
+		.col-sm-2 {
+				padding-left: 3px;
+				padding-right: 3px;
+		}
+		
+		.course {
+				h4 {
+						font-size: 100%;
+				}
+				
+				background-color: @gray-lighter;
+				padding: 0 2px;
+		}
+}
+
+table.maturarbeitList {
+
+		td {
+				white-space: nowrap;
+
+				&.title {
+						white-space: normal;
+				}
+		}
+		
+		th.title {
+				width: 50%;
+		}
+}
+
+div.ALMyStudentHomeComponent {
+
+		table.myTutorships {
+				thead th {
+						white-space: nowrap;
+				}
+		}
+}
+
+div.ALTeacherMarksReportsCockpit {
+		table {
+				td:first-child {
+						width: 250px;
+				}
+		}
+}
+
+div.ALKlassenbuchComponent {
+		// span.absenceIcon, span.lateIcon {
+		// 		font-weight: bold;
+		// 		font-family: monospace;
+		// 		font-size: 12pt;
+		// 		padding-left: 5px;
+		// 		padding-right: 5px;
+		// 		margin: 0 5px;
+		// 		border: 1px solid black;
+		// }
+
+  span.highlight {
+    background-color: @highlightColor;
+  }
+
+	span.studentLabel {
+			cursor: pointer;
+	}
+
+	tr:hover {
+			span.studentLabel {
+					color: @link-color;
+			}
+	}
+
+	table.tableAbsencesList {
+			td.entry, td.entschuldigt, td.actions {
+					white-space: nowrap;
+			}
+
+			// col.lessons {
+			// 		max-width: 200px;
+			// }
+	}
+
+}
+
+span.progressBar {
+		display: inline-block;
+		margin: 3px 0px;
+
+		progress {
+				vertical-align: middle;
+		}
+}
+
+div.ALMyTeachingCockpit {
+		div.ALDateByTimeSchedule {
+				th {
+						white-space: nowrap;
+				}
+		}
+
+    h2 {
+				margin-top: 0;
+    }
+
+}
+
+span.label {
+		// &.late {
+		// 		.label-warning
+		// }
+
+		&.absent {
+				.label-warning()
+		}
+
+}
+
+.well > h3:first-child {
+		margin-top: 0;
+}
+
+span.hover {
+		white-space: nowrap;
+
+		&:hover {
+				background-color: #ddd;
+		}
+}

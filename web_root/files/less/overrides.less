@@ -1,0 +1,96 @@
+// ============================
+// Bootstrap
+// ============================
+
+@pinboardNavtabsBorder: #666;
+
+div.pinboard {
+
+	.nav {
+		margin-bottom: 5px;
+	}
+	
+	.nav-tabs {
+	  border-bottom: 1px solid @pinboardNavtabsBorder;
+	}
+
+	.nav-tabs > li > a {
+		background-color: @gray-lighter;
+	  border-bottom: 1px solid @pinboardNavtabsBorder;
+	  &:hover {
+	    border-color: @gray-lighter @gray-lighter @pinboardNavtabsBorder;
+	  }
+	}
+
+	.nav-tabs > .active > a,
+	.nav-tabs > .active > a:hover {
+		font-weight: bold;
+		background-color: white;
+	  border: 1px solid @pinboardNavtabsBorder;
+	  border-bottom-color: transparent;
+	}
+}
+
+ul.breadcrumb {
+	margin: 0;
+	padding: 0;
+	font-size: 0.85em;
+}
+
+
+// Toolbars sollen oben und unten Platz lassen
+//.btn-toolbar {
+//  margin-top: 5px;
+//  margin-bottom: 5px;
+//}
+
+
+// ============================
+// Chosen plugin
+// ============================
+
+div.chzn-container-single  {
+
+  height: @input-height-base;
+	
+	.chzn-single {
+    height: @input-height-base;
+    padding: @padding-base-vertical @padding-base-horizontal;
+    line-height: @line-height-base;
+		border: 1px solid @input-border;
+		border-radius: @input-border-radius;
+		background-image: none;
+	
+		.search-choice {
+			background-image: none;
+			background-color: #EEE;
+		}
+	}
+}
+
+div.chzn-container-multi  {
+	
+	.chzn-choices {
+		border: 1px solid @input-border;
+		border-radius: @input-border-radius;
+		background-image: none;
+	
+		li {
+			float: none;
+		}
+		
+		.search-choice {
+			background-image: none;
+			background-color: #EEE;
+		}
+	}
+}
+
+
+select.chzn-select {
+//	height: 28px;
+	visibility: hidden;
+	width: 220px;
+//  min-width: 250px;
+}
+

@@ -1,0 +1,119 @@
+// CSS Reset
+@import "reset.less";
+
+
+// CSS3 Content Columns
+.content-columns(@columnCount, @columnGap: 20px) {
+  -webkit-column-count: @columnCount;
+     -moz-column-count: @columnCount;
+          column-count: @columnCount;
+  -webkit-column-gap: @columnGap;
+     -moz-column-gap: @columnGap;
+          column-gap: @columnGap;
+}
+
+
+//======================================================
+// Post-It
+//
+
+body.postit {
+  background-color: yellow;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  text-align:center;
+  line-height: 1.1em;
+  padding:0;
+  margin:0;
+}
+
+#postitContainer {
+  display:table;
+  width:100%;
+  margin:0;
+  padding:0;
+}
+
+#postit {
+  display:table-cell;
+  vertical-align:middle;
+  height:90px;
+  text-align:center;
+  padding:0;
+  margin:0;
+
+  p {
+    padding:0;
+    margin:0;
+  }
+
+}
+
+
+//=======================================================
+// Meldeaufrufe
+//
+
+body.callForStudents {
+  background-color: #9C6;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+  text-align: left;
+  padding:0;
+  margin:0;
+}
+
+#callForStudentsContainer {
+  display:table;
+  width:100%;
+  margin:0;
+  padding:0 0 0 5px;
+}
+
+#callForStudents {
+  display:table-cell;
+  vertical-align:middle;
+  height:90px;
+  text-align:left;
+  padding:0;
+  margin:0;
+}
+
+div.callForStudentColumns {
+  height: 90px;
+
+  &.normal {
+    .content-columns(4, 20px);
+    font-size: 18px;
+  }
+
+  &.small {
+    .content-columns(6, 15px);
+    font-size: 12px;
+  }
+
+  &.tiny {
+    .content-columns(7, 10px);
+    font-size: 11px;
+  }
+
+  &.supertiny {
+    .content-columns(8, 5px);
+    font-size: 9px;
+  }
+  
+  
+} 
+
+div.callForStudent {
+  // float: left;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#callForStudentTitle {
+  color: black;
+  width: 120px;
+}

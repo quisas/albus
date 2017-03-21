@@ -1,0 +1,2 @@
+<?stt me at: #students do: [:student | ?>"<?stt= student at: #displayName ?>", "<?stt= student at: #email ?>", "<?stt= student at: #gender ?>"
+<?stt ] ?>

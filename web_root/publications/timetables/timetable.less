@@ -1,0 +1,248 @@
+// CSS Reset
+@import "../reset.less";
+
+
+@canceledLessonColor:#F96;
+@addedLessonColor:lightgreen;
+@annotationColor:yellow;
+
+@thinBorder:1px solid #bbb;
+@fatBorder:1px solid black;
+
+
+body {
+  font-family: Verdana Narrow, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 1.6em;
+  padding: 0;
+  margin: 2px 4px 0px 2px;
+}
+
+#title {
+  font-size: 13px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
+
+table.schedule {
+  
+  border: none;
+  border-collapse:collapse;
+  border-spacing: 0px;
+  table-layout: fixed;
+  width: 100%;
+
+  thead {
+    tr {
+      
+      th {
+        font-weight: normal;
+        line-height: 0.9;
+      }
+    }
+  }
+  
+  tbody {
+
+    border: 1px solid;
+    
+    tr {
+
+      th {
+        border-right: @fatBorder;
+        font-weight: normal;
+        text-align: left;
+        white-space: nowrap;
+        padding-left: 2px;
+      }
+
+      height: 23px;
+
+      &:nth-child(odd) {
+        background-color: #eee;
+      }
+    
+      td {
+        border-right: @thinBorder;
+        text-align: center;
+        vertical-align: middle;
+        padding: 0;
+        line-height: 1.0;
+                
+        &.col5, &.col7, &:last-child {
+          border-right: @fatBorder;
+        }
+      }
+    
+      .lessonInCell {
+//        white-space:nowrap;
+      }
+    
+      .annotationNumbers {
+        vertical-align: super;
+        font-size: 0.85em;
+        font-weight: bold;
+//        line-height: 0.6em;
+        margin-left: 1px;
+      }
+      
+      .lessonDivider {
+        margin: 0 2px;
+        color: #777;
+      }
+    
+      .ALLesson {
+//        white-space:nowrap;
+      }
+      
+      .ALLessonFragment {
+        .ALLesson;
+      }
+
+      .lessonLabel {
+        white-space:nowrap;
+        word-spacing:-1px;
+      }
+
+      .mutatedLessons {
+        .lessonLabel {
+          padding: 0 2px;
+        }
+      }
+    
+      .ALAddedLesson {
+        .ALLesson;
+        .lessonLabel {
+          background-color: @addedLessonColor;
+        }
+      }
+
+    
+      .ALCanceledLesson {
+        .ALLesson;
+        .lessonLabel {
+          color: #444;
+          background-color: @canceledLessonColor;
+          text-decoration: line-through;
+        }
+      }
+
+      .ALTargetMovedLesson {
+        .ALLesson;
+        .ALAddedLesson;
+      }
+
+      .ALOriginMovedLesson {
+        .ALLesson;
+        .ALCanceledLesson;
+      }
+
+    
+      .ALAnnotatedLesson {
+        .ALLesson;
+        .lessonLabel {
+          background-color: @annotationColor;
+        }
+      }
+
+      .ALEventLesson {
+        .ALLesson;
+        .lessonLabel {
+          background-color: @annotationColor;
+        }
+      }
+    
+      .ALBlankedLesson {
+        .ALLesson;
+        background-color: @annotationColor;
+
+        .lessonLabel {
+          display: none;
+        }
+
+        .annotationNumbers {
+          vertical-align:inherit;
+          font-size: 1em;
+          line-height: 1em;
+        }
+        
+      }
+
+      .ALChangedLesson {
+        .ALLesson;
+        .lessonLabel {
+          background-color: @addedLessonColor;
+        }
+      }
+    }
+  }
+}
+
+div.footer {
+
+  div.lessonAnnotations {
+    float: left;
+  }
+
+  div.timestamp {
+    float: right;
+    text-align: right;
+    color: grey;
+    width: 100px;
+    white-space: nowrap;
+  }
+
+  div.dailyAnnotations {
+    float:left;
+    width: 100%;
+    clear:both;
+    margin-top:3px;
+    background-color: @annotationColor;
+  }
+  
+  div.dailyAnnotation {
+    font-size: 14px;
+  }
+  
+}
+
+//
+// Spezialisierte Stundenpläne
+//
+
+div.ALTimeByClassStudentsGroupSchedule {
+
+  th.col0 {
+    width: 50px;
+  }
+}
+
+
+div.ALDateByTimeSchedule {
+  #title {
+    margin-left: 80px;
+  }
+
+  th.col0 {
+    width: 80px;
+  }
+
+  tr:nth-child(5), tr:nth-child(7) {
+    td, th {
+      border-bottom: @fatBorder;
+    }
+  }
+      
+}
+
+
+//
+// Mobiler Stundenplan
+//
+p.mobile_postit {
+  background-color: yellow;
+  padding: 10px;
+  margin: 10px 0px;
+}
+

@@ -1,0 +1,10 @@
+# Erzeugte Dateien
+calls.html
+# news.html
+postit.html
+timetable_display.js
+timetables/*.html
+mobile_index.html
+calendars/*
+ical_schedules/*
+shared_with_cms/*

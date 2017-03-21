@@ -1,0 +1,12 @@
+/* Funktioniert nicht aus printThis */
+/* Im Moment obsolete */
+@media print{
+		@page {
+				size: landscape;
+		}
+
+		.btn-toolbar {
+				display: none;
+				visibility: hidden;
+		}
+}

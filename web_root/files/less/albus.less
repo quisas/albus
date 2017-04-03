@@ -328,7 +328,7 @@ div.publicationPreviewSchedule {
 	img.schoolLogo {
 			// object-fit: cover;
 			// width:230px;
-			height: 30px;
+			max-height: 30px;
 	}
   
 }
@@ -1157,19 +1157,20 @@ div.ALFreeRoomWizard {
     }
 
     .freeLesson {
-      background-color: lightgreen;
-    
-      a {
-        color: transparent;
-        display: block;
         text-align: center;
-
-        &:hover {
-          color: black;
-        }
-
-      }
+				background-color: lightgreen;
     
+				a {
+						color: transparent;
+						display: block;
+						text-align: center;
+
+						&:hover {
+								color: black;
+						}
+
+				}
+				
     }
   
     // Nicht mutierte Lektion blenden wir Text aus

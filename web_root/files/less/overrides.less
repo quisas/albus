@@ -1,3 +1,5 @@
+// -*- less-css-compile-at-save: t -*-
+
 // ============================
 // Bootstrap
 // ============================
@@ -37,6 +39,18 @@ ul.breadcrumb {
 	font-size: 0.85em;
 }
 
+
+div.modal-dialog {
+		div.modal-header {
+				background-color: #eee;
+				border-radius: @border-radius-large @border-radius-large 0 0;
+				padding: @modal-title-padding/2 @modal-title-padding;
+				
+				h4.modal-title {
+						margin: 0;
+				}
+		}
+}
 
 // Toolbars sollen oben und unten Platz lassen
 //.btn-toolbar {

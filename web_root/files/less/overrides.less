@@ -52,6 +52,19 @@ div.modal-dialog {
 		}
 }
 
+// Damit in den ausgeblendeten Teilen per JS auch die korrekten Breiten etc. existieren. Wichtig für z.B. Chosen-Plugin.
+// Wir dürfen nicht wie bootstrap display auf none setzen.
+div.collapse {
+		visibility: hidden;
+		display: block;
+		height: 0;
+
+		&.in {
+				visibility: visible;
+				height: auto;
+		}
+}
+
 // Toolbars sollen oben und unten Platz lassen
 //.btn-toolbar {
 //  margin-top: 5px;

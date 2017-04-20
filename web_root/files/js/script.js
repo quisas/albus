@@ -4,10 +4,11 @@
 
 $(document).ready(function() {
 
-  $(".chzn-select").chosen({
+  $(".chosen-select").chosen({
     allow_single_deselect:true,
     placeholder_text:" ",
-    search_contains:true
+    search_contains:true,
+		hide_results_on_select:false
   });
 
   $.fn.datepicker.defaults.language = 'de';  

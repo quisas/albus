@@ -64,9 +64,20 @@
 			$('input:text, input:password, input:checkbox, input:radio, textarea, select', this).change(function(){
 				$(this).setDirty();
 			});
+
 			$('input:text, input:password, textarea', this).keypress(function(){
 				$(this).setDirty();
 			});
+
+			$('input:text, input:password, textarea', this).keydown(function(){
+				var key = event.which || event.keyCode || event.charCode;
+
+				// Backspace, Delete
+				if( key == 8 || key == 46 ) {
+					$(this).setDirty();
+				}
+			});
+			
 		});
 	}
 

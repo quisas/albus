@@ -63,11 +63,19 @@ div.modal-dialog {
 // Chosen plugin
 // ============================
 
-div.chzn-container-single  {
+div.chosen-container {
+		ul.chosen-results {
+				li.group-option + li:not(.group-option) {
+						margin-top: 20px;
+				}
+		}
+}
+
+div.chosen-container-single  {
 
   height: @input-height-base;
 	
-	.chzn-single {
+	.chosen-single {
     height: @input-height-base;
     padding: @padding-base-vertical @padding-base-horizontal;
     line-height: @line-height-base;
@@ -82,9 +90,9 @@ div.chzn-container-single  {
 	}
 }
 
-div.chzn-container-multi  {
+div.chosen-container-multi  {
 	
-	.chzn-choices {
+	.chosen-choices {
 		border: 1px solid @input-border;
 		border-radius: @input-border-radius;
 		background-image: none;
@@ -98,13 +106,5 @@ div.chzn-container-multi  {
 			background-color: #EEE;
 		}
 	}
-}
-
-
-select.chzn-select {
-//	height: 28px;
-	visibility: hidden;
-	width: 220px;
-//  min-width: 250px;
 }
 

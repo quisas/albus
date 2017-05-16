@@ -125,6 +125,9 @@ textarea.likeTextInput {
 		height: 40px;
 }
 
+.small {
+		font-size: @smallFontSize;
+}
 
 table.schedule {
   tr {
@@ -1564,7 +1567,7 @@ span.marksChecksum {
 		border: 1px dotted grey;
 }
 
-div.ALMarksReportSubmitter {
+div.ALMarksReportSubmitterBase {
 
 		div.compactView & {
 				background-color: #eee;
@@ -1644,8 +1647,30 @@ div.ALMarksReportSubmitter {
 						height: 100%;
 				}
 
-				
 		}
+
+		&.ALGraduationMarksReportSubmitter {
+				// Andere Platzverhältnisse bei Graduation Zeugnis
+				table.marksReportInputTable {
+						col.colMark {
+								width: 250px;
+								white-space: nowrap;
+						}
+				
+				}
+		}
+
+		div.logNotes {
+				.topBuffer();
+				
+				div.panel-body {
+						.small();
+						.text-muted();
+						max-height: 300px;
+						overflow: auto;
+				}
+		}
+
 }
 
 div.ALMarksReportsMassWizard {

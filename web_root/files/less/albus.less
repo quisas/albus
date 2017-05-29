@@ -1168,18 +1168,28 @@ div.ALStudentsOberstufeChoicesWizard {
   }
 }
 
-div.ALDocumentReportsComponent {
-  div.reportSection {
-    margin-top: 10px;
+// Report Generator
+div.reportSection {
+		margin-top: 10px;
     padding-top: 10px;
     border-top: 1px dotted gray;
-  }
 
-	div.longContent {
-			overflow: auto;
-			max-height: 200px;
-	}
+		div.execution {
+				text-align: right;
+
+				div.downloadLinks {
+						margin: 5px 0;
+						white-space: nowrap;
+				}
+		}
+
+		div.longContent {
+				overflow: auto;
+				max-height: 200px;
+		}
+		
 }
+
 
 .nowrap {
   white-space: nowrap;
@@ -1458,9 +1468,15 @@ div.ALFreeformDisplayerComponent {
 #documentProgressbar {
 		position: fixed;
 		z-index: 999;
-		margin: 5% auto;
+//		background-color: gray;
+		font-size: 120%;
+		margin: 0 auto;
+		top: 40%;
 		left: 20%;
 		right: 20%;
+		bottom: 40%;
+		text-align: center;
+		padding: 50px 0;
 }
 
 // Zeugnisse
@@ -1664,7 +1680,7 @@ div.ALMarksReportSubmitterBase {
 				.topBuffer();
 				
 				div.panel-body {
-						.small();
+						// .small();
 						.text-muted();
 						max-height: 300px;
 						overflow: auto;

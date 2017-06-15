@@ -241,3 +241,23 @@ function handleSessionCheck(responseData) {
 	}
 	
 }
+
+function copyToClipboard(selector) {
+  var isCopied;
+	var range = document.createRange();
+	var selection = window.getSelection();
+
+	selection.empty();
+	
+	$(selector).each(function(){
+		range.selectNode(this);
+		selection.addRange(range);
+	})
+	
+  isCopied = document.execCommand("copy", false, null);
+
+  if (isCopied)
+    alert('In die Zwischenablage kopiert!');
+  else
+    alert('Fehler beim Kopieren in die Zwischenablage. Bitte verwenden Sie einen modernen Browser oder markieren und kopieren Sie den Inhalt manuell.');
+}

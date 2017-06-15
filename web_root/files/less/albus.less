@@ -1078,9 +1078,11 @@ div.ALLessonPlacingWizard {
   }
 
   div.assignmentsList {
-    tr.current td {
-      background-color: #9D9;
-    }
+			padding-right: 5px;
+			border-right: 1px dotted black;
+			tr.current td {
+					background-color: #9D9;
+			}
   }
   
   div.assignmentsEditor {
@@ -1790,6 +1792,27 @@ table.maturarbeitList {
 		}
 }
 
+div.ALMaturarbeitCockpit {
+		table.speechPlan {
+				th, td {
+						font-size: 80%;
+						line-height: 1em;
+						vertical-align: top;
+				}
+		}
+
+		div.maturarbeitTitle {
+				margin-bottom: 5px;
+		}
+		
+		// .truncate {
+		// 		width: 250px;
+		// 		white-space: nowrap;
+		// 		overflow: hidden;
+		// 		text-overflow: ellipsis;
+		// }		
+}
+
 div.ALMyStudentHomeComponent {
 
 		table.myTutorships {
@@ -1886,6 +1909,17 @@ span.hover {
 
 		&:hover {
 				background-color: #ddd;
+		}
+}
+
+div.ALStudentsPromotionTypeWizard {
+		p.promotionComment {
+				max-width: 500px;
+		}
+
+		div.newPromotionType {
+				white-space: nowrap;
+				pointer-events: none;
 		}
 }
 

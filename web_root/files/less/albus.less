@@ -213,11 +213,12 @@ table.schedule {
       .ALLesson;
       .lessonLabel {
         background-color: @eventLessonColor;
-      }
-    }
-    
-    
-  }
+				&.externalEvent {
+						background-color: #b2d7ff;
+				}
+			}
+		}
+	}
 }
 
 div.ALWeekdayByTimeSchedule {
@@ -295,7 +296,12 @@ div.publicationPreviewSchedule {
         text-decoration: none;
       }
     }
-    
+
+		.ALAddedLesson.ALReservationMutator {
+				.lessonLabel {
+						border-bottom: 2px solid black;
+				}
+		}
     
   }
 }

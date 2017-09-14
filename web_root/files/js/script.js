@@ -8,7 +8,8 @@ $(document).ready(function() {
     allow_single_deselect:true,
     placeholder_text:" ",
     search_contains:true,
-		hide_results_on_select:false
+//Evt. nötig wegen Tablets?		hide_results_on_select:false
+		hide_results_on_select: true
   });
 
   $.fn.datepicker.defaults.language = 'de';  

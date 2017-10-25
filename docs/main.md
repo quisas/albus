@@ -26,21 +26,21 @@ Empfohlen für Entwickler oder als Evaluationsumgebung. Damit wird mittels [vagr
 welche sodann als Entwicklungsumgebung oder Evaluations-Server verwendet werden kann, oder auch als produktiven Server
 weiterverwendet werden kann.
 
-Vorbedingungen:
-
-* VirtualBox Installation (<https://www.virtualbox.org/wiki/Downloads>)
+* Alle folgenden Arbeiten auf dem VM-Host:
+* VirtualBox installieren (<https://www.virtualbox.org/wiki/Downloads>)
 * Vagrant installieren (<http://vagrantup.com>)
-
-* Basis-Installation wie oben, auf dem VM-Host
-* Auf dem Host: `vagrant up dev`
+* Basis-Installation wie oben
+* `vagrant up dev`
 
 ## 2b. Installieren auf einem eigenen Server
 
 Empfohlen für produktive Umgebung. Damit kann ein Linux-Server eigener Wahl aufgesetzt werden, und mittels ansible für Albus automatisch konfiguriert werden.
 
-* Basis-Installation wie oben, auf dem Server
+* Eigener Linux-Server aufsetzen (z.B. Ubuntu Server)
+* Alle folgenden Arbeiten auf dem Linux-Server:
 * Ansible installieren (<http://docs.ansible.com/ansible/latest/intro_installation.html>)
-* Auf dem Server: `ansible-playbook playbook_install.yml`
+* Basis-Installation wie oben
+* `ansible-playbook playbook_install.yml`
 
 # Weitere Infos
 

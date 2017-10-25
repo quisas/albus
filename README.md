@@ -17,4 +17,4 @@ Verein Quisas\
 CH-8000 Zürich\
 Schweiz\
 verein@quisas.ch\
-<www.quisas.ch/web/index.php/kontakt>
+<http://www.quisas.ch/web/index.php/kontakt>

@@ -1,4 +1,4 @@
-![Albus logo](web_root/files/img/albus_logo.png)
+![Albus logo](web_root/files/img/albus_logo_300.png)
 
 # Albus Schulverwaltung
 

@@ -2,10 +2,19 @@
 
 # Albus Schulverwaltung
 
-Albus ist eine webbasierte Open Source Schulverwaltung
+Albus ist eine webbasierte Open Source Schulverwaltung für komplexe Stundenplantopologien (Freifächer, Halbklassen, klassenübergreifend ...)
+und administrative Aufgaben der Schulleitung und Lehrerschaft, wie sie z.B. an Schweizer Gymnasien vorkommen. Eine Übersicht über den [Funktionsumfang](https://www.albus-soft.ch/web/index.php/funktionen)
+findet man auf der offiziellen Website.
+
+## Weitere Informationen
 
 * siehe [Technische Dokumentation](docs/main.md)
-* siehe [Offiziele Website www.albus-soft.ch](http://www.albus-soft.ch)
+* siehe [Offiziele Website www.albus-soft.ch](https://www.albus-soft.ch)
 
-Verein Quisas
-8000 Zürich
+## Kontakt
+
+Verein Quisas\
+CH-8000 Zürich\
+Schweiz\
+verein@quisas.ch\
+<www.quisas.ch/web/index.php/kontakt>

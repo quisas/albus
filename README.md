@@ -1,38 +1,26 @@
-# Albus
+<!-- Github Markdown Syntax siehe https://github.github.com/gfm/#autolinks -->
 
-Open Source Schulverwaltung
+![Albus logo](web_root/files/img/albus_logo_300.png)
 
-## Demo lokal installieren
+# Albus Schulverwaltung
 
-* Installation einer Virtualisierungs-Lösung welche OVA-Dateien öffnen kann. Zum Beispiel VirtualBox.
-** Download siehe https://www.virtualbox.org/wiki/Downloads
-** Download für Windows direkt: http://download.virtualbox.org/virtualbox/5.1.14/VirtualBox-5.1.14-112924-Win.exe
-* Download von voll konfiguriertem Albus-Server als virtuelle Maschine, siehe www.albus-soft.ch/downloads/albus-hogwarts-demo.ova
-* ova-File mit Doppelklick öffnen (Öffnet sich mit VirtualBox)
-** Evt. in den Netzwerk-Einstellungen den Typ "Bridge" auswählen
-* Im Browser auf http://albus.hogwarts.local gehen und dort den Installer laufen lassen. Login: admin/dumbledore
+Albus ist eine webbasierte Open Source Schulverwaltung für komplexe Stundenplantopologien (Freifächer, Halbklassen, klassenübergreifend ...)
+und administrative Aufgaben der Schulleitung, Lehrerschaft und Schülerschaft, wie sie z.B. an Schweizer Gymnasien vorkommen.
+Eine Übersicht über den [Funktionsumfang](https://www.albus-soft.ch/web/index.php/funktionen) findet man auf der offiziellen Website.
 
-Probleme:
-* VM von virtualbox mit lokalen Pfaden?! Passt das OVA-Import an?
-* Evt. besser deploy auf irgendeine virtualcloud?
-* Deploy als exportierte OVA das Beste?
+## Open Source Lizenz
 
-## Entwickler Installation
+Albus ist veröffentlicht unter der [GNU AFFERO GENERAL PUBLIC LICENSE, Version 3](LICENSE).
 
-Demo = Appliance runterladen
+## Weitere Informationen
 
-* git-Repository clonen
-* init.sh laufen lassen. Kopiert ein frisches Albus-Image.
-* Im Webbrowser Installations-Wizard laufen lassen:
-http://localhost:8080
+* siehe [Technische Dokumentation](docs/main.md)
+* siehe [Offiziele Website www.albus-soft.ch](https://www.albus-soft.ch)
 
-## Upgrades
+## Kontakt
 
-## Verzeichnisse und ihre Bedeutung
-
-## Verwendete Komponenten
-Pharo
-Seaside
-Magritte
-LibreOffice
-Etc. (ImageMagick, Linux, ...)
+Verein Quisas\
+CH-8000 Zürich\
+Schweiz\
+verein@quisas.ch\
+<http://www.quisas.ch/web/index.php/kontakt>

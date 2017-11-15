@@ -1198,27 +1198,41 @@ div.ALStudentsOberstufeChoicesWizard {
 }
 
 // Report Generator
-div.reportSection {
-		margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px dotted gray;
+div.ALReportsComponent {
+		div.adminTools {
+				border: 1px solid black;
+				padding: 2px 4px;
+		}
 
-		div.execution {
-				text-align: right;
+		div.reportSection {
+				margin-top: 5px;
+				padding-top: 5px;
+				border-top: 1px dotted gray;
 
-				div.downloadLinks {
-						margin: 5px 0;
-						white-space: nowrap;
+				div.execution {
+						text-align: right;
+
+						div.downloadLinks {
+								margin: 5px 0;
+								white-space: nowrap;
+						}
 				}
-		}
 
-		div.longContent {
-				overflow: auto;
-				max-height: 200px;
+				div.longContent {
+						overflow: auto;
+						max-height: 200px;
+				}
+
+				div.row {
+						padding-top: 5px;
+						padding-bottom: 5px;
+						&:hover {
+								background-color: @gray-lighter;
+						}
+				}
+				
 		}
-		
 }
-
 
 .nowrap {
   white-space: nowrap;

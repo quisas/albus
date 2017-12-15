@@ -262,3 +262,9 @@ function copyToClipboard(selector) {
   else
     alert('Fehler beim Kopieren in die Zwischenablage. Bitte verwenden Sie einen modernen Browser oder markieren und kopieren Sie den Inhalt manuell.');
 }
+
+function scrollToBottom(selector) {
+	var e = $(selector).get(0);
+	
+	e.scrollTop = e.scrollHeight
+}

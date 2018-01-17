@@ -1040,7 +1040,8 @@ def die(ret, msg=None):
                     subprocess.Popen([office.binary, "-headless", "-invisible", "-nocrashreport", "-nodefault", "-nofirststartwizard", "-nologo", "-norestore", "-unaccept=%s" % op.connection], env=os.environ)
                 else:
                     subprocess.Popen([office.binary, "--headless", "--invisible", "--nocrashreport", "--nodefault", "--nofirststartwizard", "--nologo", "--norestore", "--unaccept=%s" % op.connection], env=os.environ)
-                ooproc.wait()
+                #Andreas                ooproc.wait()
+                ooproc.communicate()
                 info(2, '%s listener successfully disabled.' % product.ooName)
             except Exception as e:
                 error("Terminate using %s failed.\n%s" % (office.binary, e))
@@ -1057,20 +1058,23 @@ def die(ret, msg=None):
                 except AttributeError:
                     os.kill(ooproc.pid, 15)
             info(3, 'Waiting for %s instance to exit.' % product.ooName)
-            ooproc.wait()
+            #Andreas                ooproc.wait()
+            ooproc.communicate()
 
         ### LibreOffice processes may get stuck and we have to kill them
         ### Is it still running ?
         if ooproc.poll() == None:
             info(1, '%s instance still running, please investigate...' % product.ooName)
-            ooproc.wait()
+            #Andreas                ooproc.wait()
+            ooproc.communicate()
             info(2, '%s instance unsuccessfully terminated, sending KILL signal.' % product.ooName)
             try:
                 ooproc.kill()
             except AttributeError:
                 os.kill(ooproc.pid, 9)
             info(3, 'Waiting for %s with pid %s to disappear.' % (ooproc.pid, product.ooName))
-            ooproc.wait()
+            #Andreas                ooproc.wait()
+            ooproc.communicate()
 
     # allow Python GC to garbage collect pyuno object *before* exit call
     # which avoids random segmentation faults --vpa

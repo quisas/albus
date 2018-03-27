@@ -16,6 +16,8 @@
 
 @nonCurrentColor: #FCC;
 
+@requiredColor: #ffff00;
+
 .footer {
   margin-top: 45px;
   padding: 35px 0 36px;
@@ -119,6 +121,12 @@ button[type="submit"].hideButton {
 //		border: @highlightBorder;
 }
 
+.date,
+.time,
+.dateAndTime,
+.dateTime {
+		white-space: nowrap;
+}
 
 textarea.likeTextInput {
 		// Hm, nicht ganz elegant...
@@ -522,13 +530,14 @@ div.magritteTableContainer {
 										//        white-space: nowrap;
 										background-color: #f6f6f6;
 										padding: 5px 3px 2px 5px;
-										border: 2px solid white;
+										border-top: 2px solid white;
+										border-bottom: 2px solid white;
 										width: 214px;
 										//        &:extend(.col-sm-4);
 										
 										&.required {
 												//          background-color: #f0f0f0;
-												border-left: 2px solid yellow;
+												border-left: 3px solid @requiredColor;
 										}
 
 										div.htmlRemarks {
@@ -785,7 +794,17 @@ div.ALGenericTableReportComponent {
 }
 
 .actionOnClick {
-  cursor: pointer;
+		cursor: pointer;
+}
+
+.selectOnClick {
+		cursor: default;
+		border: 1px solid transparent;
+
+		&:hover {
+				background-color: @gray-lighter;
+				border: 1px solid @gray-light;
+		}
 }
 
 .twoColumns {
@@ -1628,7 +1647,7 @@ span.marksChecksum {
 		font-family: monospace;
 		font-size: 85%;
 		padding: 1px;
-		border: 1px dotted grey;
+		border: 1px dotted gray;
 }
 
 div.ALMarksReportSubmitterBase {
@@ -1956,6 +1975,8 @@ span.label {
 				.label-warning()
 		}
 
+		margin-right: 2px; // Wegen aneinanderreihen von Labels
+
 }
 
 .well > h3:first-child {
@@ -1991,6 +2012,14 @@ div.ALMyBookingCockpit {
 div.ALBookingMultiSchedulesComponent {
 		table.schedule {
 
+				thead {
+						th {
+								&.Samstag, &.Sonntag {
+										background-color: #ddd;
+								}
+						}
+				}
+				
 				td:hover {
 						.lessonInCell {
 								visibility: visible;
@@ -2032,6 +2061,12 @@ div.ALPortraitImageOverviewComponent {
 				font-size: 40px;
 		}
 		
+}
+
+span.bsIcon {
+		&.requiredIcon {
+				color: @requiredColor;
+		}
 }
 
 // div.panel-collapse.out {

@@ -879,7 +879,21 @@ Renderer.prototype.link = function(href, title, text) {
       return '';
     }
   }
-  var out = '<a target="_blank" href="' + href + '"';
+	var target = '_blank';
+
+	// Prüft, ob der Link relativ oder ist, also innerhalb Albus bleiben soll
+	var isAbsolute = new RegExp('^(?:[a-z]+:)?//', 'i');
+	if (!isAbsolute.test(href)) {
+		target = '';
+
+		// Schreibt Query-relative Pfade so um, dass die Query angehängt wird und nicht ersetzt,
+		// das ist für Seaside Links das richtigere, damit die Applikation an Ort bleibt
+		if (href.charAt(0) == '?') {
+			href = window.location.search + '&' + href.substring(1);
+		}
+	}
+	
+  var out = '<a target="' + target + '" href="' + href + '"';
   if (title) {
     out += ' title="' + title + '"';
   }

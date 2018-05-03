@@ -18,6 +18,8 @@ $(document).ready(function() {
   $.fn.datepicker.defaults.clearBtn = true;  
   $.fn.datepicker.defaults.todayBtn = true;  
   $.fn.datepicker.defaults.todayHighlight = true;  
+  $.fn.datepicker.defaults.daysOfWeekHighlighted = [0,6];
+
   $("input[type=text].datepicker").datepicker();
 
   $("input[type=text].monthpicker").datepicker({minViewMode: "months", format: "yyyy M"});

@@ -856,6 +856,11 @@ input[type="text"].monthpicker {
 		display: inline;
 }
 
+div.inlineDatepicker {
+		border: 1px solid black;
+		display: inline-block;
+}
+
 input,
 input.form-control,
 textarea.form-control {
@@ -2016,6 +2021,12 @@ div.ALMyBookingCockpit {
 div.ALBookingMultiSchedulesComponent {
 		table.schedule {
 
+				table-layout: fixed;
+
+				td {
+						overflow: hidden;
+				}
+				
 				thead {
 						th {
 								&.Samstag, &.Sonntag {
@@ -2024,9 +2035,10 @@ div.ALBookingMultiSchedulesComponent {
 						}
 				}
 				
-				td:hover {
+				tr:hover {
 						.lessonInCell {
-								visibility: visible;
+//								visibility: visible;
+//								opacity: 1;
 //								color:black;
 						}
 				}
@@ -2042,14 +2054,16 @@ div.ALBookingMultiSchedulesComponent {
 						margin-right: 5px;
 						
 						&.inRoom {
-								visibility: hidden;
+//								visibility: hidden;
+//								opacity: 0.3;
 //								color: transparent;
 						}
 
 						&.myLesson {
-								border: 1px solid black;
-								padding: 0 2px;
-//								background-color: yellow;
+								// border: 1px solid black;
+								//padding: 0;
+								font-weight: bold;
+								background-color: #ddd;
 						}
 				}
 

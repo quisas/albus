@@ -137,6 +137,11 @@ textarea.likeTextInput {
 		font-size: @smallFontSize;
 }
 
+td.actions {
+		white-space: nowrap;
+}
+
+
 table.schedule {
   tr {
     .lessonInCell {
@@ -2100,3 +2105,79 @@ span.bsIcon {
 // 				width: 300px;
 // 		}
 // }
+
+div.validationResults {
+		
+}
+
+div.ALCourseExamsCockpit {
+
+		span.day {
+				display: inline-block;
+				width: 30px;
+		}
+
+		span.date {
+				display: inline-block;
+				width: 80px;
+		}
+				
+
+		table.examPlanning {
+
+				margin-top: 20px;
+				
+				tr.groupHeader {
+						font-weight: bold;
+						background-color: #eee;
+						td.weekTitle {
+								border-bottom: none;
+
+								span.dateRange {
+										.pull-right();
+										.text-muted();
+								}
+						}
+				}
+
+
+				span.label.sign {
+						display: inline-block;
+						width: 30px;
+						margin-right: 20px;
+				}
+
+				td.existingExam {
+						white-space: nowrap;
+				}
+
+				td.existingExamDetails {
+//						max-width: 300px;
+				}
+				
+				td.examCandidate {
+						
+						span.planningTools {
+								visibility: hidden;
+						}
+
+						// span.planningToolsEyeCatcher {
+						// 		color: @link-color;
+						// 		margin-left: 5px;
+						// 		margin-right: 5px;
+						// }
+
+						&:hover {
+//								background-color: #efefef;
+
+								span.planningTools {
+										visibility: visible;
+								}
+								// span.planningToolsEyeCatcher {
+								// 		color: @text-muted;
+								// }
+
+						}
+				}
+		}
+}

@@ -165,12 +165,12 @@
           //  }
           // };
           // opera shim
-          if (window.opera) {
-            window.URL = window.URL || {};
-            if (!window.URL.createObjectURL) window.URL.createObjectURL = function(obj) {
-              return obj;
-            };
-          }
+          // if (window.opera) {
+          //   window.URL = window.URL || {};
+          //   if (!window.URL.createObjectURL) window.URL.createObjectURL = function(obj) {
+          //     return obj;
+          //   };
+          // }
 
           // set up stream
           var videoSelector = {
@@ -189,7 +189,7 @@
             if (video.mozCaptureStream) {
               video.mozSrcObject = stream;
             } else {
-              video.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
+              video.srcObject = stream;
             }
             video.play();
           }).bind(this), function() {

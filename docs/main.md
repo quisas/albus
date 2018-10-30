@@ -30,7 +30,7 @@ weiterverwendet werden kann.
 * VirtualBox installieren (<https://www.virtualbox.org/wiki/Downloads>)
 * Vagrant installieren (<http://vagrantup.com>)
 * Basis-Installation wie oben
-* `vagrant up dev`
+* `vagrant up --provision dev`
 
 ## 2b. Installieren auf einem eigenen Server
 
@@ -44,11 +44,11 @@ Empfohlen für produktive Umgebung. Damit kann ein Linux-Server eigener Wahl auf
 
 # Weitere Infos
 
-# Smalltalk Quellcode
+## Smalltalk Quellcode
 
 Der Quellcode der Kernapplikation ist in einem eigenen Repository gespeichert: <http://smalltalkhub.com/#!/~quisas/albus>
 
-# Instant-Demo lokal installieren
+## Instant-Demo lokal installieren
 
 * Installation einer Virtualisierungs-Lösung welche OVA-Dateien öffnen kann. Zum Beispiel VirtualBox.
   * Download siehe https://www.virtualbox.org/wiki/Downloads
@@ -64,7 +64,7 @@ Probleme:
 * Deploy als exportierte OVA das Beste?
 
 
-# Verwendete Komponenten
+## Verwendete Komponenten
 
 * Pharo Smalltalk (<http://www.pharo.org>)
 * Seaside Web Framework (<http://www.seaside.st>)

@@ -24,6 +24,9 @@ import subprocess
 import sys
 import time
 
+# print(os.name)
+# print(sys.platform)
+
 __version__ = "$Revision$"
 # $Source$
 
@@ -106,6 +109,7 @@ def find_offices():
                           glob.glob('/usr/local/lib/libreoffice*')
 
     # Development path (Andreas Brodbeck for Albus)
+    # TODO: Make current LibreOffice versione runable. They changed the internal location and folder structure.
     extrapaths += [ '/Applications/office/LibreOffice_Albus.app/Contents' ]
 
     ### Find a working set for python UNO bindings

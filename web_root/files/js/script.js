@@ -51,31 +51,26 @@ $(document).ready(function() {
   //   
   // });
   
-  $('table.dataTable').dataTable({
-        "sDom": "lfrTtip",
-        "bPaginate": false,
-        "bLengthChange": false,
-        "bFilter": true,
-        "bSort": false,
-        "bInfo": true,
-        "bAutoWidth": false,
-        "bProcessing": true,
-        "asStripeClasses": [],
-        "bStateSave": true,
+  // $('table.dataTable').dataTable({
+  //       "dom": "lfrTtip",
+  //       "paginate": false,
+  //       "lengthChange": false,
+  //       "filter": true,
+  //       "sort": false,
+  //       "info": true,
+  //       "autoWidth": false,
+  //       "processing": true,
+  //       "stateSave": true,
 
-        "oLanguage": {
-          "sSearch": "Suche: ",
-          // "sLengthMenu": "Display _MENU_ records per page",
-          "sZeroRecords": "Nichts gefunden",
-          "sInfo": "Total _TOTAL_ Einträge",
-          "sInfoEmpty": "",
-          "sInfoFiltered": "(gefiltert von total _MAX_ Einträgen)"
-        }
+  //       "language": {
+  //         "search": "Suche: ",
+  //         "zeroRecords": "Nichts gefunden",
+  //         "info": "Total _TOTAL_ Einträge",
+  //         "infoEmpty": "",
+  //         "infoFiltered": "(gefiltert von total _MAX_ Einträgen)"
+  //       }
 
-        // "oTableTools": {
-        //   "sSwfPath": "/swf/copy_csv_xls_pdf.swf"
-        // }
-    });
+  // });
 
 
 	$("div.markdownTarget").each(function(index) {
@@ -270,3 +265,109 @@ function scrollToBottom(selector) {
 	
 	e.scrollTop = e.scrollHeight
 }
+
+// Function for DataTable
+// Function to implement features for our datatables
+function dataTableConfig(dataTable, options) {
+	dataTableAddColumnFilter(dataTable);
+	// addSelectAllCheckbox(dataTable);
+}
+
+function dataTableAddColumnFilter(dataTable) {
+	var state = dataTable.state.loaded();
+
+//	dataTableAddLinkToNameFunction(dataTable,'Show','Applicant');
+				
+	// Build HTML filter elements for filterable columns
+	dataTable.columns('.withColumnFilter').every( function ( colID ) {
+					
+		var column = this;			
+
+		if ( state ) {
+			var filterValue = state.columns[colID].search['search'];
+		}
+		
+		var select = $('<select><option value="">'+$(this.header()).text()+'</option></select>');
+		column.data().unique().sort().each( function ( d, j ) {
+			var escapedValue = '^'+$.fn.dataTable.util.escapeRegex( d )+'$';
+			if( state && escapedValue == filterValue){
+				select.append( '<option value="'+d+'" selected>'+d+'</option>' );
+				select.addClass("active");
+			}else{
+				select.append( '<option value="'+d+'">'+d+'</option>' );
+			}
+		} );
+		select.appendTo( $(column.header()).empty() );
+
+		select.click(function(e){
+			e.stopPropagation();
+		});
+		
+		select.change(function () {
+			if(select.prop('selectedIndex') != 0){
+				select.addClass("active");
+			}else{
+				select.removeClass("active");
+			}
+		  var val = $.fn.dataTable.util.escapeRegex( $(this).val() );
+			column.search( val ? '^'+val+'$' : '', true, false );
+			dataTable.draw();
+		} );
+	} );
+	// console.log('Added column filter to dataTable');
+}
+
+
+function addSelectAllCheckbox(dataTable){
+
+	var columns = dataTable
+	    .cells( ':has(input:checkbox.dtRowCheckbox)' )
+	    .indexes()
+	    .pluck( 'column' )
+	    .sort()
+	    .unique();
+	    
+	columns.each(function(colID){
+		$(dataTable.column(colID).header())
+			.append('<input type="checkbox" name="selectAll" value="'+colID+'" class="dtRowCheckboxSelectAll" >');
+	})
+	
+	$('input:checkbox.dtRowCheckboxSelectAll').on('click', selectAll);
+		
+	function selectAll(e){
+		var rows = dataTable.rows({ 'search': 'applied' }).nodes();
+		if(this.checked){
+			dataTable.rows({ 'search': 'applied' }).select()
+		}else{
+			dataTable.rows({ 'search': 'applied' }).deselect()
+		}
+		e.stopPropagation();
+	}
+	
+	// function selectAllCheck(){
+	// 	if(dataTable.rows('.selected').nodes().length === dataTable.rows({ 'search': 'applied' }).nodes().length){
+	// 		$('input:checkbox.dtRowCheckboxSelectAll').prop("checked", true);
+	// 	}else{
+	// 		$('input:checkbox.dtRowCheckboxSelectAll').prop("checked", false);
+	// 	}
+	// }
+
+	// Seaside-spezifisch, deshalb nicht hier:
+	// dataTable.rows(":has(input:checkbox.dtRowCheckbox[checked])").select();
+
+	// dataTable.on("deselect", function (e, dt, type, indexes) {
+	// 	dt.rows(indexes).nodes().toJQuery().find("input:checkbox.dtRowCheckbox").prop("checked", false);
+ 	// 	selectAllCheck();
+	// });
+
+	// dataTable.on("select", function (e, dt, type, indexes) {
+	// 	dt.rows(indexes).nodes().toJQuery().find("input:checkbox.dtRowCheckbox").prop("checked", true);
+	// 	selectAllCheck();
+	// });
+	
+	// Removed to keep "Select-Function" when sorting / filtering
+	//	dataTable.on( 'search.dt', selectAll);	
+}
+
+
+

@@ -1,3 +1,5 @@
+// -*- less-css-compile-at-save: t -*-
+
 // CSS Reset
 @import "../reset.less";
 
@@ -8,6 +10,7 @@
 
 @thinBorder:1px solid #bbb;
 @fatBorder:1px solid black;
+
 
 
 body {
@@ -188,6 +191,16 @@ table.schedule {
           background-color: @addedLessonColor;
         }
       }
+
+			
+			.ALTeachingSubstitutionLesson {
+					.ALLesson;
+					// Soll farblos bleiben auf Display
+					// .lessonLabel {
+					//   background-color: @teachingSubstitutionLessonColor;
+					// }
+			}
+			
     }
   }
 }

@@ -8,6 +8,7 @@
 @canceledLessonColor:#F96;
 @addedLessonColor:lightgreen;
 @changedLessonColor:@addedLessonColor;
+@teachingSubstitutionLessonColor: lightyellow;
 @blankedLessonColor:@canceledLessonColor;
 @eventLessonColor:@annotationColor;
 
@@ -256,7 +257,14 @@ table.schedule {
         background-color: @changedLessonColor;
       }
     }
-    
+
+    .ALTeachingSubstitutionLesson {
+      .ALLesson;
+      .lessonLabel {
+        background-color: @teachingSubstitutionLessonColor;
+      }
+    }
+
     .ALEventLesson {
       .ALLesson;
       .lessonLabel {

@@ -44,7 +44,8 @@ $(document).ready(function() {
     placement: "bottom"});
 
   $("form.dirtycheck").dirtyForms();
-  $("textarea").autosize();
+  // $("textarea").autosize();
+  autosize($("textarea"));
 
 
   // $.extend( $.fn.dataTable.defaults, {

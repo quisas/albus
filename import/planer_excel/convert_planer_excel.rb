@@ -119,6 +119,14 @@ SUBJECT_COLUMN_INDEX = 58 # Spalte BG
 row_index = 1
 
 log("Farbzuweisungs-Tabelle:")
+
+# Wir suchen den Anfang der Tabelle
+while true do
+  subject_code = sheet.row(row_index)[SUBJECT_COLUMN_INDEX].to_s.gsub("\n", '')
+  break if not subject_code.empty?
+  row_index += 1
+end
+
 while true do
   color = sheet.row(row_index).format(COLOR_COLUMN_INDEX).pattern_bg_color.to_s
   subject_code = sheet.row(row_index)[SUBJECT_COLUMN_INDEX].to_s.gsub("\n", '')

@@ -183,27 +183,11 @@ function speakSchoolMark(aText) {
 function chooseOptionInChozen(text, chozenSelectorString) {
 	$(chozenSelectorString + " option:contains(" + text + ")").attr("selected", "selected");
 	$(chozenSelectorString).trigger("liszt:updated");
-	$(chozenSelectorString).closest('form').setDirty();
+
+	// TODO: Beim neusten dirtyforms gibts diese Funktion nicht mehr:
+	//$(chozenSelectorString).closest('form').setDirty();
 }
 
-
-// document.onclick = function(e) {    
-//     if (e.target.className === 'click') {
-//         SelectText('selectme');
-//     }
-// };
-
-// function printElement(jQueryElement) {
-// 	jQueryElement.printThis({
-//     debug: false,              * show the iframe for debugging
-//     importCSS: true,           * import page CSS
-//     printContainer: true,      * grab outer container as well as the contents of the selector
-//     loadCSS: "path/to/my.css", * path to additional css file
-//     pageTitle: "",             * add title to print page
-//     removeInline: false        * remove all inline styles from print elements
-//   });
-
-// }
 
 
 function suppressEnterKey(event) {

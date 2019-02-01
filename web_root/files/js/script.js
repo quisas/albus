@@ -43,7 +43,26 @@ $(document).ready(function() {
   $(".popoverOnClick").popover({
     placement: "bottom"});
 
-  $("form.dirtycheck").dirtyForms();
+	var isDirtyHelper = {
+    isDirty: function ($node, index) {
+      if ($node.is('form')) {
+        return $node.hasClass('manuallySetDirty');
+      }
+    }
+  };
+
+	$.DirtyForms.helpers.push(isDirtyHelper);
+
+	$("form.dirtycheck").dirtyForms();
+
+	$.fn.extend({
+		setDirty: function() {
+			return this.each(function() {
+				$(this).addClass('manuallySetDirty').addClass('dirty');
+			});
+		}
+	});
+	
   // $("textarea").autosize();
   autosize($("textarea"));
 

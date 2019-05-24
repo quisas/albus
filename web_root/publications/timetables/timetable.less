@@ -186,15 +186,23 @@ table.schedule {
       }
 
       .ALChangedLesson {
-        .ALLesson;
-        .lessonLabel {
-          background-color: @addedLessonColor;
-        }
+					.ALLesson;
+					.lessonLabel {
+							background-color: @addedLessonColor;
+					}
       }
 
 			
 			.ALTeachingSubstitutionLesson {
 					.ALLesson;
+
+					// Bleibt grün, in Kombination mit neuen/geänderten Lektionen
+					&.ALAddCourseLessonMutator, &.ALAddLessonMutator, &.ALMoveLessonMutator {
+							.lessonLabel {
+									background-color: @addedLessonColor;
+							}
+					}
+
 					// Soll farblos bleiben auf Display
 					// .lessonLabel {
 					//   background-color: @teachingSubstitutionLessonColor;

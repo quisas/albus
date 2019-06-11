@@ -201,7 +201,7 @@ function speakSchoolMark(aText) {
 // Setzt in einem Chozen-Select einen Eintrag auf ausgewählt
 function chooseOptionInChozen(text, chozenSelectorString) {
 	$(chozenSelectorString + " option:contains(" + text + ")").attr("selected", "selected");
-	$(chozenSelectorString).trigger("liszt:updated");
+	$(chozenSelectorString).trigger("chosen:updated.chosen");
 
 	// TODO: Beim neusten dirtyforms gibts diese Funktion nicht mehr:
 	//$(chozenSelectorString).closest('form').setDirty();

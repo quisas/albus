@@ -3,10 +3,10 @@
 // CSS Reset
 @import "../reset.less";
 
+@import "../../files/less/schedule.less";
 
-@canceledLessonColor:#F96;
-@addedLessonColor:lightgreen;
-@annotationColor:yellow;
+// Farben für Schedule override
+@teachingSubstitutionLessonColor:transparent; // Soll keine Farbe haben öffentlich
 
 @thinBorder:1px solid #bbb;
 @fatBorder:1px solid black;
@@ -14,229 +14,217 @@
 
 
 body {
-  font-family: Verdana Narrow, Arial, Helvetica, sans-serif;
-  font-size: 11px;
-  line-height: 1.6em;
-  padding: 0;
-  margin: 2px 4px 0px 2px;
+		font-family: Verdana Narrow, Arial, Helvetica, sans-serif;
+		font-size: 11px;
+		line-height: 1.6em;
+		padding: 0;
+		margin: 2px 4px 0px 2px;
 }
 
 #title {
-  font-size: 13px;
-  font-weight: bold;
-  margin: 0;
-  text-align: center;
+		font-size: 13px;
+		font-weight: bold;
+		margin: 0;
+		text-align: center;
 }
 
 table.schedule {
-  
-  border: none;
-  border-collapse:collapse;
-  border-spacing: 0px;
-  table-layout: fixed;
-  width: 100%;
+		
+		border: none;
+		border-collapse:collapse;
+		border-spacing: 0px;
+		table-layout: fixed;
+		width: 100%;
 
-  thead {
-    tr {
-      
-      th {
-        font-weight: normal;
-        line-height: 0.9;
-      }
-    }
-  }
-  
-  tbody {
+		thead {
+				tr {
+						
+						th {
+								font-weight: normal;
+								line-height: 0.9;
+						}
+				}
+		}
+		
+		tbody {
 
-    border: 1px solid;
-    
-    tr {
+				border: 1px solid;
+				
+				tr {
 
-      th {
-        border-right: @fatBorder;
-        font-weight: normal;
-        text-align: left;
-        white-space: nowrap;
-        padding-left: 2px;
-      }
+						th {
+								border-right: @fatBorder;
+								font-weight: normal;
+								text-align: left;
+								white-space: nowrap;
+								padding-left: 2px;
+						}
 
-      height: 23px;
+						height: 23px;
 
-      &:nth-child(odd) {
-        background-color: #eee;
-      }
-    
-      td {
-        border-right: @thinBorder;
-        text-align: center;
-        vertical-align: middle;
-        padding: 0;
-        line-height: 1.0;
+						&:nth-child(odd) {
+								background-color: #eee;
+						}
+						
+						td {
+								border-right: @thinBorder;
+								text-align: center;
+								vertical-align: middle;
+								padding: 0;
+								line-height: 1.0;
                 
-        &.col5, &.col7, &:last-child {
-          border-right: @fatBorder;
-        }
-      }
-    
-      .lessonInCell {
-//        white-space:nowrap;
-      }
-    
-      .annotationNumbers {
-        vertical-align: super;
-        font-size: 0.85em;
-        font-weight: bold;
-//        line-height: 0.6em;
-        margin-left: 1px;
-      }
-      
-      .lessonDivider {
-        margin: 0 2px;
-        color: #777;
-      }
-    
-      .ALLesson {
-//        white-space:nowrap;
-      }
-      
-      .ALLessonFragment {
-        .ALLesson;
-      }
+								&.col5, &.col7, &:last-child {
+										border-right: @fatBorder;
+								}
+						}
 
-      .lessonLabel {
-        white-space:nowrap;
-        word-spacing:-1px;
-      }
 
-      .mutatedLessons {
-        .lessonLabel {
-          padding: 0 2px;
-        }
-      }
-    
-      .ALAddedLesson {
-        .ALLesson;
-        .lessonLabel {
-          background-color: @addedLessonColor;
-        }
-      }
+						
+						.annotationNumbers {
+								font-size: 0.85em;
+								//        line-height: 0.6em;
+								margin-left: 1px;
+						}
+						
+						.lessonDivider {
+								margin: 0 2px;
+								color: #777;
+						}
+						
+						//       .ALLesson {
+						// //        white-space:nowrap;
+						//       }
+						
+						//       .ALLessonFragment {
+						//         .ALLesson;
+						//       }
 
-    
-      .ALCanceledLesson {
-        .ALLesson;
-        .lessonLabel {
-          color: #444;
-          background-color: @canceledLessonColor;
-          text-decoration: line-through;
-        }
-      }
+						.lessonLabel {
+								white-space:nowrap;
+								word-spacing:-1px;
+						}
 
-      .ALTargetMovedLesson {
-        .ALLesson;
-        .ALAddedLesson;
-      }
+						.mutatedLessons {
+								.lessonLabel {
+										padding: 0 2px;
+								}
+						}
+						
+						// .ALAddedLesson {
+						//   .ALLesson;
+						//   .lessonLabel {
+						//     background-color: @addedLessonColor;
+						//   }
+						// }
 
-      .ALOriginMovedLesson {
-        .ALLesson;
-        .ALCanceledLesson;
-      }
 
-			.ALBookedLesson {
-					.ALLesson;
-					.ALAddedLesson;
-			}
+						// // Text nur grau, falls gecancelt
+						// .ALCanceledLesson {
+						//   .lessonLabel {
+						//     color: #444;
+						//   }
+						// }
 
-			.ALCoBookedLesson {
-					.ALLesson;
-					.ALChangedLesson;
-			}
+						// .ALTargetMovedLesson {
+						//   .ALLesson;
+						//   .ALAddedLesson;
+						// }
 
-    
-      .ALAnnotatedLesson {
-        .ALLesson;
-        .lessonLabel {
-          background-color: @annotationColor;
-        }
-      }
+						// .ALOriginMovedLesson {
+						//   .ALLesson;
+						//   .ALCanceledLesson;
+						// }
 
-      .ALEventLesson {
-        .ALLesson;
-        .lessonLabel {
-          background-color: @annotationColor;
-					&.externalEvent {
-							background-color: #b2d7ff;
-					}
-        }
-      }
-    
-      .ALBlankedLesson {
-        .ALLesson;
-        background-color: @annotationColor;
+						// .ALBookedLesson {
+						// 		.ALLesson;
+						// 		.ALAddedLesson;
+						// }
 
-        .lessonLabel {
-          display: none;
-        }
+						// .ALCoBookedLesson {
+						// 		.ALLesson;
+						// 		.ALChangedLesson;
+						// }
 
-        .annotationNumbers {
-          vertical-align:inherit;
-          font-size: 1em;
-          line-height: 1em;
-        }
-        
-      }
+						
+						// Nur stylen, wenn nicht schon mutiert
+						// .ALAnnotatedLesson:not(.multiMutated) {
+						// 		.ALLesson;
+						// 		.lessonLabel {
+						// 				background-color: @annotationColor;
+						// 		}
+						// }
 
-      .ALChangedLesson {
-					.ALLesson;
-					.lessonLabel {
-							background-color: @addedLessonColor;
-					}
-      }
+						// .ALEventLesson {
+						//   .ALLesson;
+						//   .lessonLabel {
+						//     background-color: @annotationColor;
+						// 		&.externalEvent {
+						// 				background-color: #b2d7ff;
+						// 		}
+						//   }
+						// }
+						
 
-			
-			.ALTeachingSubstitutionLesson {
-					.ALLesson;
+						// Spezielle Darstellung für Display
+						.ALBlankedLesson {
+								background-color: @annotationColor;
 
-					// Soll farblos bleiben auf Display
-					.lessonLabel {
-							// background-color: @teachingSubstitutionLessonColor;
+								.lessonLabel {
+										display: none;
+								}
 
-							// Bleibt grün, in Kombination mit neuen/geänderten Lektionen
-							&.ALAddCourseLessonMutator, &.ALAddLessonMutator, &.ALMoveLessonMutator {
-									background-color: @addedLessonColor;
-							}
-					}
-			}
-			
-    }
-  }
+								.annotationNumbers {
+										vertical-align:inherit;
+										font-size: 1em;
+										line-height: 1em;
+								}
+								
+						}
+
+						// .ALChangedLesson {
+						// 		.lessonLabel {
+						// 				background-color: @addedLessonColor;
+						// 		}
+						// }
+
+						
+						// .ALTeachingSubstitutionLesson {
+
+						// 		// Soll farblos bleiben auf Display
+						// 		.lessonLabel {
+						// 				background-color: transparent;
+						// 		}
+						// }			
+				}
+		}
 }
 
 div.footer {
 
-  div.lessonAnnotations {
-    float: left;
-  }
+		div.lessonAnnotations {
+				float: left;
+		}
 
-  div.timestamp {
-    float: right;
-    text-align: right;
-    color: grey;
-    width: 100px;
-    white-space: nowrap;
-  }
+		div.timestamp {
+				float: right;
+				text-align: right;
+				color: grey;
+				width: 100px;
+				white-space: nowrap;
+		}
 
-  div.dailyAnnotations {
-    float:left;
-    width: 100%;
-    clear:both;
-    margin-top:3px;
-    background-color: @annotationColor;
-  }
-  
-  div.dailyAnnotation {
-    font-size: 14px;
-  }
-  
+		div.dailyAnnotations {
+				float:left;
+				width: 100%;
+				clear:both;
+				margin-top:3px;
+				background-color: @annotationColor;
+		}
+		
+		div.dailyAnnotation {
+				font-size: 14px;
+		}
+		
 }
 
 //
@@ -245,27 +233,27 @@ div.footer {
 
 div.ALTimeByClassStudentsGroupSchedule {
 
-  th.col0 {
-    width: 50px;
-  }
+		th.col0 {
+				width: 50px;
+		}
 }
 
 
 div.ALDateByTimeSchedule {
-  #title {
-    margin-left: 80px;
-  }
+		#title {
+				margin-left: 80px;
+		}
 
-  th.col0 {
-    width: 80px;
-  }
+		th.col0 {
+				width: 80px;
+		}
 
-  tr:nth-child(5), tr:nth-child(7) {
-    td, th {
-      border-bottom: @fatBorder;
-    }
-  }
-      
+		tr:nth-child(5), tr:nth-child(7) {
+				td, th {
+						border-bottom: @fatBorder;
+				}
+		}
+    
 }
 
 
@@ -273,8 +261,8 @@ div.ALDateByTimeSchedule {
 // Mobiler Stundenplan
 //
 p.mobile_postit {
-  background-color: yellow;
-  padding: 10px;
-  margin: 10px 0px;
+		background-color: yellow;
+		padding: 10px;
+		margin: 10px 0px;
 }
 

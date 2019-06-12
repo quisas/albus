@@ -1,0 +1,152 @@
+// -*- less-css-compile-at-save: t -*-
+
+
+// @smallFontSize: 10px;
+
+@annotationColor:yellow;
+@canceledLessonColor:#F96;
+@addedLessonColor:lightgreen;
+@changedLessonColor:@addedLessonColor;
+@teachingSubstitutionLessonColor: #ff9;
+@blankedLessonColor:@canceledLessonColor;
+@eventLessonColor:@annotationColor;
+
+// @highlightColor: yellow;
+// @highlightBorder: 1px solid red;
+
+// @nonCurrentColor: #FCC;
+
+// @requiredColor: #ffffaa;
+
+
+
+table.schedule {
+		tr {
+				.lessonInCell {
+						&.selected {
+								background-color: #dfd;
+						}
+						
+				}
+				
+				.annotationNumbers {
+						vertical-align:super;
+						font-size: 0.9em;
+						line-height: 0.5em;
+						margin-left: 2px;
+						font-weight: bold;
+				}
+
+				//
+				// WICHTIG!!! Die Reihenfolge ist wichtig! Wir haben bei den mutierten Lektionen mehr als 1 Style, und die Darstellung
+				// setzt sich zusammen.
+				//
+				
+				.ALLesson {
+						// empty
+				}
+
+				.ALLessonFragment {
+						.ALLesson;
+				}
+
+
+				
+				// Nur stylen, wenn nicht schon mutiert
+				.ALAnnotatedLesson:not(.multiMutated) {
+						.ALLesson;
+						.lessonLabel {
+								background-color: @annotationColor;
+						}
+				}
+
+
+				// Änderungen und Neues:
+				
+				.ALTeachingSubstitutionLesson {
+						.ALLesson;
+						.lessonLabel {
+								background-color: @teachingSubstitutionLessonColor;
+						}
+
+						// Bleibt grün, in Kombination mit neuen/geänderten Lektionen
+						// &.ALAddCourseLessonMutator, &.ALAddLessonMutator, &.ALMoveLessonMutator {
+						// 		.lessonLabel {
+						// 				background-color: @addedLessonColor;
+						// 		}
+						// }
+
+				}
+
+				.ALEventLesson {
+						.ALLesson;
+						.lessonLabel {
+								background-color: @eventLessonColor;
+								&.externalEvent {
+										background-color: #b2d7ff;
+								}
+						}
+				}
+
+				
+				.ALBookedLesson {
+						.ALLesson;
+						.ALAddedLesson;
+				}
+
+				.ALCoBookedLesson {
+						.ALLesson;
+						.ALChangedLesson;
+				}
+
+				
+				.ALChangedLesson {
+						.ALLesson;
+						.lessonLabel {
+								background-color: @changedLessonColor;
+						}
+				}
+				
+
+				.ALAddedLesson {
+						.ALLesson;
+						.lessonLabel {
+								background-color: @addedLessonColor;
+						}
+				}
+
+				.ALTargetMovedLesson {
+						.ALLesson;
+						.ALAddedLesson;
+				}
+
+
+				// Canceling Mutationen:
+
+
+				.ALCanceledLesson {
+						.ALLesson;
+						
+						.lessonLabel {
+								color: #444;
+								background-color: @canceledLessonColor;
+								text-decoration: line-through;
+						}
+				}
+
+				.ALOriginMovedLesson {
+						.ALLesson;
+						.ALCanceledLesson;
+				}
+
+				.ALBlankedLesson {
+						.ALLesson;
+
+						.lessonLabel {
+								background-color: @blankedLessonColor;
+								text-decoration: line-through;
+						}
+				}
+
+		}
+}

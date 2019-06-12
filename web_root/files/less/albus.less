@@ -3,14 +3,14 @@
 
 @smallFontSize: 10px;
 
-@annotationColor:yellow;
+// @annotationColor:yellow;
 
-@canceledLessonColor:#F96;
-@addedLessonColor:lightgreen;
-@changedLessonColor:@addedLessonColor;
-@teachingSubstitutionLessonColor: #ff9;
-@blankedLessonColor:@canceledLessonColor;
-@eventLessonColor:@annotationColor;
+// @canceledLessonColor:#F96;
+// @addedLessonColor:lightgreen;
+// @changedLessonColor:@addedLessonColor;
+// @teachingSubstitutionLessonColor: #ff9;
+// @blankedLessonColor:@canceledLessonColor;
+// @eventLessonColor:@annotationColor;
 
 @highlightColor: yellow;
 @highlightBorder: 1px solid red;
@@ -184,122 +184,7 @@ td.actions {
 }
 
 
-table.schedule {
-  tr {
-    .lessonInCell {
-      &.selected {
-        background-color: #dfd;
-      }
-      
-// Vermutlich nur bei Display nötig     white-space:nowrap;
-    }
-    
-    .annotationNumbers {
-      vertical-align:super;
-      font-size: 0.9em;
-      line-height: 0.5em;
-      margin-left: 2px;
-      font-weight: bold;
-    }
-    
-    .ALLesson {
-// Vermutlich nur bei Display nötig     white-space:nowrap;
-    }
-
-    .ALLessonFragment {
-      .ALLesson;
-    }
-    
-    
-    .ALAddedLesson {
-      .ALLesson;
-      .lessonLabel {
-        background-color: @addedLessonColor;
-      }
-    }
-
-    .ALTargetMovedLesson {
-      .ALLesson;
-      .ALAddedLesson;
-    }
-
-		.ALBookedLesson {
-      .ALLesson;
-      .ALAddedLesson;
-		}
-
-		.ALCoBookedLesson {
-      .ALLesson;
-      .ALChangedLesson;
-		}
-
-    .ALOriginMovedLesson {
-      .ALLesson;
-
-      .lessonLabel {
-        background-color: @canceledLessonColor;
-        text-decoration: line-through;
-      }
-    }
-    
-    .ALCanceledLesson {
-      .ALLesson;
-      
-      .lessonLabel {
-        background-color: @canceledLessonColor;
-        text-decoration: line-through;
-      }
-    }
-    
-    .ALAnnotatedLesson {
-      .ALLesson;
-      .lessonLabel {
-        background-color: @annotationColor;
-      }
-    }
-    
-    .ALBlankedLesson {
-      .ALLesson;
-
-      .lessonLabel {
-        background-color: @blankedLessonColor;
-        text-decoration: line-through;
-      }
-    }
-
-    .ALChangedLesson {
-      .ALLesson;
-      .lessonLabel {
-        background-color: @changedLessonColor;
-      }
-    }
-
-    .ALTeachingSubstitutionLesson {
-				.ALLesson;
-				.lessonLabel {
-						background-color: @teachingSubstitutionLessonColor;
-				}
-
-				// Bleibt grün, in Kombination mit neuen/geänderten Lektionen
-				&.ALAddCourseLessonMutator, &.ALAddLessonMutator, &.ALMoveLessonMutator {
-						.lessonLabel {
-								background-color: @addedLessonColor;
-						}
-				}
-
-    }
-
-    .ALEventLesson {
-      .ALLesson;
-      .lessonLabel {
-        background-color: @eventLessonColor;
-				&.externalEvent {
-						background-color: #b2d7ff;
-				}
-			}
-		}
-	}
-}
+@import "schedule.less";
 
 div.ALWeekdayByTimeSchedule {
   table.schedule {

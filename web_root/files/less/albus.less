@@ -1237,6 +1237,7 @@ div.ALReportsComponent {
 				padding: 2px 4px;
 		}
 
+		
 		div.reportSection {
 				margin-top: 5px;
 				padding-top: 5px;
@@ -1265,6 +1266,23 @@ div.ALReportsComponent {
 				}
 				
 		}
+
+		div.reportsGroup {
+				&:hover {
+						div.reportSection {
+								div.row {
+										background-color: @gray-lighter;
+								}
+						}
+				}
+
+				div.reportSection:not(:first-child) {
+						margin-top: 0px;
+						padding-top: 0px;
+						border-top: none;
+				}
+		}
+
 }
 
 .nowrap {

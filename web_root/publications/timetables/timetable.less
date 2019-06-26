@@ -91,13 +91,6 @@ table.schedule {
 								color: #777;
 						}
 						
-						//       .ALLesson {
-						// //        white-space:nowrap;
-						//       }
-						
-						//       .ALLessonFragment {
-						//         .ALLesson;
-						//       }
 
 						.lessonLabel {
 								white-space:nowrap;
@@ -109,60 +102,6 @@ table.schedule {
 										padding: 0 2px;
 								}
 						}
-						
-						// .ALAddedLesson {
-						//   .ALLesson;
-						//   .lessonLabel {
-						//     background-color: @addedLessonColor;
-						//   }
-						// }
-
-
-						// // Text nur grau, falls gecancelt
-						// .ALCanceledLesson {
-						//   .lessonLabel {
-						//     color: #444;
-						//   }
-						// }
-
-						// .ALTargetMovedLesson {
-						//   .ALLesson;
-						//   .ALAddedLesson;
-						// }
-
-						// .ALOriginMovedLesson {
-						//   .ALLesson;
-						//   .ALCanceledLesson;
-						// }
-
-						// .ALBookedLesson {
-						// 		.ALLesson;
-						// 		.ALAddedLesson;
-						// }
-
-						// .ALCoBookedLesson {
-						// 		.ALLesson;
-						// 		.ALChangedLesson;
-						// }
-
-						
-						// Nur stylen, wenn nicht schon mutiert
-						// .ALAnnotatedLesson:not(.multiMutated) {
-						// 		.ALLesson;
-						// 		.lessonLabel {
-						// 				background-color: @annotationColor;
-						// 		}
-						// }
-
-						// .ALEventLesson {
-						//   .ALLesson;
-						//   .lessonLabel {
-						//     background-color: @annotationColor;
-						// 		&.externalEvent {
-						// 				background-color: #b2d7ff;
-						// 		}
-						//   }
-						// }
 						
 
 						// Spezielle Darstellung für Display
@@ -181,20 +120,15 @@ table.schedule {
 								
 						}
 
-						// .ALChangedLesson {
-						// 		.lessonLabel {
-						// 				background-color: @addedLessonColor;
-						// 		}
-						// }
 
+						// Weil Stellvertretungen absichtlich transparent sind, müssen wir hier bei
+						// Anmerkungen trotzdem explizit die Farbe setzen, auch wenn multimutated
+						.ALAnnotatedLesson.ALTeachingSubstitutionLesson {
+								.lessonLabel {
+										background-color: @annotationColor;
+								}
+						}
 						
-						// .ALTeachingSubstitutionLesson {
-
-						// 		// Soll farblos bleiben auf Display
-						// 		.lessonLabel {
-						// 				background-color: transparent;
-						// 		}
-						// }			
 				}
 		}
 }

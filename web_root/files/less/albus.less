@@ -3,21 +3,12 @@
 
 @smallFontSize: 10px;
 
-// @annotationColor:yellow;
-
-// @canceledLessonColor:#F96;
-// @addedLessonColor:lightgreen;
-// @changedLessonColor:@addedLessonColor;
-// @teachingSubstitutionLessonColor: #ff9;
-// @blankedLessonColor:@canceledLessonColor;
-// @eventLessonColor:@annotationColor;
-
 @highlightColor: yellow;
 @highlightBorder: 1px solid red;
-
 @nonCurrentColor: #FCC;
-
 @requiredColor: #ffffaa;
+
+@import "schedule.less";
 
 
 .footer {
@@ -184,7 +175,6 @@ td.actions {
 }
 
 
-@import "schedule.less";
 
 div.ALWeekdayByTimeSchedule {
   table.schedule {
@@ -1341,17 +1331,19 @@ div.ALFreeRoomWizard {
       padding-bottom: 2px;
     }
 
-    .lessonLabel {
-      display: block;
-      background-color: transparent;
-      text-align: center;
-    }
 
     .lessonInCell {
       color: transparent;
 //      color: #888;
       white-space: nowrap;
-    }
+
+      .lessonLabel {
+					display: block;
+					background-color: transparent;
+					text-align: center;
+			}
+
+		}
 
     .freeLesson {
         text-align: center;
@@ -1370,18 +1362,10 @@ div.ALFreeRoomWizard {
 				
     }
   
-    // Nicht mutierte Lektion blenden wir Text aus
+    // Nicht freie Lektion blenden wir Text aus
     .nonFreeLesson {
       background-color: #ddd;
       color: transparent;
-      
-//      &.ALLessonFragment {
-//        color: #ddd;
-        
-//        &:hover {
-//          color: black;
-//        }
-//      }
 
     }
   }

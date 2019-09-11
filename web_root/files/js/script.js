@@ -143,7 +143,9 @@ function selectText(elementId) {
 
 function saveScroll(id) {
 	var y = $(document.body).scrollTop();
-	Cookies.set("page_scroll_" + id, y, { expires: 1 });
+	// Kurze Dauer, sonst können sich zuviele anhäufen
+	var inFifteenMinutes = new Date(new Date().getTime() + 15 * 60 * 1000);
+	Cookies.set("page_scroll_" + id, y, { expires: inFifteenMinutes });
 }
 
 function loadScroll(id) {

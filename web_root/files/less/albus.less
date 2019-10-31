@@ -215,6 +215,15 @@ div.ALPublicationCockpit {
 // Eigene Styles für den Preview-Schedule fürs Sekretariat
 div.publicationPreviewSchedule {
 
+		div.collissionWarning {
+				&.teacher, &.room {
+						.bg-danger();
+				}
+
+				// ol {
+				// 		padding-left: 0;
+				// }
+		}
 		
   .highlight {
 			border: 1px solid red;
@@ -2208,5 +2217,20 @@ div.ALAdminContentCenterComponent {
 div.ALAdminEmailsComponent {
 		ul {
 				margin: 0;
+		}
+}
+
+div.ALStudentViewer {
+		div.basicPersonInfo {
+				margin-bottom: 0.5em;
+		}
+
+		div.personPhones {
+				margin-bottom: 1em;
+
+				// > div {
+				// 		padding-left: 2em;
+				// 		text-indent: -2em;
+				// }
 		}
 }

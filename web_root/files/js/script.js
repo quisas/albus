@@ -2,6 +2,9 @@
 
 */
 
+// jQuery Extensions
+jQuery.fn.isEmpty = function(){ return !this.length }
+
 $(document).ready(function() {
 
   $(".chosen-select").chosen({
@@ -142,7 +145,7 @@ function selectText(elementId) {
 }
 
 function saveScroll(id) {
-	var y = $(document.body).scrollTop();
+	var y = $(document).scrollTop();
 	// Kurze Dauer, sonst können sich zuviele anhäufen
 	var inFifteenMinutes = new Date(new Date().getTime() + 15 * 60 * 1000);
 	Cookies.set("page_scroll_" + id, y, { expires: inFifteenMinutes });
@@ -151,7 +154,7 @@ function saveScroll(id) {
 function loadScroll(id) {
 	var y = Cookies.get("page_scroll_" + id);
 	if (!y) {return}
-	$(document.body).scrollTop(y);
+	$(document).scrollTop(y);
 }
 
 function speak(aText) {
@@ -206,6 +209,7 @@ function chooseOptionInChozen(text, chozenSelectorString) {
 	$(chozenSelectorString).trigger("chosen:updated.chosen");
 
 	// TODO: Beim neusten dirtyforms gibts diese Funktion nicht mehr:
+	// TODO2 Hm weiter unten haben wir das manuell nachgerüstet. Vermutlich gibts das wieder.
 	//$(chozenSelectorString).closest('form').setDirty();
 }
 
@@ -375,5 +379,14 @@ function addSelectAllCheckbox(dataTable){
 	//	dataTable.on( 'search.dt', selectAll);	
 }
 
+function toggleAll(myself, inputSelector, closestElementSelector){
+	var all = $(myself).closest(closestElementSelector).find(inputSelector).filter(':enabled');
+	var newValue = !(all.first().prop('checked'));
 
+	if (all) {
+		all.prop('checked', newValue);
+	}
+	$(myself).closest('form').setDirty();
+
+}
 

@@ -387,6 +387,20 @@ form {
     display: none;
     visibility: hidden;
   }
+
+	.checkbox-inline, .radio-inline {
+			label {
+					font-weight: normal;
+					cursor: pointer;
+			}
+
+			&.disabled {
+					label {
+							.text-muted();
+					}
+			}
+	}
+
 }
 
 form.dirty {
@@ -2040,6 +2054,21 @@ div.ALMyBookingCockpit {
 				width: 300px;
 		}
 }
+
+div.ALBookingCockpit {
+		a.bookingLink.ui-selecting {
+				background-color: lightgreen;
+		}
+
+		table.schedule {
+				cursor: crosshair;
+		}
+}
+
+.ui-selectable-helper {
+		background-color: rgba(255,255,30,0.2);
+}
+
 
 div.ALBookingMultiSchedulesComponent,
 div.ALMyBookingMultiSchedulesComponent {

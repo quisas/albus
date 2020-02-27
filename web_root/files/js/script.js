@@ -144,6 +144,9 @@ function selectText(elementId) {
     }
 }
 
+
+
+
 function saveScroll(id) {
 	var y = $(document).scrollTop();
 	// Kurze Dauer, sonst können sich zuviele anhäufen

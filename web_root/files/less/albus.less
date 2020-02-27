@@ -35,6 +35,15 @@ a.lowlight {
   }
 }
 
+a.block {
+		// & + & {
+		// 		margin-top: 0.5em;
+		// }
+		
+		margin-bottom: 0.5em;
+		display: block;
+}
+
 div.clear {
   clear: both;
 }
@@ -388,6 +397,11 @@ form {
     visibility: hidden;
   }
 
+	div.checkbox {
+			input[type=checkbox] {
+					margin-right: 0.2em;
+			}
+	}
 	.checkbox-inline, .radio-inline {
 			label {
 					font-weight: normal;
@@ -1052,9 +1066,14 @@ div.navbar {
     color: darken(pink, 10%);
   }
 
-	// ul.dropdown-menu {
-	// 		li.activedfdf
-	// }
+	ul.dropdown-menu {
+			li {
+					i.icon {
+							text-align: center;
+							width: 1.5em;
+					}
+			}
+	}
 }
 
 
@@ -1239,8 +1258,7 @@ div.ALLessonCollissionsWizard {
 }
 
 
-div.ALStudentsSubjectChoicesWizard,
-div.ALStudentsOberstufeChoicesWizard {
+div.ALStudentsMassWizardBase {
   tr.highlight {
     background-color: @highlightColor;
   }

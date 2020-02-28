@@ -2108,7 +2108,7 @@ div.ALMyBookingMultiSchedulesComponent {
 
 				font-size: 90%;
 
-				div.lessonInCell {
+				.lessonInCell {
 						margin-right: 5px;
 						
 						&.inRoom {
@@ -2133,7 +2133,7 @@ div.ALMyBookingMultiSchedulesComponent {
 				}
 
 				&:hover {
-						div.lessonInCell.myLesson {
+						.lessonInCell.myLesson {
 
 								span.myLessonInfo {
 										visibility: visible;
@@ -2192,6 +2192,10 @@ div.ALCourseExamsCockpit {
 						td.weekTitle {
 								border-bottom: none;
 
+								&.holiday {
+										background-color: #fee;
+								}
+								
 								span.dateRange {
 										.pull-right();
 										.text-muted();

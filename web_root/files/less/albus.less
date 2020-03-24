@@ -615,8 +615,15 @@ div.magritteTableContainer {
 
 						
 
-						textarea.form-control {
-								width: 220px;
+						textarea {
+								// Never limit markdown input
+								&.form-control:not(.md-input) {
+										width: 220px;
+								}
+								// Never limit markdown input
+								// &.md-input {
+								// 		width: ;
+								// }
 						}
 						
 						div.suggestedTags {
@@ -2283,5 +2290,15 @@ div.ALStudentViewer {
 				// 		padding-left: 2em;
 				// 		text-indent: -2em;
 				// }
+		}
+}
+
+div.ALSecureTransfersCockpit {
+		div.document {
+				white-space: nowrap;
+		}
+
+		div.toggler {
+				font-size: 175%;
 		}
 }

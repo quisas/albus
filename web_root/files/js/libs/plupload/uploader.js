@@ -18,8 +18,6 @@
 // }
 
 $(document).ready(function() {
-
-	var uploadFilesCount = 0;
 	
 	var uploader = new plupload.Uploader({
 		browse_button: "pluploadBrowseButton",
@@ -44,7 +42,9 @@ $(document).ready(function() {
 		plupload.each(files, function(file) {
 			html += "<span id=\"" + file.id + "\"><span class=\"uploadStatus\">0%</span> " + file.name + " (" + plupload.formatSize(file.size) + ")</span>";
 		});
-		document.getElementById("pluploadFile").innerHTML += html;
+		document.getElementById("pluploadFile").innerHTML = html;
+
+		$("#pluploadBrowseButton").hide();
 
 		up.start();
 
@@ -73,7 +73,9 @@ $(document).ready(function() {
 
 	// When all files have been uploaded
 	uploader.bind("UploadComplete", function(up, file) {
-		// nothing, evt. reload page?
+		setTimeout(function() {
+			location.reload();
+		}, 500)
 	});
 
 

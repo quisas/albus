@@ -23,6 +23,7 @@ $(document).ready(function() {
 		browse_button: "pluploadBrowseButton",
 		url: ("/files/js/libs/plupload/upload_gateway/upload.php?id=" + seasideUploadSessionUuid() ),
 		runtimes: "html5",
+		multi_selection: false,
 		max_retries: 3,
 
 	  filters: {

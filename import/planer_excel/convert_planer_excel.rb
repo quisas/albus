@@ -223,7 +223,7 @@ while go_ahead
           subtokens = token.split('/')
           token_teacher = subtokens[0].to_s.strip
           token_subject = subtokens[1].to_s.strip
-          token_subjects_group = subtokens[2].to_s.strip
+          token_subjects_group = subtokens[2].to_s.strip.upcase
 
 
           # Wenn mehrere Lehrer angegeben wurden dann müssen wir das Fach immer wieder vergessen.

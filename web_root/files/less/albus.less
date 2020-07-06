@@ -320,6 +320,11 @@ div.publicationPreviewSchedule {
   overflow:auto;
 }
 
+div.flashMessages, div.flashError {
+		position: sticky;
+		top: @navbar-height + 5px;
+}
+
 
 #systemBar {
 //  background-color: #EEE;
@@ -1428,19 +1433,24 @@ div.ALFreeRoomWizard {
 
 
 div.ALCalendarCockpit {
-//  tr.ALGeneralCalendarEntry {}
-  
-  tr.ALSchoolHolidaysCalendarEntry {
-    background-color: @gray-lighter;
-  }
 
-  tr.ALHolidayCalendarEntry {
-    background-color: @gray-lighter;
-  }
+		img.noJokerday {
+				width: 1.5em;
+				height: 1.5em;
+				float: right;
+		}
+		
+		tr.ALSchoolHolidaysCalendarEntry {
+				background-color: @gray-lighter;
+		}
 
-  tr.ALStudyTripCalendarEntry {
-    background-color: yellow;
-  }
+		tr.ALHolidayCalendarEntry {
+				background-color: @gray-lighter;
+		}
+
+		tr.ALStudyTripCalendarEntry {
+				background-color: yellow;
+		}
 
 }
 

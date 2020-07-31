@@ -1993,24 +1993,45 @@ div.ALKlassenbuchComponent {
 		// 		border: 1px solid black;
 		// }
 
-  span.highlight {
+  tr.highlight {
     background-color: @highlightColor;
   }
 
-	span.studentLabel {
-			cursor: pointer;
-	}
+	// span.studentLabel {
+	// 		cursor: pointer;
+	// }
 
-	tr:hover {
-			span.studentLabel {
-					color: @link-color;
+	// tr:hover {
+	// 		span.studentLabel {
+	// 				color: @link-color;
+	// 		}
+	// }
+
+	span.label {
+			&.late {
+					//							.label-warning();
 			}
+
+			&.absent {
+					.label-warning();
+			}
+
+			&.joker {
+					background-color: blue;
+			}
+
+			&.entschuldigtDue {
+					background-color: red;
+			}
+
+			
 	}
 
 	table.tableAbsencesList {
 			td.entry, td.entschuldigt, td.actions {
 					white-space: nowrap;
 			}
+
 
 			// col.lessons {
 			// 		max-width: 200px;

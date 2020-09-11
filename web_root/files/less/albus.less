@@ -44,6 +44,14 @@ a.block {
 		display: block;
 }
 
+//Offsetting the scroll targets, because we have a sticky navbar
+:target:before {
+    content: "";
+    display: block;
+    height: 30px;
+    margin: -30px 0 0;
+}
+
 div.clear {
   clear: both;
 }
@@ -2117,7 +2125,8 @@ div.ALMyBookingCockpit {
 }
 
 div.ALBookingCockpit {
-		a.bookingLink.ui-selecting {
+		//a.bookingLink
+		.ui-selecting {
 				background-color: lightgreen;
 		}
 

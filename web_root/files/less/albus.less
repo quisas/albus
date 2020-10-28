@@ -331,7 +331,7 @@ div.publicationPreviewSchedule {
 div.flashMessages, div.flashError {
 		position: sticky;
 		top: @navbar-height + 5px;
-		z-index: 99999;
+		z-index: @zindex-navbar; // 99999;
 }
 
 
@@ -728,6 +728,10 @@ footer.model {
 div.protocol {
   margin-top: 50px;
   color: @gray-light;
+
+	a {
+			color: @gray-light;
+  }
 
   td {
     vertical-align: top;

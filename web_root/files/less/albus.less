@@ -18,31 +18,52 @@
 }
 
 
-a:hover i {
-  text-decoration: none;
+a {
+		&:hover i {
+				text-decoration: none;
+		}
+
+		&.action {
+				margin-left: 3px;
+				margin-right: 3px;
+		}
+
+		&.lowlight {
+				color: inherit;
+				
+				&:hover {
+						color:@link-color;
+				}
+		}
+
+		&.block {
+				// & + & {
+				// 		margin-top: 0.5em;
+				// }
+				
+				margin-bottom: 0.5em;
+				display: block;
+		}
+
+		&.jump {
+				cursor: pointer;
+		}
+
+		&.jumpAnchor {
+				display: block;
+				position: relative;
+				top: -45px;
+				visibility: hidden;
+		}
+
+		// Icon at beginning of link
+		.icon:first-child {
+				margin-right: 2px;
+				width: 1.5em;
+				text-align: center;
+		}
 }
 
-a.action {
-  margin-left: 3px;
-  margin-right: 3px;
-}
-
-a.lowlight {
-  color: inherit;
-  
-  &:hover {
-    color:@link-color;
-  }
-}
-
-a.block {
-		// & + & {
-		// 		margin-top: 0.5em;
-		// }
-		
-		margin-bottom: 0.5em;
-		display: block;
-}
 
 //Offsetting the scroll targets, because we have a sticky navbar
 :target:before {
@@ -101,6 +122,19 @@ body
   40%, 60% {
     transform: translate3d(0, 4px, 0);
   }
+}
+
+
+.linearGradient(@backgroundcolor, @direction: to bottom) {
+   background-image: linear-gradient(
+      @direction,
+      rgba(red(@backgroundcolor), green(@backgroundcolor), blue(@backgroundcolor), 1),
+      rgba(red(@backgroundcolor), green(@backgroundcolor), blue(@backgroundcolor), 0.8),
+      rgba(red(@backgroundcolor), green(@backgroundcolor), blue(@backgroundcolor), 0.6),
+      rgba(red(@backgroundcolor), green(@backgroundcolor), blue(@backgroundcolor), 0.3),
+      rgba(red(@backgroundcolor), green(@backgroundcolor), blue(@backgroundcolor), 0.3),
+      rgba(red(@backgroundcolor), green(@backgroundcolor), blue(@backgroundcolor), 0)
+   );
 }
 
 #switchUserIsActiveWarning {
@@ -702,16 +736,6 @@ div.ALGenericTableEditorComponent {
   padding-left: 0;
 }
 
-a.jump {
-  cursor: pointer;
-}
-
-a.jumpAnchor {
-  display: block;
-  position: relative;
-  top: -45px;
-  visibility: hidden;
-}
 
 footer.model {
   font-size: @smallFontSize;
@@ -1982,7 +2006,26 @@ div.ALMyStudentHomeComponent {
 
 		div.pastAbsences {
 				max-height: 200px;
-				overflow: auto;
+				overflow: scroll;
+				border: 1px solid #999;
+
+				div.topIndicator {
+						.linearGradient(#f0f0f0);
+						height: 0.5em;
+						position: sticky;
+						top: 0;
+				}
+
+				// &::-webkit-scrollbar {
+				// 		-webkit-appearance: none;
+				// 		width: 7px;
+				// }
+
+				// &::-webkit-scrollbar-thumb {
+				// 		border-radius: 4px;
+				// 		background-color: rgba(0, 0, 0, .5);
+				// 		-webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+				// }				
 		}
 }
 
@@ -1994,7 +2037,7 @@ div.ALTeacherMarksReportsCockpit {
 		}
 }
 
-div.ALKlassenbuchComponent {
+div.ALKlassenbuchComponentBase {
 		// span.absenceIcon, span.lateIcon {
 		// 		font-weight: bold;
 		// 		font-family: monospace;
@@ -2225,7 +2268,7 @@ div.validationResults {
 		
 }
 
-div.ALCourseExamsCockpit {
+div.ALCourseExamsCockpit, div.ALKlassenbuchExamsViewer {
 
 		span.day {
 				display: inline-block;

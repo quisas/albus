@@ -114,8 +114,8 @@ ignored_colors = ['2860', '2871', '2998', '5654', '3359', '3990', '5407'] # Grau
 # Struktur: {Farbwert => Fach}
 color_subject_map = {}
 
-COLOR_COLUMN_INDEX = 58 # Spalte BG
-SUBJECT_COLUMN_INDEX = 59 # Spalte BH
+COLOR_COLUMN_INDEX = 57 # Spalte BF
+SUBJECT_COLUMN_INDEX = 58 # Spalte BG
 row_index = 1
 
 log("Farbzuweisungs-Tabelle:")
@@ -126,7 +126,7 @@ while true do
   break if not subject_code.empty?
   row_index += 1
   if row_index > 100
-    log('Keine Farbtabelle gefunden. Muss in Spalte BG/BH seind')
+    log('Keine Farbtabelle gefunden. Muss in Spalte BF/BG seind')
     exit
   end
 end

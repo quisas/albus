@@ -1060,60 +1060,79 @@ div.ALAssignmentsCockpit {
 								font-size: 130%;
 						}
 
-
-						div.courseAssignments {
-
-								+ div.courseAssignments {
-										margin-top: 10px;
-										padding-top: 10px;
-										border-top: 1px solid red;
-								}
-
-								div.tools {
-										@border: 1px solid #999;
-										position: absolute;
-										background: white;
-										margin: 0;
-										padding: 10px;
-										border-right: @border;
-										border-left: @border;
-										border-bottom: @border;
-										visibility: hidden;
-								}
+						td.assignmentsCell {
 
 								&:hover {
-										div.tools {
-												visibility: visible;
+										div.courseAssignments {
+												div.tools {
+														visibility: visible;
+//														opacity: 1;
+														transition-delay: 0.7s;
+												}
 										}
 								}
 
-								table.assignmentsSubTable {
-										width: 100%;
-										border-collapse: collapse;
+								div.courseAssignments {
 
-										tr:hover {
-												background-color: white;
+										position: relative;
+
+										+ div.courseAssignments {
+												margin-top: 10px;
+												padding-top: 10px;
+												border-top: 1px solid red;
 										}
-										
-										td {
-												border: none;
-												background-color: transparent;
-												padding: 0;
-												vertical-align: top;
-												line-height: 1.1em;
 
-												&.assignmentLabel {
-														width: @cellWidth;
+										div.tools {
+												@border: 1px solid #999;
+												position: absolute;
+												right: 0;
+												top: 115%;
+												
+												background: @table-bg-hover;
+												margin: 0;
+												padding: 10px;
+												border: @border;
+												// border-right: @border;
+												// border-left: @border;
+												// border-bottom: @border;
+												visibility: hidden;
+												z-index: 100;
+
+//												opacity: 0;
+//												transition: visibility 0s linear 0.5s,opacity 0.5s linear;
+												transition: visibility 0s linear 0.2s;
+
+										}
+
+
+										table.assignmentsSubTable {
+												width: 100%;
+												border-collapse: collapse;
+
+												tr:hover {
+														background-color: white;
 												}
+												
+												td {
+														border: none;
+														background-color: transparent;
+														padding: 0;
+														vertical-align: top;
+														line-height: 1.1em;
 
-												&.hours {
-														width: 30px;
-												}
+														&.assignmentLabel {
+																width: @cellWidth;
+														}
 
-												&.actions {
-														//        width: 50px;
-														text-align: right;
-														// padding-right: 3px;
+														&.hours {
+																width: 30px;
+														}
+
+														&.actions {
+																//        width: 50px;
+																text-align: right;
+																// padding-right: 3px;
+														}
 												}
 										}
 								}

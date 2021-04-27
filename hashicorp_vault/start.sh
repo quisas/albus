@@ -9,5 +9,5 @@ PID_FILE="$DIR/vault.pid"
 
 sleep 2
 
-pidof vault > $PID_FILE
+pidof /usr/bin/vault > $PID_FILE
 

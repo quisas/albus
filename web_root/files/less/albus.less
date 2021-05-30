@@ -2134,9 +2134,14 @@ div.ALKlassenbuchComponentBase {
 					background-color: blue;
 			}
 
+			&.leave {
+					background-color: green;
+			}
+
 			&.entschuldigtDue {
 					background-color: red;
 			}
+
 
 			
 	}
@@ -2181,19 +2186,25 @@ div.ALMyTeachingCockpit {
 				margin-top: 0;
     }
 
+
+		span.label {
+				// &.late {
+				// 		.label-warning
+				// }
+
+				&.absent {
+						.label-warning()
+				}
+
+				// &.leave {
+				// 		background-color: green;
+				// }
+
+		}
 }
 
 span.label {
-		// &.late {
-		// 		.label-warning
-		// }
-
-		&.absent {
-				.label-warning()
-		}
-
 		margin-right: 2px; // Wegen aneinanderreihen von Labels
-
 }
 
 .well > h3:first-child {

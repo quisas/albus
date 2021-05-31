@@ -125,6 +125,27 @@ function appendToTagList(inputId, text) {
   
 }
 
+function appendToTextArea(textareaId, text) {
+  var currentValue;
+  var newValue;
+  var taElement;
+  
+  taElement = $('#' + textareaId)[0];
+  
+  currentValue = taElement.value;
+  
+  if (currentValue) {
+    newValue = currentValue + "\n" + text;
+  } else {
+    newValue = text;
+  };
+  
+  taElement.value = newValue;
+	autosize.update(taElement)
+  taElement.focus();
+	
+}
+
 function selectText(elementId) {
     var doc = document,
         text = doc.getElementById(elementId),

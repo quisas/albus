@@ -509,6 +509,11 @@ form.dirty {
     display: inline;
   }
 
+  a.btn.showWhenDirty {
+    visibility: visible;
+    display: inline-block;
+  }
+
   .hideWhenDirty {
     display: none;
     visibility: hidden;
@@ -518,9 +523,9 @@ form.dirty {
     visibility: hidden;
   }
   
-  a.btn.showWhenDirty {
-    visibility: visible;
-    display: inline-block;
+  .mutedWhenDirty {
+			pointer-events: none;
+			opacity: 0.5;
   }
   
 }

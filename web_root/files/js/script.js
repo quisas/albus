@@ -172,7 +172,7 @@ function saveScroll(id) {
 	var y = $(document).scrollTop();
 	// Kurze Dauer, sonst können sich zuviele anhäufen
 	var inFifteenMinutes = new Date(new Date().getTime() + 15 * 60 * 1000);
-	Cookies.set("page_scroll_" + id, y, { expires: inFifteenMinutes });
+	Cookies.set("page_scroll_" + id, y, { expires: inFifteenMinutes, SameSite: 'Strict' });
 }
 
 function loadScroll(id) {
@@ -414,3 +414,16 @@ function toggleAll(myself, inputSelector, closestElementSelector){
 
 }
 
+function preventBackButton(thenCallback) {
+	// Hacky method to prevent back button
+  window.history.pushState(null, "", window.location.href);
+  window.onpopstate = function() {
+    window.history.pushState(null, "", window.location.href);
+		// or? this.props.history.go(1); see also https://subwaymatch.medium.com/disabling-back-button-in-react-with-react-router-v5-34bb316c99d7
+		
+		if (thenCallback) {
+			thenCallback();
+		}
+  }
+
+}

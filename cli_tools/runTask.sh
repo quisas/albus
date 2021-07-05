@@ -15,7 +15,9 @@ if [ $STATUS -ne 200 ]; then
     echo "Fehler in Task $1:"
 
 		# NF removes empty lines
-    awk NF $OUTPUTFILE
+		if [ -f $OUTPUTFILE ]; then
+				awk NF $OUTPUTFILE
+		fi
 
     exit 1
 fi

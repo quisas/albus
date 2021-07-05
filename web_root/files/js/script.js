@@ -427,3 +427,10 @@ function preventBackButton(thenCallback) {
   }
 
 }
+
+function onBackButton(thenCallback) {
+  window.onpopstate = function() {
+		thenCallback();
+  }
+
+}

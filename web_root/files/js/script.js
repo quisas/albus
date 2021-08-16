@@ -429,7 +429,12 @@ function preventBackButton(thenCallback) {
 }
 
 function onBackButton(thenCallback) {
+	// Hacky method to prevent first back jump. Double the current location on the state.
+  window.history.pushState(null, "", window.location.href);
+
+	// Warn once, then do not interfere anymore, so that a second click will go back
   window.onpopstate = function() {
+//		window.onpopstate = null;
 		thenCallback();
   }
 

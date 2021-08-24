@@ -39,6 +39,10 @@
  *
  */
 
+//
+// WARNING! Heavily modified for Albus (Andreas Brodbeck)
+//
+
 (function(root, factory) {
   if (typeof exports === 'object') {
     module.exports = factory();

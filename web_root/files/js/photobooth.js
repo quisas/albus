@@ -1,10 +1,10 @@
 //
-// Used from the component ALPhotoboothComponent
+// Used from the component ALPhotoboothComponent, to track faces in fotoshooting
 //
 
 var webcam_videoInput, webcam_canvasInput, webcam_cropCanvas, webcam_overlay, webcam_keyboardCatcher;
 var webcam_portrait_zoom, webcam_portrait_voffset, webcam_portrait_hoffset, webcam_autoset_area, webcam_video_preview_scale;
-var webcam_imgAreaSelect, webcam_dataField;
+var webcam_imgAreaSelect, webcam_dataField, htracker, webcam_cssFilter;
 
 function increaseZoom() {
 	webcam_portrait_zoom += 0.05;
@@ -52,12 +52,17 @@ function takeSnapshot() {
 	//	webcam_cropCanvas.style.width = selection.width;
 	//	webcam_cropCanvas.style.height = selection.height;
 	
-	webcam_cropCanvas.getContext("2d").drawImage(
+	var ctx =	webcam_cropCanvas.getContext("2d")
+	// Apply filter
+	if (webcam_cssFilter) { ctx.filter = webcam_cssFilter };
+	ctx.drawImage(
 		webcam_videoInput,
 		selection.x1,
 		selection.y1,
 		selection.width,
 		selection.height, 0, 0, selection.width, selection.height);
+
+	
 	$(webcam_dataField).val(webcam_cropCanvas.toDataURL("image/jpeg", 0.95));
 }
 
@@ -102,7 +107,7 @@ function onPlayingVideo() {
 
 
 // Arguments from the component
-function initPhotobooth(camId, captureId, cropId, dataFieldId, overlayId, cameraHeight, cameraWidth, aspectRatio, submitButtonId, imageWidth, imageHeight, videoPreviewScale, verticalDefaultOffset, keyboardCatcherId, isSelfie) {
+function initPhotobooth(camId, captureId, cropId, dataFieldId, overlayId, cameraHeight, cameraWidth, aspectRatio, submitButtonId, imageWidth, imageHeight, videoPreviewScale, verticalDefaultOffset, keyboardCatcherId, isSelfie, cssFilter) {
 
 	webcam_videoInput = document.getElementById(camId);
 	webcam_canvasInput = document.getElementById(captureId);
@@ -116,6 +121,7 @@ function initPhotobooth(camId, captureId, cropId, dataFieldId, overlayId, camera
 	webcam_portrait_hoffset = 0;
 	webcam_autoset_area = !isSelfie;
 	webcam_video_preview_scale = videoPreviewScale;
+	webcam_cssFilter = cssFilter;
 
 	document.addEventListener("headtrackrStatus", function(event) {
 		var messagep = document.getElementById("webcam_trackerStatus");
@@ -131,7 +137,7 @@ function initPhotobooth(camId, captureId, cropId, dataFieldId, overlayId, camera
 
 	webcam_videoInput.addEventListener("playing", onPlayingVideo);
 
-	var htracker = new headtrackr.Tracker({
+	htracker = new headtrackr.Tracker({
 		calcAngles: false,
 		ui: false,
 		headPosition: false,
@@ -152,7 +158,7 @@ function initPhotobooth(camId, captureId, cropId, dataFieldId, overlayId, camera
 
 
 		if (event.detection == "CS") {
-			var tooSmallFaceWarning = (faceWidth / imageWidth) < 0.6;
+			var tooSmallFaceWarning = (faceWidth / imageWidth) < 0.5;
 
 			webcam_portrait_width = Math.max(imageWidth, (faceWidth * webcam_portrait_zoom));
 			webcam_portrait_height = webcam_portrait_width / aspectRatio;

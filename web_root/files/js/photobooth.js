@@ -47,8 +47,9 @@ function displayVideoDimensions() {
 function takeSnapshot() {
 	var selection = webcam_imgAreaSelect.getSelection(false);
 
-	webcam_cropCanvas.width = selection.width;
-	webcam_cropCanvas.height = selection.height;
+	// webcam_cropCanvas.width = selection.width;
+	// webcam_cropCanvas.height = selection.height;
+
 	//	webcam_cropCanvas.style.width = selection.width;
 	//	webcam_cropCanvas.style.height = selection.height;
 	
@@ -60,7 +61,7 @@ function takeSnapshot() {
 		selection.x1,
 		selection.y1,
 		selection.width,
-		selection.height, 0, 0, selection.width, selection.height);
+		selection.height, 0, 0, webcam_cropCanvas.width, webcam_cropCanvas.height);
 
 	
 	$(webcam_dataField).val(webcam_cropCanvas.toDataURL("image/jpeg", 0.95));
@@ -164,7 +165,7 @@ function initPhotobooth(camId, captureId, cropId, dataFieldId, overlayId, camera
 			webcam_portrait_height = webcam_portrait_width / aspectRatio;
 			
 			webcam_portrait_x0 = webcam_portrait_hoffset + faceX - (webcam_portrait_width / 2);
-			webcam_portrait_y0 = webcam_portrait_voffset + faceY - (webcam_portrait_height / 2);
+			webcam_portrait_y0 = Math.max(0, webcam_portrait_voffset + faceY - (webcam_portrait_height / 2) );
 
 
 			webcam_portrait_x1 = webcam_portrait_x0 + webcam_portrait_width;

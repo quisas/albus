@@ -130,83 +130,40 @@
         this.status = message;
         }.bind(this);
 
-    var insertAltVideo = function(video) {
-        if (params.altVideo !== undefined) {
-          if (supports_video()) {
-            if (params.altVideo.ogv && supports_ogg_theora_video()) {
-              video.src = params.altVideo.ogv;
-            } else if (params.altVideo.mp4 && supports_h264_baseline_video()) {
-              video.src = params.altVideo.mp4;
-            } else if (params.altVideo.webm && supports_webm_video()) {
-              video.src = params.altVideo.webm;
-            } else {
-              return false;
-            }
-            video.play();
-            return true;
-          }
-        } else {
-          return false;
-        }
-        }
-        
-        
         
     this.init = function(video, canvas, setupVideo) {
       if (setupVideo === undefined || setupVideo == true) {
-        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-        window.URL = window.URL || window.webkitURL || window.msURL || window.mozURL;
+//        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+				//        window.URL = window.URL || window.webkitURL || window.msURL || window.mozURL;
+				
         // check for camerasupport
         if (navigator.getUserMedia) {
           headtrackerStatus("getUserMedia");
 
-          // chrome 19 shim
-          // var videoSelector = {video : true};
-          // if (window.navigator.appVersion.match(/Chrome\/(.*?) /)) {
-          //  var chromeVersion = parseInt(window.navigator.appVersion.match(/Chrome\/(\d+)\./)[1], 10);
-          //  if (chromeVersion < 20) {
-          //    videoSelector = "video";
-          //  }
-          // };
-          // opera shim
-          // if (window.opera) {
-          //   window.URL = window.URL || {};
-          //   if (!window.URL.createObjectURL) window.URL.createObjectURL = function(obj) {
-          //     return obj;
-          //   };
-          // }
-
           // set up stream
           var videoSelector = {
+						audio: false,
             video: {
-              mandatory: {
-                // minWidth: 1024,
-                // minHeight: 800
-                minWidth: 800,
-                minHeight: 600
+							width: { min: 1000, ideal: 1920 },
+              height: { min: 800, ideal: 1080 }
               }
             }
-          };
-          navigator.getUserMedia(videoSelector, (function(stream) {
-            headtrackerStatus("Kamera gefunden");
-            this.stream = stream;
-            if (video.mozCaptureStream) {
-              video.mozSrcObject = stream;
-            } else {
-              video.srcObject = stream;
-            }
-            video.play();
-          }).bind(this), function() {
-            headtrackerStatus("Keine Kamera mit genügender Auflösung gefunden!");
-            insertAltVideo(video);
-          });
-        } else {
-          headtrackerStatus("Browser unterstützt keine Kamera");
-          if (!insertAltVideo(video)) {
-            return false;
-          }
-        }
-
+        };
+				var me = this;
+				navigator.mediaDevices.getUserMedia(videoSelector).then(function(stream) {
+					headtrackerStatus("Kamera gefunden");
+					me.stream = stream;
+					video.srcObject = stream;
+					video.play();
+				}).catch(function(err) {
+          headtrackerStatus("Keine Kamera mit genügender Auflösung gefunden!");
+          //insertAltVideo(video);
+				});
+      } else {
+        headtrackerStatus("Browser unterstützt keine Kamera");
+				//          if (!insertAltVideo(video)) {
+        return false;
+        
       }
 
       videoElement = video;

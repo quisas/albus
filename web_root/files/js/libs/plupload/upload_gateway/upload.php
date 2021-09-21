@@ -5,10 +5,10 @@
 // Andreas Brodbeck
 //
 
-if (gethostname() == 'mindclue-dassi-main.local') {
-	 $DEVELOPMENT = true;
-} else {
+if (strpos(gethostname(), '.local') === false) {
 	 $DEVELOPMENT = false;
+} else {
+	 $DEVELOPMENT = true;
 }
 
 // No cache headers

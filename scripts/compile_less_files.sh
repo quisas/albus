@@ -1,11 +1,16 @@
 #!/bin/bash
 
+cd $( dirname "${BASH_SOURCE[0]}" )
+cd ..
+
+OPTS="--rewrite-urls=all --clean-css=--s1"
+
 pushd web_root/files > /dev/null
 
-lessc -x less/style.less > css/style.css
+lessc $OPTS less/style.less > css/style.css
 
 pushd ../publications/timetables > /dev/null
-lessc -x timetable.less > timetable.css
+lessc $OPTS timetable.less > timetable.css
 
 # TODO weitere direkte LESS files
 

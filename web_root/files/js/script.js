@@ -429,12 +429,22 @@ function preventBackButton(thenCallback) {
 }
 
 function onBackButton(thenCallback) {
+
+	// const params = new URLSearchParams(window.location.search);
+	
+	// if (params.has('tolerateBackButton')) {
+	// 	window.onpopstate = null;
+	// 	return;
+	// }
+
+
 	// Hacky method to prevent first back jump. Double the current location on the state.
   window.history.pushState(null, "", window.location.href);
 
-	// Warn once, then do not interfere anymore, so that a second click will go back
-  window.onpopstate = function() {
-//		window.onpopstate = null;
+	// Warn once, then do not interfere anymore, so that a second click will go back (?)
+  window.onpopstate = function(event) {
+		//		window.onpopstate = null;
+
 		thenCallback();
   }
 

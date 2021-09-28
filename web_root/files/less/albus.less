@@ -2108,6 +2108,17 @@ div.ALMyStudentHomeComponent {
 		
 }
 
+div.ALMyTeacherHomeComponent {
+		ul.coursesList {
+				li {
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						//						max-width: 100%;
+				}
+		}
+}
+
 div.ALTeacherMarksReportsCockpit {
 		table {
 				td:first-child {
@@ -2221,6 +2232,20 @@ div.ALMyTeachingCockpit {
 				// }
 
 		}
+
+		td.covid19 {
+				
+				.covid19Ok {
+						font-size: 1.3em;
+						color: green;
+				}
+
+				.covid19NotOk {
+						font-size: 1.3em;
+						color: red;
+				}
+		}
+		
 }
 
 span.label {
@@ -2479,6 +2504,15 @@ div.ALStudentViewer {
 						width: 10%;
 				}
 		}
+
+		.covid19Ok {
+				color: green;
+		}
+
+		.covid19NotOk {
+				color: red;
+		}
+
 }
 
 div.ALSecureTransfersCockpit {

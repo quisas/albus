@@ -55,13 +55,13 @@ table.schedule {
 				// Nur stylen, wenn nicht schon mutiert
 				.ALAnnotatedLesson:not(.multiMutated) {
 						.ALLesson;
-						.lessonLabel {
+						> .lessonLabel {
 								background-color: @annotationColor;
 						}
 				}
 				.ALAnnotatedLesson.multiMutated {
 						.ALLesson;
-						.lessonLabel {
+						> .lessonLabel {
 								border-left: 4px solid @annotationColor;
 								border-right: 4px solid @annotationColor;
 						}
@@ -72,13 +72,13 @@ table.schedule {
 				
 				.ALTeachingSubstitutionLesson {
 						.ALLesson;
-						.lessonLabel {
+						> .lessonLabel {
 								background-color: @teachingSubstitutionLessonColor;
 						}
 
 						// Bleibt grün, in Kombination mit neuen/geänderten Lektionen
 						// &.ALAddCourseLessonMutator, &.ALAddLessonMutator, &.ALMoveLessonMutator {
-						// 		.lessonLabel {
+						// 		> .lessonLabel {
 						// 				background-color: @addedLessonColor;
 						// 		}
 						// }
@@ -87,12 +87,12 @@ table.schedule {
 
 				.ALEventLesson {
 						.ALLesson;
-						.lessonLabel {
+						> .lessonLabel {
 								background-color: @eventLessonColor;
 						}
 
 						&.externalEvent {
-								.lessonLabel {
+								> .lessonLabel {
 										background-color: #b2d7ff;
 								}
 						}
@@ -113,7 +113,7 @@ table.schedule {
 				
 				.ALChangedLesson {
 						.ALLesson;
-						.lessonLabel {
+						> .lessonLabel {
 								background-color: @changedLessonColor;
 						}
 				}
@@ -121,7 +121,7 @@ table.schedule {
 
 				.ALAddedLesson {
 						.ALLesson;
-						.lessonLabel {
+						> .lessonLabel {
 								background-color: @addedLessonColor;
 						}
 				}
@@ -135,11 +135,24 @@ table.schedule {
 				// Canceling Mutationen:
 
 
-				.ALCanceledLesson, .canceled {
+				.ALCanceledLesson {
 						.ALLesson;
 						
-						.lessonLabel {
+						> .lessonLabel {
 								color: #444;
+								// Trick, um es anzudeuten, dass es mal gecancelt war. Eher für Debug und Analyse. Sollte
+								// gar nie nur diese Farbe bekommen
+								background-color: lighten(@canceledLessonColor, 20%);
+//								text-decoration: line-through;
+						}
+				}
+
+				// Hinweis: Nicht ganz sauber. Aber das durchstreichen soll nur wirklich bei wirklich ausfallenden Lektionen kommen.
+				// Es gibt Multi-Mutationen und die Lektion ist danach nicht mehr cancelled, aber alle CSS Klassen
+				// sind immer noch aufgelistet.
+				.canceled {
+						> .lessonLabel {
+								// color: #444;
 								background-color: @canceledLessonColor;
 								text-decoration: line-through;
 						}
@@ -147,7 +160,7 @@ table.schedule {
 
 				.ALDeCanceledLesson {
 						.ALLesson;
-						.lessonLabel {
+						> .lessonLabel {
 								color: inherit;
 								background-color: @annotationColor;
 								text-decoration: none;
@@ -157,12 +170,13 @@ table.schedule {
 				.ALOriginMovedLesson {
 						.ALLesson;
 						.ALCanceledLesson;
+						.canceled;
 				}
 
 				.ALBlankedLesson {
 						.ALLesson;
 
-						.lessonLabel {
+						> .lessonLabel {
 								background-color: @blankedLessonColor;
 								text-decoration: line-through;
 						}

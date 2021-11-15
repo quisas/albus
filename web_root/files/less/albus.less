@@ -259,6 +259,14 @@ div.ALPublicationCockpit {
 						}
 				}
 		}
+
+
+		div.collissionWarning {
+				&.teacher, &.room, &.student {
+						.bg-danger();
+				}
+		}
+		
 }
 
 div.ALPublicationOutlookComponent {
@@ -281,15 +289,15 @@ div.ALPublicationOutlookComponent {
 // Eigene Styles für den Preview-Schedule fürs Sekretariat
 div.publicationPreviewSchedule {
 
-		div.collissionWarning {
-				&.teacher, &.room, &.student {
-						.bg-danger();
-				}
+		// div.collissionWarning {
+		// 		&.teacher, &.room, &.student {
+		// 				.bg-danger();
+		// 		}
 
-				// ol {
-				// 		padding-left: 0;
-				// }
-		}
+		// 		// ol {
+		// 		// 		padding-left: 0;
+		// 		// }
+		// }
 		
   .highlight {
 			border: 1px solid red;
@@ -365,6 +373,37 @@ div.publicationPreviewSchedule {
 				.lessonLabel {
 						border-bottom: 1px solid black;
 				}
+		}
+
+		tr.Fremd {
+				th, td {
+						border-top-width: 2px;
+						border-top-color: black;
+				}
+		}
+		
+		tr.Rest, tr.Fremd, tr.Instr {
+
+				td {
+						padding-top: 0.5em;
+						padding-bottom: 0.5em;
+						font-size: 75%;
+						// * {
+						// 		visibility: hidden;
+						// }
+				}
+
+				th, td {
+						color: #666;
+				}
+
+				// &:hover {
+				// 		td {
+				// 				* {
+				// 						visibility: visible;
+				// 				}
+				// 		}
+				// }
 		}
     
   }
@@ -814,8 +853,18 @@ h4 {
 		img {
 				vertical-align: bottom;
 		}
+
 }
 
+div.row {
+		h1, h2, h3, h4 {
+				
+				&:first-child {
+						margin-top: 0;
+				}
+		
+		}
+}
 
 //
 // Fächli
@@ -1519,6 +1568,10 @@ div.ALFreeRoomWizard {
       color: transparent;
 
     }
+
+		.canceled {
+				text-decoration: line-through;
+		}
   }
 }
 

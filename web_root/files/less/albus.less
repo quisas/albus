@@ -1373,6 +1373,11 @@ div.ALLessonCollissionsWizard {
   margin-bottom: 10px;
 }
 
+.bothBuffer {
+		.topBuffer();
+		.bottomBuffer();
+}
+
 .noBuffer {
   margin-top: 0;
   margin-bottom: 0;
@@ -2600,3 +2605,43 @@ div.ALTeachingSubstitutionCockpit {
 				}
 		}
 }
+
+div.ALTeacherTimeAccountComponent {
+		div.legend {
+				.text-muted();
+				text-align: right;
+		}
+		span.visum {
+				display: inline-block;
+				margin-left: 1em;
+				padding-top: 0.5em;
+		}
+		table.entries {
+				td.number {
+						text-align: right;
+
+						&.saldo {
+								background-color: #eee;
+						}
+				}
+
+				td.calculationInfo {
+						span + span {
+								margin-left: 0.5em;
+						}
+				}
+		}
+}
+
+span.decimalNumber {
+		font-family: monospace;
+}
+
+div.ALTtaAdminCockpit {
+		table {
+				td.saldo {
+						text-align: right;
+				}
+		}
+}
+

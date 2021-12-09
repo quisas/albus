@@ -30,7 +30,8 @@ $(document).ready(function() {
 	    max_file_size: pluploadMaxFileSize,
 			max_files_count: 1,
 	    mime_types : [
-	      { title : "Erlaubte Dateiformate", extensions : seasideAllowedFileExtensions() }
+	      { title : "Erlaubte Dateiformate",
+					extensions : seasideAllowedFileExtensions() }
 	    ]
 	  }    
 	});
@@ -41,13 +42,16 @@ $(document).ready(function() {
 		
 		var html = "";
 		plupload.each(files, function(file) {
-			html += "<span id=\"" + file.id + "\"><span class=\"uploadStatus\">0%</span> " + file.name + " (" + plupload.formatSize(file.size) + ")</span>";
+			html += '<span class="uploadFile" id="' + file.id + '"><span class="uploadStatus"><progress value="0" max="100">0%</progress></span> ' + file.name + ' (' + plupload.formatSize(file.size) + ')</span>';
 		});
 		document.getElementById("pluploadFile").innerHTML = html;
 
 		$("#pluploadBrowseButton").hide();
 
-		up.start();
+		setTimeout(function() {
+			up.start();
+		}, 700)
+//		up.start();
 
 	});
 
@@ -55,11 +59,18 @@ $(document).ready(function() {
 	uploader.bind("UploadProgress", function(up, file) {
 		var element = document.getElementById(file.id).querySelector("span.uploadStatus");
 		
+		// if (file.percent == 100) {
+		// 	element.innerHTML = "<span>100%</span>";
+		// } else {
+		// 	element.innerHTML = "<span>" + file.percent + "%</span>";
+		// }
+
 		if (file.percent == 100) {
-			element.innerHTML = "<span>FERTIG</span>";
+			element.innerHTML = '<progress value="100" max="100">100%</progress>';
 		} else {
-			element.innerHTML = "<span>" + file.percent + "%</span>";
+			element.innerHTML = '<progress value="' + file.percent + '" max="100">' + file.percent + '%</progress>';
 		}
+
 	});
 
 	// After a file is finished uploading
@@ -76,7 +87,7 @@ $(document).ready(function() {
 	uploader.bind("UploadComplete", function(up, file) {
 		setTimeout(function() {
 			location.reload();
-		}, 500)
+		}, 700)
 	});
 
 

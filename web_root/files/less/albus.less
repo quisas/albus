@@ -230,8 +230,17 @@ textarea.likeTextInput {
 
 td.actions {
 		white-space: nowrap;
+
+		&:last-child {
+				text-align: right;
+		}
 }
 
+div.page-header {
+		span.pageHeaderIcon {
+				color: #444;
+		}
+}
 
 
 div.ALWeekdayByTimeSchedule {
@@ -474,8 +483,13 @@ div.flashMessages, div.flashError {
 ul.errors {
   .alert;
   .alert-danger;
+//	.list-unstyled;
   margin: 10px 0;
-  padding-left: 30px;
+	padding-left: 30px;
+
+	ul {
+			.list-unstyled;
+	}
 }
 
 th.error {
@@ -626,6 +640,7 @@ div.magritteTableContainer {
 		}
 
 		table.table-magritte {
+//				border: 1px solid #666;
 				> tbody {
 						> tr {
 
@@ -645,21 +660,24 @@ div.magritteTableContainer {
 								
 								> th {
 										//        white-space: nowrap;
-										background-color: #f6f6f6;
+//										background-color: #f6f6f6;
+										background-color: #f0f0f0;
 										padding: 5px 3px 2px 5px;
 										border-top: 2px solid white;
 										border-bottom: 2px solid white;
 										width: 214px;
 										//        &:extend(.col-sm-4);
 										
-										&.required {
-												//          background-color: #f0f0f0;
-												border-left: 3px solid @requiredColor;
-										}
+										// &.required {
+										// 		span.labelText {
+										// 				border-bottom: 1px dotted;
+										// 		}
+										// }
 
 										div.htmlRemarks {
 												font-size: 90%;
 												font-weight: normal;
+												color: #666;
 										}
 
 										span.commentIcon {
@@ -701,6 +719,18 @@ div.magritteTableContainer {
 						> tbody > tr {
 								> th {
 										height: 34px;
+
+										&.required {
+												//          background-color: #f0f0f0;
+												// hässlich												border-left: 3px solid @requiredColor;
+												
+												span.labelText {
+														// text-decoration: underline;
+														border-bottom: 1px dotted;
+												}
+										}
+										
+
 								}
 								
 								> td.readonly {
@@ -2122,8 +2152,7 @@ div.ALMyStudentHomeComponent {
 
 		div.pastAbsences {
 				max-height: 200px;
-				overflow: scroll;
-				border: 1px solid #999;
+				overflow: auto;
 
 				// div.topIndicator {
 				// 		.linearGradient(#f0f0f0);
@@ -2144,6 +2173,12 @@ div.ALMyStudentHomeComponent {
 				// }				
 		}
 
+		div.pastAbsences, div.upcomingAbsences {
+				border: 1px solid #ccc;
+				margin-bottom: 0.5em;
+		}
+
+		
 		div.upcomingExams {
 				max-height: 200px;
 				overflow: scroll;

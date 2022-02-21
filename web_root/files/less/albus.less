@@ -6,7 +6,7 @@
 @highlightColor: yellow;
 @highlightBorder: 1px solid red;
 @nonCurrentColor: #FCC;
-@requiredColor: #ffffaa;
+// @requiredColor: #ffffaa;
 
 @import "schedule.less";
 
@@ -187,19 +187,31 @@ body
 
 
 // Für Submitbuttons welche wie ein Link aussehen sollen
-input[type="submit"].hideButton,
-button[type="submit"].hideButton {
-		color: @link-color !important;
-		border: none !important;
-		background: transparent !important;
-		margin: 0 !important;
-		padding: 0 !important;
+input[type="submit"], button[type="submit"] {
 
-		&:hover {
-				color: @link-hover-color !important;
-				text-decoration: @link-hover-decoration !important;
+		&.hideButton {
+				color: @link-color !important;
+				border: none !important;
+				background: transparent !important;
+				margin: 0 !important;
+				padding: 0 !important;
+
+				&:hover {
+						color: @link-hover-color !important;
+						text-decoration: @link-hover-decoration !important;
+				}
 		}
+
+		// Icon at beginning
+		.icon:first-child {
+				margin-right: 2px;
+				width: 1.5em;
+				text-align: center;
+		}
+
+
 }
+
 
 // Für Elemente die ein und ausgeblendet werden
 .displayNone {
@@ -1694,12 +1706,26 @@ div.ALFreeformDesignerComponent {
 												height: 24px;
 										}
 								}
+
+								div.checkbox {
+										display: inline-block;
+										margin-right: 1em;
+								}
 						}
 
 						&.ALFfDivider {
 								min-height: @handleHeight/2;
 								hr {
 										border-top-color: black;
+								}
+						}
+
+						&.ALFfItemsReservation {
+								div.reservableItems {
+										input[type=text] {
+												display: inline;
+										}
+
 								}
 						}
 						
@@ -1769,6 +1795,26 @@ div.ALFreeformFillinComponent, div.ALFreeformFillinTestComponent {
 								color: red;
 						}
 				}
+
+				&.ALFfItemsReservation {
+
+						div.reservableItem {
+								padding-top: 7px;
+
+								label.checkbox-inline {
+										padding-top: 0;
+								}
+								
+								span.itemQuantity {
+										display: inline-block;
+										//								position: relative;
+										//								padding-top: 7px;
+										vertical-align: middle;
+								}
+						}
+						
+				}
+				
 		}
 
 		span.priorityIndex {
@@ -2465,7 +2511,7 @@ div.ALPortraitImageOverviewComponent {
 
 span.bsIcon {
 		&.requiredIcon {
-				color: @requiredColor;
+				color: green;
 		}
 }
 
@@ -2649,7 +2695,10 @@ div.ALTeachingSubstitutionCockpit {
 div.ALTeacherTimeAccountComponent {
 		div.legend {
 				.text-muted();
-				text-align: right;
+				margin-top: 5px;
+				margin-bottom: 3px;
+				margin-left: 3px;
+//				text-align: right;
 		}
 		span.visum {
 				display: inline-block;

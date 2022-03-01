@@ -1781,6 +1781,24 @@ div.ALFreeformFillinComponent, div.ALFreeformFillinTestComponent {
 		// 		background-color: lightyellow;
 		// }
 
+		div.insightArea {
+				div.ALGenericTableReportComponent {
+						overflow: visible;
+						table.table.table-bordered.genericTableReport {
+								background-color: white;
+								thead {
+										position: sticky;
+										top: 0; // required for the stickiness
+										> tr {
+												> th {
+														background-color: white;
+												}
+										}
+								}
+						}
+				}
+		}
+		
 		div.freeformBrick {
 				&.important {
 						background-color: lightyellow;

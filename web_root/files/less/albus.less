@@ -1015,7 +1015,8 @@ div.ALGenericTableReportComponent {
 }
 
 .fiveColumns {
-  .content-columns(5);
+		.content-columns(5);
+// not Firefox		orphans: 3;
 }
 
 .sixColumns {
@@ -1688,6 +1689,21 @@ div.ALFreeformDesignerComponent {
 								margin-top: 10px;
 								min-height: @handleHeight;
 								background-color: #f6f6f6;
+
+								label {
+										font-weight: 500;
+										margin-top: 0.5em;
+								}
+								
+								input[type=text].brickLabel {
+										font-weight: bold;
+										font-size: 120%;
+
+										&::placeholder {
+												color: #bbb;
+												font-weight: normal;
+										}
+								}
 
 								div.brickCode {
 										float: right;
@@ -2783,4 +2799,40 @@ div.ALPeriodSyncer, div.ALGenericModelSyncer {
 				}
 		}
 
+}
+
+div.ALPeoplePicker {
+
+		// Tighten up margin so it's only between panels
+		.panel {
+				margin-bottom: 0;
+				border-radius: @panel-border-radius;
+
+				+ .panel {
+						margin-top: 5px;
+				}
+
+				div.checkboxesGroup {
+						break-inside: avoid;
+						page-break-inside: avoid;
+
+						div.capitalLetter {
+								margin-top: 1em;
+						}
+						
+						div.checkbox {
+								margin-top: 0;
+								margin-bottom: 0;
+						}
+				}
+		}
+}
+
+.collapseHandle {
+		&:not(.collapsed) {
+				span.icon.collapseIcon {
+						transform: scale(1, -1);
+//						transform: rotateX(180deg);
+				}
+		}
 }

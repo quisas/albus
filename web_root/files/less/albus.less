@@ -2738,6 +2738,7 @@ div.ALTeacherTimeAccountComponent {
 		span.visum {
 				display: inline-block;
 				margin-left: 1em;
+				margin-right: 1em;
 				padding-top: 0.5em;
 		}
 		table.entries {
@@ -2763,8 +2764,10 @@ span.decimalNumber {
 
 div.ALTtaAdminCockpit {
 		table {
-				td.saldo {
-						text-align: right;
+				td {
+						&.saldo, &.saldoUnterricht, &.saldoIntern, &.saldoExtern {
+								text-align: right;
+						}
 				}
 		}
 }

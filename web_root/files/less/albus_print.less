@@ -32,7 +32,7 @@
     }
 
 		table {
-				page-break-inside: avoid;
+				break-inside: auto;
 		}
 		
 		.noPrint 
@@ -69,11 +69,11 @@
 		}
 
 		div.componentCollectionItem{
-				page-break-after: always;
+				break-after: page;
 		}
 
 		div.componentCollectionItem:last-child {
-				page-break-after: never !important;
+				break-after: avoid !important;
 		}
 		
 }

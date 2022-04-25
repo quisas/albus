@@ -1475,9 +1475,6 @@ div.ALReportsComponent {
 
 		
 		div.reportSection {
-				margin-top: 5px;
-				padding-top: 5px;
-				border-top: 1px dotted gray;
 
 				div.execution {
 						text-align: right;
@@ -1503,6 +1500,14 @@ div.ALReportsComponent {
 				
 		}
 
+		div.reportSection, div.reportsGroup {
+				+ div.reportSection, + div.reportsGroup {
+						margin-top: 5px;
+						padding-top: 5px;
+						border-top: 1px dotted gray;
+				}
+		}
+		
 		div.reportsGroup {
 				&:hover {
 						div.reportSection {
@@ -2092,8 +2097,9 @@ div.ALMarksReportSubmitterBase {
 				.topBuffer();
 				
 				div.panel-body {
-						// .small();
+						.small();
 						.text-muted();
+						font-family: monospace;
 						max-height: 300px;
 						overflow: auto;
 				}
@@ -2765,8 +2771,11 @@ span.decimalNumber {
 div.ALTtaAdminCockpit {
 		table {
 				td {
-						&.saldo, &.saldoUnterricht, &.saldoIntern, &.saldoExtern {
+						&.summe, &.saldo, &.saldoUnterricht, &.saldoIntern, &.saldoExtern {
 								text-align: right;
+						}
+						&.saldo {
+								background-color: #eee;
 						}
 				}
 		}
@@ -2779,11 +2788,13 @@ div.ALPlUploaderComponent {
 }
 
 div.ALPeriodsSyncingCockpit {
-		a.btn {
-				display: block;
-				width: 33%;
-				margin: 0.5em 0;
-				text-align: left;
+		div.subSyncers {
+				a.btn {
+						display: block;
+						width: 33%;
+						margin: 0.5em 0;
+						text-align: left;
+				}
 		}
 }
 
@@ -2836,6 +2847,15 @@ div.ALPeoplePicker {
 				span.icon.collapseIcon {
 						transform: scale(1, -1);
 //						transform: rotateX(180deg);
+				}
+		}
+}
+
+div.ALNewPeriodWizard {
+		fieldset {
+				margin-bottom: 2em;
+				legend {
+						margin-bottom: 0;
 				}
 		}
 }

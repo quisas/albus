@@ -1,8 +1,8 @@
 /* ===================================================
- * bootstrap-markdown.js v2.9.0
+ * bootstrap-markdown.js v2.10.0
  * http://github.com/toopay/bootstrap-markdown
  * ===================================================
- * Copyright 2013-2015 Taufan Aditya
+ * Copyright 2013-2016 Taufan Aditya
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,8 +17,18 @@
  * limitations under the License.
  * ========================================================== */
 
-!function ($) {
-
+(function(factory){
+    if (typeof define === "function" && define.amd) {
+        //RequireJS
+        define(["jquery"], factory);
+    } else if (typeof exports === 'object') {
+        //Backbone.js
+        factory(require('jquery'));
+    } else {
+        //Jquery plugin
+        factory(jQuery);
+    }
+}(function($){
   "use strict"; // jshint ;_;
 
   /* MARKDOWN CLASS DEFINITION
@@ -151,15 +161,19 @@
         this.$textarea.css('resize',this.$options.resize);
       }
 
-      this.$textarea
-        .on('focus',    $.proxy(this.focus, this))
-        .on('keypress', $.proxy(this.keypress, this))
-        .on('keyup',    $.proxy(this.keyup, this))
-        .on('change',   $.proxy(this.change, this))
-        .on('select',   $.proxy(this.select, this));
+      this.$textarea.on({
+          'focus' : $.proxy(this.focus, this),
+          'keyup' : $.proxy(this.keyup, this),
+          'change' : $.proxy(this.change, this),
+          'select' : $.proxy(this.select, this)
+      });
 
       if (this.eventSupported('keydown')) {
         this.$textarea.on('keydown', $.proxy(this.keydown, this));
+      }
+
+      if (this.eventSupported('keypress')) {
+        this.$textarea.on('keypress', $.proxy(this.keypress, this))
       }
 
       // Re-attach markdown data
@@ -1037,7 +1051,8 @@
 
             link = prompt(e.__localize('Insert Hyperlink'),'http://');
 
-            if (link !== null && link !== '' && link !== 'http://' && link.substr(0,4) === 'http') {
+            var urlRegex = new RegExp('^((http|https)://|(mailto:)|(//))[a-z0-9]', 'i');
+            if (link !== null && link !== '' && link !== 'http://' && urlRegex.test(link)) {
               var sanitizedLink = $('<div>'+link+'</div>').text();
 
               // transform selection and set the cursor into chunked text
@@ -1066,7 +1081,8 @@
 
             link = prompt(e.__localize('Insert Image Hyperlink'),'http://');
 
-            if (link !== null && link !== '' && link !== 'http://' && link.substr(0,4) === 'http') {
+            var urlRegex = new RegExp('^((http|https)://|(//))[a-z0-9]', 'i');
+            if (link !== null && link !== '' && link !== 'http://' && urlRegex.test(link)) {
               var sanitizedLink = $('<div>'+link+'</div>').text();
 
               // transform selection and set the cursor into chunked text
@@ -1371,4 +1387,4 @@
       })
     });
 
-}(window.jQuery);
+}));

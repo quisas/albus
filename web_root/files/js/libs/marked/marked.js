@@ -795,10 +795,12 @@ Renderer.prototype.html = function(html) {
 Renderer.prototype.heading = function(text, level, raw) {
   return '<h'
     + level
-    + ' id="'
-    + this.options.headerPrefix
-    + raw.toLowerCase().replace(/[^\w]+/g, '-')
-    + '">'
+	// Andreas Brodbeck: No need for ID
+  // + ' id="'
+  // + this.options.headerPrefix
+  // + raw.toLowerCase().replace(/[^\w]+/g, '-')
+  // + '"'
+    + '>'
     + text
     + '</h'
     + level
@@ -1254,7 +1256,7 @@ marked.setOptions = function(opt) {
 marked.defaults = {
   gfm: true,
   tables: true,
-  breaks: false,
+  breaks: true,
   pedantic: false,
   sanitize: false,
   sanitizer: null,
@@ -1266,7 +1268,7 @@ marked.defaults = {
   smartypants: false,
   headerPrefix: '',
   renderer: new Renderer,
-  xhtml: false
+  xhtml: true
 };
 
 /**

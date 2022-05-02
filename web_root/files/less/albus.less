@@ -13,14 +13,27 @@
 
 
 
-a {
+a, span.likeAnchor {
 		&:hover i {
 				text-decoration: none;
 		}
 
+		// Icon at beginning of link
+		.icon:first-child {
+				margin-right: 2px;
+				width: 1.5em;
+				text-align: center;
+		}
+		
 		&.action {
 				margin-left: 3px;
 				margin-right: 3px;
+
+				.icon:first-child {
+//						margin-right: 2px;
+						width: unset;
+//						text-align: center;
+				}
 		}
 
 		&.lowlight {
@@ -51,12 +64,6 @@ a {
 		// 		visibility: hidden;
 		// }
 
-		// Icon at beginning of link
-		.icon:first-child {
-				margin-right: 2px;
-				width: 1.5em;
-				text-align: center;
-		}
 }
 
 .jumpAnchor {
@@ -516,7 +523,11 @@ form {
     display: none;
     visibility: hidden;
   }
-  
+
+  .transparentDirtyWarn {
+    visibility: hidden;
+  }
+
   .showWhenDirty {
     display: none;
     visibility: hidden;
@@ -540,58 +551,69 @@ form {
 			}
 	}
 
+
+
+	&.dirty {
+			span.dirtyFlag {
+					display: inline;
+					color: black;
+					font-weight: bold;
+					/*    visibility: visible; */
+			}
+			
+			input.dirtyWarn,
+			button.dirtyWarn {
+					.btn-warning;
+			}
+
+			.hiddenDirtyWarn {
+					visibility: visible;
+			}
+
+			div.hiddenDirtyWarn {
+					display: block;
+					margin: 5px 0px;
+			}
+
+			input.hiddenDirtyWarn,
+			button.hiddenDirtyWarn,
+			a.btn.hiddenDirtyWarn {
+					.btn-warning;
+					display: inline;
+			}
+
+			.transparentDirtyWarn {
+					visibility: visible;
+			}
+
+			input.transparentDirtyWarn,
+			button.transparentDirtyWarn,
+			a.btn.transparentDirtyWarn {
+					.btn-warning;
+			}
+
+			
+			a.btn.showWhenDirty {
+					visibility: visible;
+					display: inline-block;
+			}
+
+			.hideWhenDirty {
+					display: none;
+					visibility: hidden;
+			}
+
+			.transparentWhenDirty {
+					visibility: hidden;
+			}
+			
+			.mutedWhenDirty {
+					pointer-events: none;
+					opacity: 0.5;
+			}
+			
+	}
 }
-
-form.dirty {
-  span.dirtyFlag {
-    display: inline;
-    color: black;
-    font-weight: bold;
-/*    visibility: visible; */
-  }
-  
-  input.dirtyWarn,
-  button.dirtyWarn {
-    .btn-warning;
-  }
-
-  .hiddenDirtyWarn {
-    visibility: visible;
-  }
-
-  div.hiddenDirtyWarn {
-    display: block;
-    margin: 5px 0px;
-  }
-
-  input.hiddenDirtyWarn,
-  button.hiddenDirtyWarn,
-  a.btn.hiddenDirtyWarn {
-    .btn-warning;
-    display: inline;
-  }
-
-  a.btn.showWhenDirty {
-    visibility: visible;
-    display: inline-block;
-  }
-
-  .hideWhenDirty {
-    display: none;
-    visibility: hidden;
-  }
-
-  .transparentWhenDirty {
-    visibility: hidden;
-  }
-  
-  .mutedWhenDirty {
-			pointer-events: none;
-			opacity: 0.5;
-  }
-  
-}
-
 
 div.row.row-highlight:hover {
   background-color: @gray-light;
@@ -936,7 +958,7 @@ table.inbox {
 
 }
 
-p.parcel-message {
+div.parcel-message {
   max-width: 600px;
 }
 
@@ -2137,9 +2159,10 @@ div.markdownTarget {
 				.generate-headers(@n, (@i + 1));
 		}
 
-		// ul, ol {
-		// 		margin-left: -10px;
-		// }
+		ul, ol {
+//				margin-left: 0;
+				padding-left: 1em;
+		}
 }
 
 div.ALAdminMarksReportsCockpit {
@@ -2227,6 +2250,11 @@ div.ALMaturarbeitCockpit {
 		// 		overflow: hidden;
 		// 		text-overflow: ellipsis;
 		// }		
+}
+
+
+div.ALMyHomeComponent {
+		
 }
 
 div.ALMyStudentHomeComponent {
@@ -2856,6 +2884,97 @@ div.ALNewPeriodWizard {
 				margin-bottom: 2em;
 				legend {
 						margin-bottom: 0;
+				}
+		}
+}
+
+
+div.ALTodolistUsageComponent {
+		table.todoTable {
+
+				.topBuffer();
+
+				tr.isDue {
+						div.todoTitle, div.todoDueDate {
+								.text-danger();
+						}
+				}
+
+				td.todoDescription {
+						width: 33%;
+						div.todoTitle {
+								font-weight: bold;
+								font-size: 120%;
+						}
+						div.todoDescriptionText {
+								margin-top: 0.5em;
+						}
+				}
+		}
+		
+		table.answersTable {
+//				.table-hover();
+				
+				width: 100%;
+
+				col.colCheckbox {
+						width: 1%;
+				}
+				col.colText {
+						width: 50%;
+				}
+				col.colTimestamp {
+//						width: 5%;
+				}
+
+				tr {
+						line-height: 1.8em;
+						
+						a.checkboxAnchor {
+								&:hover {
+										text-decoration: none;
+										background-color: #ddd;
+								}
+						}
+						&.my.ok {
+								a.checkboxAnchor {
+										color: green;
+								}
+						}
+
+						td {
+								&.colCheckbox {
+										white-space: nowrap;
+										padding-right: 1em;
+										.icon {
+												font-size: 130%;
+												vertical-align: text-bottom;
+										}
+								}
+								&.colText {
+										white-space: nowrap;
+										input[type=text] {
+												font-style: italic;
+												width: 100%;
+												height: 1.6em;
+												padding: 0 2px;
+												margin-right: 0.5em;
+												&.dirty {
+														.bg-warning();
+												}
+										}
+										span.quote {
+												font-style: italic;
+										}
+								}
+								&.colTimestamp {
+										white-space: nowrap;
+										text-align: right;
+								}
+								
+						}
+
+						
 				}
 		}
 }

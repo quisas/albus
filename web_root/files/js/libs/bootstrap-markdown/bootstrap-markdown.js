@@ -17,6 +17,8 @@
  * limitations under the License.
  * ========================================================== */
 
+// Slightly modified by Andreas Brodbeck
+
 (function(factory){
     if (typeof define === "function" && define.amd) {
         //RequireJS
@@ -1049,10 +1051,10 @@
               chunk = selected.text;
             }
 
-            link = prompt(e.__localize('Insert Hyperlink'),'http://');
+            link = prompt(e.__localize('Insert Hyperlink'),'https://');
 
             var urlRegex = new RegExp('^((http|https)://|(mailto:)|(//))[a-z0-9]', 'i');
-            if (link !== null && link !== '' && link !== 'http://' && urlRegex.test(link)) {
+            if (link !== null && link !== '' && link !== 'https://' && urlRegex.test(link)) {
               var sanitizedLink = $('<div>'+link+'</div>').text();
 
               // transform selection and set the cursor into chunked text
@@ -1079,10 +1081,10 @@
               chunk = selected.text;
             }
 
-            link = prompt(e.__localize('Insert Image Hyperlink'),'http://');
+            link = prompt(e.__localize('Insert Image Hyperlink'),'https://');
 
             var urlRegex = new RegExp('^((http|https)://|(//))[a-z0-9]', 'i');
-            if (link !== null && link !== '' && link !== 'http://' && urlRegex.test(link)) {
+            if (link !== null && link !== '' && link !== 'https://' && urlRegex.test(link)) {
               var sanitizedLink = $('<div>'+link+'</div>').text();
 
               // transform selection and set the cursor into chunked text

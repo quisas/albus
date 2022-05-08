@@ -13,7 +13,7 @@
     'Ordered List': "Nummerierte Liste",
     'Code': "Quelltext",
     'Quote': "Zitat",
-    'Preview': "Vorschau",
+    'Preview': "Formatierte Vorschau",
     'strong text': "Sehr betonter Text",
     'emphasized text': "Betonter Text",
     'heading text': "Überschrift Text",

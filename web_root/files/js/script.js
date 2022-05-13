@@ -192,14 +192,20 @@ function speak(aText) {
 	}
 }
 
-var bounceTimeout;
-function debounce(aFunction, delay) {
-	if (!delay) {
-		delay = 1000;
-	}
-  clearTimeout(bounceTimeout);
-  bounceTimeout = setTimeout(aFunction, delay);
+// var bounceTimeout;
+// function debounce(aFunction, delay = 1000) {
+//   clearTimeout(bounceTimeout);
+//   bounceTimeout = setTimeout(aFunction, delay);
+// }
+
+function debounce(func, timeout = 300){
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { func.apply(this, args); }, timeout);
+  };
 }
+
 
 function debouncedSpeak(aText, delay) {
 	if (!delay) {
@@ -448,4 +454,86 @@ function onBackButton(thenCallback) {
 		thenCallback();
   }
 
+}
+
+
+function simpleCrypt(salt, text) {
+  const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0));
+  const byteHex = (n) => ("0" + Number(n).toString(16)).substr(-2);
+  const applySaltToChar = (code) => textToChars(salt).reduce((a, b) => a ^ b, code);
+
+  return text
+    .split("")
+    .map(textToChars)
+    .map(applySaltToChar)
+    .map(byteHex)
+    .join("");
+};
+
+function simpleDecrypt(salt, encoded) {
+  const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0));
+  const applySaltToChar = (code) => textToChars(salt).reduce((a, b) => a ^ b, code);
+  return encoded
+    .match(/.{1,2}/g)
+    .map((hex) => parseInt(hex, 16))
+    .map(applySaltToChar)
+    .map((charCode) => String.fromCharCode(charCode))
+    .join("");
+};
+
+
+function truncateString(str, num) {
+  if (str.length <= num) {
+    return str
+  }
+  return str.slice(0, num) + '...'
+}
+
+// Captures long texts in text areas, which should not be lost, due to browser handling. Save them in sessionStorage.
+function installTextareaAutosaver(textareaId, semanticId, label) {
+
+	const textarea = document.getElementById(textareaId);
+	
+	const storageKey = "albusAutosaveTextarea" + semanticId;
+	const storageValue = sessionStorage.getItem(storageKey);
+
+	if (storageValue) {
+		var savedObject;
+		try {
+			savedObject = JSON.parse(simpleDecrypt(semanticId, storageValue))
+		} catch (e) {
+			savedObject = null
+		};
+
+		// Autodelete if old
+		// -12 hours
+		const dueTimestamp = (new Date()).getTime() - (12 * 60 * 60 * 1000);
+		if (savedObject) {
+			if (savedObject.timestamp < dueTimestamp) {
+				savedObject = null
+			}
+		}
+		
+		// See if we have an autosave value
+		if (savedObject && (savedObject.text != textarea.value) ) {
+			if (confirm("ACHTUNG: \nMöglicherweise haben Sie einen bereits eingetippten Text noch nicht gespeichert? Soll der folgende Feldinhalt wiederhergestellt werden? \n\nFormularfeld: " + label + "\nText: " + truncateString(savedObject.text, 500) )) {
+				textarea.value = savedObject.text;
+			} else {
+				sessionStorage.removeItem(storageKey);
+			};
+		}
+	}
+	
+	// Listen for changes in the text field
+	textarea.addEventListener("input", debounce(function() {
+		const object = { text: textarea.value, timestamp: new Date().getTime() }
+		const confusedObjectString = simpleCrypt(semanticId, JSON.stringify(object) );
+		sessionStorage.setItem(storageKey, confusedObjectString);
+	}, 1000));
+
+	// Remove value, if form is submitted
+	textarea.form.addEventListener("submit", function() {
+		sessionStorage.removeItem(storageKey);
+	});
+	
 }

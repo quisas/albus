@@ -623,28 +623,39 @@ div.row.row-highlight:hover {
   background-color: @gray-light;
 }
 
-a.search-result {
-  display: block;
 
-  &:hover {
-    background-color: @gray-lighter;
-  }
+div.ALModelsFinder {
 
+		div.resultsSection {
+
+				margin-top: 1em;
+				
+				div.searchResults {
+						@color: #EEF4E5;
+						//  border: 1px solid @gray-light;
+						background-color: @color;
+						max-width: 600px;
+						overflow: auto;
+						padding: 3px 5px;
+						margin: 3px 0 5px 0;
+						
+						ul {
+								margin: 0px;
+
+								a.searchResult {
+										display: block;
+
+										&:hover {
+												background-color: darken(@color, 10%);
+										}
+
+								}
+								
+						}
+				}
+		}
+		
 }
-
-div.searchResults {
-//  border: 1px solid @gray-light;
-  background-color: #EEF4E5;
-  max-width: 600px;
-  overflow: auto;
-  padding: 3px 5px;
-  margin: 3px 0 5px 0;
-  
-  ul {
-    margin: 0px;
-  }
-}
-
 
 
 // div.trail {
@@ -686,8 +697,15 @@ div.magritteTableContainer {
 												display: table-row;
 										}
 
+										&.beVisible {
+												> th {
+														color: green;
+												}
+										}
+
 										// > th {
-										// 		background-color: #f6f6f6;
+										// 		color: green;
+										// 		// background-color: #f6f6f6;
 										// }
 								}
 								
@@ -739,6 +757,10 @@ div.magritteTableContainer {
 										border: none;
 										vertical-align: middle;
 
+										ul {
+												margin-bottom: 0;
+										}
+										
 										div.htmlExtras {
 												.pull-right()
 										}
@@ -1321,11 +1343,11 @@ div.ALAddressLabelReportComponent {
   
   div.searchResults {
     border: 1px solid @gray-light;
-    background-color: @gray-lighter;
+//    background-color: @gray-lighter;
     max-height: 300px;
     overflow: auto;
-    padding: 3px 5px;
-    margin: -3px -5px;
+    // padding: 3px 5px;
+    // margin: -3px -5px;
   }
 }
 
@@ -1901,16 +1923,35 @@ div.ALFreeformDisplayerComponent {
 
 #documentProgressbar {
 		position: fixed;
-		z-index: 999;
+		z-index: @zindex-modal-background;
 //		background-color: gray;
 		font-size: 120%;
-		margin: 0 auto;
-		top: 40%;
-		left: 20%;
-		right: 20%;
-		bottom: 40%;
-		text-align: center;
-		padding: 50px 0;
+
+		// margin: 0 auto;
+		// top: 40%;
+		// left: 20%;
+		// right: 20%;
+		// bottom: 40%;
+		// text-align: center;
+		// padding: 50px 0;
+
+
+		margin: 0;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(50,50,50, 0.7);
+//		text-align: center;
+		padding: 20% 20%;
+
+		div.alert {
+				z-index: @zindex-modal;
+				min-height: 20vh;
+				text-align: center;
+				padding: 50px 0;
+		}
+		
 }
 
 // Zeugnisse
@@ -2716,6 +2757,10 @@ div.ALStudentViewer {
 				// }
 		}
 
+		div.residentialInfo {
+				margin-bottom: 1em;
+		}
+
 		table.generalInfo {
 				th {
 						width: 10%;
@@ -2743,9 +2788,14 @@ div.ALSecureTransfersCockpit {
 }
 
 div.infoText, span.infoText {
-		span.text {
-				.text-muted();
-		}
+		.text-muted();
+		// span.text {
+		// 		.text-muted();
+		// }
+}
+
+div.infoText {
+		margin-top: 0.3em; // Wegen info-Icon
 }
 
 div.ALTeachingSubstitutionCockpit {

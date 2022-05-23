@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python2.7
 """
 FUNCTION: Converts a CSV (tab delimited) file to an Excel xlsx file.
 
@@ -58,4 +58,5 @@ sh = wb.get_active_sheet()
 with open((args.input_file + '.csv'), 'wb') as f:
     c = csv.writer(f,delimiter="\t")
     for r in sh.rows:
-        c.writerow([xstr(cell.value) for cell in r][:50])
+        # c.writerow([xstr(cell.value) for cell in r][:50])
+        c.writerow([xstr(cell.value) for cell in r])

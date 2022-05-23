@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python2.7
 """
 FUNCTION: Converts a CSV (tab delimited) file to an Excel xlsx file.
 

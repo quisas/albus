@@ -260,6 +260,13 @@ div.backButton {
 		.bottomBuffer();
 }
 
+.log {
+		font-family: @font-family-monospace;
+}
+
+
+
+
 
 div.ALWeekdayByTimeSchedule {
   table.schedule {
@@ -2166,7 +2173,7 @@ div.ALMarksReportSubmitterBase {
 				div.panel-body {
 						.small();
 						.text-muted();
-						font-family: monospace;
+						.log();
 						max-height: 300px;
 						overflow: auto;
 				}
@@ -2852,6 +2859,15 @@ span.decimalNumber {
 
 div.ALTtaAdminCockpit {
 		table {
+				tr.totals {
+						td {
+								border-top-width: 3px;
+								&.total {
+										text-align: right;
+										font-weight: bold;
+								}
+						}
+				}
 				td {
 						&.summe, &.saldo, &.saldoUnterricht, &.saldoIntern, &.saldoExtern {
 								text-align: right;
@@ -3034,9 +3050,32 @@ div.ALTodolistUsageComponent {
 }
 
 div.ALGraduationMarksReportSimulator {
+		@thickness: 5px;
+		@simColor: darkred;
+		
+		border: @thickness dotted @simColor;
+		padding: @thickness;
+		margin: 0px (-2 * @thickness);
+
+		> div.page-header:first-child h1 {
+				color: @simColor;
+		}
+
+		div.ALMarksReportComponent {
+				div.page-header h1 {
+						font-size: 2.5rem;
+				}
+		}
+		
 		hr.bigDivider {
-				margin-top: 5em;
-				margin-bottom: 1em;
-				border-top: 5px solid black;
+				margin-top: 2em;
+				margin-bottom: 0.5em;
+//				border-top: @thickness solid black;
+				border-top: @thickness dotted @simColor;
+		}
+
+		div.dividerTitle {
+				font-weight: bold;
+				color: @simColor;
 		}
 }

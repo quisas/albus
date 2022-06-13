@@ -32,6 +32,7 @@
     }
 
 		table {
+				page-break-inside: avoid; // alt für wkhtmltopdf
 				break-inside: auto;
 		}
 		
@@ -50,7 +51,7 @@
 		}
 
 
-		// Notenliste
+		// Notenliste Drucksteuerung
 		.marksList {
 				.btn-toolbar {
 						.noPrint()
@@ -69,10 +70,12 @@
 		}
 
 		div.componentCollectionItem{
+				page-break-after: always; // alt für wkhtmltopdf
 				break-after: page;
 		}
 
 		div.componentCollectionItem:last-child {
+				page-break-after: never !important; // alt für wkhtmltopdf
 				break-after: avoid !important;
 		}
 		

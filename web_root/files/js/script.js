@@ -537,3 +537,30 @@ function installTextareaAutosaver(textareaId, semanticId, label) {
 	});
 	
 }
+
+function initUiInteractionBlocker(secondsToGo, secondsToStay) {
+	const blocker = document.getElementById('uiInteractionBlocker');
+
+//	secondsToGo = 1; // Testing!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+	blocker.onclick = function(e) {
+		blocker.classList.add('clicked');
+	}
+	
+	function activateMe() {
+		blocker.style.display = '';
+		setTimeout(deactivateMe, secondsToStay * 1000);
+	}
+
+	function deactivateMe() {
+		blocker.style.display = 'none';
+	}
+
+	// If negative or zero means, backup is running right now
+	if (secondsToGo > 0) {
+		setTimeout(activateMe, secondsToGo * 1000);
+	}	else {
+		activateMe();
+	}
+	
+}

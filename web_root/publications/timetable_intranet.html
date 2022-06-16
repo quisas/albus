@@ -1,111 +1,95 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Refresh" content="61" />
-    <meta http-equiv="CACHE-CONTROL" content="no-cache, no-store, must-revalidate, max-age=0" />
-    <meta http-equiv="PRAGMA" content="NO-CACHE" />
-    <meta http-equiv="EXPIRES" content="0" />
-    <script src="javascripts/prototype.js" type="text/javascript"></script>
-    <script type="text/javascript">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Refresh" content="61" />
+  <meta http-equiv="CACHE-CONTROL" content="no-cache, no-store, must-revalidate, max-age=0" />
+  <meta http-equiv="PRAGMA" content="NO-CACHE" />
+  <meta http-equiv="EXPIRES" content="0" />
 
-      window.onload = initialize
+	<script src="/publications/javascripts/commonlib.js" type="text/javascript"></script>
 
-      function get_workday_dates(count) {
-        var current_day = new Date();
-        var workday_dates = new Array();
+  <script src="javascripts/prototype.js" type="text/javascript"></script>
+  <script type="text/javascript">
 
-        while (workday_dates.length < count) {
-          // Wenn aktueller Tag nicht Sa. (=6) oder So. (=0)
-          if (current_day.getDay() != 6 && current_day.getDay() != 0) {
-            // Add new Date copy to the list
-            workday_dates.push(new Date(current_day));
-          }
+   window.onload = initialize;
 
-          current_day.setDate(current_day.getDate()+1);
-        }
-       return workday_dates 
-      }
 
-      function is_frame_empty(frame_name) {
-        return document.getElementById(frame_name).contentDocument.body.innerHTML.trim().empty()
-      }
+   function is_frame_empty(frame_name) {
+    return document.getElementById(frame_name).contentDocument.body.innerHTML.trim().empty();
+   }
 
-      function set_frame_to_file(frame_name, file_path) {
-        $(frame_name).src = file_path;
-      } 
-      
-      function set_panel_to_date(panel_number, date) {
-        var filename = date.getFullYear() + "-" + ("0" + (date.getMonth()+1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2) + ".html";
-        set_frame_to_file('frame_day_' + panel_number, "timetables/" + filename);
-      } 
-      
-      function initialize() {
-        initialize_timetable_frames();
-        initialize_bottom_frames();
-      }
+   function set_frame_to_file(frame_name, file_path) {
+    $(frame_name).src = file_path;
+   } 
+   
+   function set_panel_to_date(panel_number, date) {
+    var filename = date.getFullYear() + "-" + ("0" + (date.getMonth()+1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2) + ".html";
+    set_frame_to_file('frame_day_' + panel_number, "timetables/" + filename);
+   } 
+   
+   function initialize() {
+    initialize_timetable_frames();
+    initialize_bottom_frames();
+   }
 
-      function initialize_bottom_frames() {
-        var has_1 = !is_frame_empty('frame_bottom_1');
-        var has_2 = !is_frame_empty('frame_bottom_2');
-        
-        var frameset_bottom = $('frameset_bottom');
-        var frameset_main = $('frameset_main');
-        
-        if (has_1 && has_2) {
-          frameset_main.rows = '*,300px';
-          frameset_bottom.rows = '100px,200px';
-        }
-        else if (has_1) {
-          frameset_main.rows = '*,100px';
-          frameset_bottom.rows = '100px,0';
-        }
-        else if (has_2) {
-          frameset_main.rows = '*,100px';
-          frameset_bottom.rows = '0,100px';
-        }
-        else {
-          frameset_main.rows = '*,0';
-          frameset_bottom.rows = '0,0';
-        }
-        
-      }
-      
-      function initialize_timetable_frames() { 
-        set_panel_to_date(1, day1);
-        set_panel_to_date(2, day2);
-      }
-      
-      function set_frame_to_pause(frame_name) {
-        set_frame_to_file(frame_name, 'timetable_display_pause.html')
-      }
-      
-      function reload_self() {
-        document.location.reload();
-      }
-
-      var days = get_workday_dates(3);
-      var day1 = days[0];         
-      var day2 = days[1];
-      var day3 = days[2];
-      
-    </script>
-    <script src="timetable_display.js" type="text/javascript"></script>
-    <title>STUNDENPLAN</title>
-  </head>
-  <frameset name="frameset_main" id="frameset_main" rows="*,200px" border="0" frameborder="0" framespacing="0">
-    <frameset name="frameset_timetables" id="frameset_timetables" rows="34px,50%,*" border="0" frameborder="0" framespacing="0">
-      <frame name="frame_menu" id="frame_menu" src="timetable_intranet_menu.html" scrolling="no" />
-      <frame name="frame_day_1" id="frame_day_1" src="empty.html" scrolling="auto" />
-      <frame name="frame_day_2" id="frame_day_2" src="empty.html" scrolling="auto" />
-    </frameset>
-    <frameset name="frameset_bottom" id="frameset_bottom" rows="100px,200px" border="0" frameborder="0" framespacing="0">
-      <frame name="frame_bottom_1" id="frame_bottom_1" src="postit.html" scrolling="auto" />
-      <frame name="frame_bottom_2" id="frame_bottom_2" src="calls.html" scrolling="auto" />
-    </frameset>
+   function initialize_bottom_frames() {
+    var has_1 = !is_frame_empty('frame_bottom_1');
+    var has_2 = !is_frame_empty('frame_bottom_2');
+    
+    var frameset_bottom = $('frameset_bottom');
+    var frameset_main = $('frameset_main');
+    
+    if (has_1 && has_2) {
+     frameset_main.rows = '*,300px';
+     frameset_bottom.rows = '100px,200px';
+    }
+    else if (has_1) {
+     frameset_main.rows = '*,100px';
+     frameset_bottom.rows = '100px,0';
+    }
+    else if (has_2) {
+     frameset_main.rows = '*,100px';
+     frameset_bottom.rows = '0,100px';
+    }
+    else {
+     frameset_main.rows = '*,0';
+     frameset_bottom.rows = '0,0';
+    }
+    
+   }
+   
+   function initialize_timetable_frames() { 
+    set_panel_to_date(1, day1);
+    set_panel_to_date(2, day2);
+   }
+   
+   function set_frame_to_pause(frame_name) {
+    set_frame_to_file(frame_name, 'timetable_display_pause.html');
+   }
+   
+   var days = getWorkdayDates(3);
+   var day1 = days[0];         
+   var day2 = days[1];
+   var day3 = days[2];
+   
+  </script>
+  <script src="timetable_display.js" type="text/javascript"></script>
+  <title>STUNDENPLAN</title>
+ </head>
+ <frameset name="frameset_main" id="frameset_main" rows="*,200px" border="0" frameborder="0" framespacing="0">
+  <frameset name="frameset_timetables" id="frameset_timetables" rows="34px,50%,*" border="0" frameborder="0" framespacing="0">
+   <frame name="frame_menu" id="frame_menu" src="timetable_intranet_menu.html" scrolling="no" />
+   <frame name="frame_day_1" id="frame_day_1" src="empty.html" scrolling="auto" />
+   <frame name="frame_day_2" id="frame_day_2" src="empty.html" scrolling="auto" />
   </frameset>
-  <noframes>
-    <body>
-    </body>
-  </noframes>
+  <frameset name="frameset_bottom" id="frameset_bottom" rows="100px,200px" border="0" frameborder="0" framespacing="0">
+   <frame name="frame_bottom_1" id="frame_bottom_1" src="postit.html" scrolling="auto" />
+   <frame name="frame_bottom_2" id="frame_bottom_2" src="calls.html" scrolling="auto" />
+  </frameset>
+ </frameset>
+ <noframes>
+  <body>
+  </body>
+ </noframes>
 </html>

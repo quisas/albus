@@ -347,7 +347,7 @@ div.publicationPreviewSchedule {
     }
     
     .lessonInCell {
-      &.highlight {
+      .highlight {
 					border-width: 2px;
 					border-color: red;
 
@@ -358,7 +358,7 @@ div.publicationPreviewSchedule {
 					// animation-direction: alternate ;
       }
 
-			&.mutatedBySimpleUser {
+			.mutatedBySimpleUser {
 					filter: brightness(80%);
 			}
 
@@ -487,6 +487,60 @@ div.flashMessages, div.flashError {
   
 }
 
+
+#uiInteractionBlocker {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+//		background-color: rgba(100, 100, 100, 0.2);
+		background-color: transparent;
+//		vertical-align: middle;
+		padding: 20% 10px;
+		text-align: center;
+		font-weight: bold;
+//		letter-spacing: 0.1em;
+		color: transparent;
+		z-index: @zindex-modal + 99999;
+
+		&:hover {
+				// background-color: rgba(100, 100, 100, 0.8);
+				// color: white;
+
+				div.indicator {
+						color: yellow;
+						background-color: rgba(100, 100, 100, 0.8);
+				}
+
+		}
+
+		&.clicked {
+				background-color: rgba(100, 100, 100, 0.8);
+				color: white;
+		}
+
+		div.title {
+				font-size: 4rem;
+		}
+
+		div.explanation {
+				
+		}
+		
+		div.indicator {
+				position: absolute;
+				left: 20px;
+				bottom: 20px;
+				color: white;
+				background-color: rgba(100, 100, 100, 0.8);
+				border-radius: 0.3em;
+				padding: 0.1em 0.3em;
+				font-size: 2.5rem;
+				text-align: center;
+		}
+
+}
 
 .large-form-header {
   background-color: white;

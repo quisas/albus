@@ -8,10 +8,10 @@ $LOAD_PATH.push('./modified_gems/spreadsheet-1.1.2/lib')
 require 'spreadsheet'
 
 
-FileUtils.rm_f('import.log')
+FileUtils.rm_f('convert.log')
 
 def import_logger
-  $Import_logger ||= Logger.new("import.log")
+  $Import_logger ||= Logger.new("convert.log")
 end
 
 def log(message)
@@ -182,6 +182,9 @@ while go_ahead
         # Wenn Zelle leer, dann weiter
         next if text.to_s.strip.empty?
 
+        # Explizit unbekannte Details. Ignorieren.
+        next if text.to_s.strip == '???'
+        
         # Fach rausfinden anhand der Farbe
         color = row.format(column_index).pattern_bg_color.to_s
       
@@ -210,7 +213,11 @@ while go_ahead
           token_teacher = subtokens[0].to_s.strip
 
           if not token_teacher.empty?
-            teachers << token_teacher
+            # Lehrer können Teamteaching sein, kommagetrennt
+            subteachers = token_teacher.split(',')
+            teachers.concat(subteachers)
+
+#            teachers << token_teacher
           end
         end
 
@@ -225,6 +232,8 @@ while go_ahead
           token_subject = subtokens[1].to_s.strip
           token_subjects_group = subtokens[2].to_s.strip.upcase
 
+          # Lehrer können Teamteaching sein, kommagetrennt
+          subteachers = token_teacher.split(',')
 
           # Wenn mehrere Lehrer angegeben wurden dann müssen wir das Fach immer wieder vergessen.
           # Mehrere Lehrer im Excel können nicht mehrere Fächer zugewiesen werden, weil das mehrere Farben pro
@@ -244,11 +253,13 @@ while go_ahead
             
           end
 
-          token_subject.gsub!('(f)', '')
+#          token_subject.gsub!('(f)', '')
         
         
           # In CSV schreiben
-          add_csv(students_group_code, token_subject, token_subjects_group, token_teacher, day_index, lesson_index)
+          for t in subteachers
+            add_csv(students_group_code, token_subject, token_subjects_group, t, day_index, lesson_index)
+          end
         
         end
       end

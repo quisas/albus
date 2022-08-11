@@ -1979,6 +1979,23 @@ div.ALFreeformDisplayerComponent {
 				background-color: #efefef;
 				border-top: 1px solid #f9f9f9;
 				padding: 5px 0;
+
+				div.formValue {
+						color: green;
+
+				}
+				
+				&.ALFfText {
+						div.formValue {
+								color: grey;
+						}
+				}
+
+				&.ALFfDivider {
+						hr {
+								border-top-color: black;
+						}						
+				}
 		}		
 }
 
@@ -2969,6 +2986,28 @@ div.ALPeriodSyncer, div.ALGenericModelSyncer {
 
 div.ALPeoplePicker {
 
+		div.selectedPeople {
+				span.selectedPerson {
+						.label-success();
+//						color: white;
+						// padding: 3px 5px;
+						padding: .2em .6em .3em;
+						display: inline-block;
+						line-height: 1;
+						color: @label-color;
+						text-align: center;
+						white-space: nowrap;
+						vertical-align: baseline;
+						border-radius: .25em;
+						margin-bottom: 0.5em;
+						margin-right: 5px;
+
+						a {
+								color: inherit;
+						}
+				}
+		}
+		
 		// Tighten up margin so it's only between panels
 		.panel {
 				margin-bottom: 0;

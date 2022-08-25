@@ -891,6 +891,14 @@ div.magritteTableContainer {
 								.text-muted();
 								max-width: 500px;
 						}
+
+						div.uploader {
+								span.uploadStatus {
+										span.uploadOk {
+												color: green;
+										}
+								}
+						}
 				}
 
 				&.table-readonly {
@@ -1213,6 +1221,15 @@ span.helpIcon {
 div.helpText {
 		.well();
 		.well-sm();
+}
+
+div.well {
+		div.helpText {
+				background-color: transparent;
+				box-shadow: none;
+				border: none;
+				padding: 0;
+		}
 }
 
 
@@ -2955,6 +2972,8 @@ div.ALPlUploaderComponent {
 				color: orange;
 		}
 }
+
+
 
 div.ALPeriodsSyncingCockpit {
 		div.subSyncers {

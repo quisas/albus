@@ -268,7 +268,7 @@ function handleSessionCheck(responseData) {
 		// alert('Session OK');
 	  break;
 	case 'expired':
-		alert('Ihre Sitzung ist wegen Inaktivität abgelaufen.');
+		alert('Ihre Sitzung ist wegen Inaktivität abgelaufen. Sie wurden ausgeloggt.');
 		location.reload(true);
 		break;
 	case 'nearlyExpired':

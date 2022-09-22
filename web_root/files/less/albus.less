@@ -2925,11 +2925,18 @@ div.ALTeacherTimeAccountComponent {
 				padding-top: 0.5em;
 		}
 		table.entries {
+
 				td.number {
 						text-align: right;
 
 						&.saldo {
 								background-color: #eee;
+						}
+
+						span.decimalNumber {
+								&.digits2 {
+										padding-right: 1ch;
+								}
 						}
 				}
 
@@ -2939,11 +2946,18 @@ div.ALTeacherTimeAccountComponent {
 						}
 				}
 		}
+		
 }
 
 span.decimalNumber {
 		font-family: monospace;
+
+		&.roundedForDisplay {
+				border-right: 2px dotted orange;
+				margin-right: -2px;
+		}
 }
+
 
 div.ALTtaAdminCockpit {
 		table {
@@ -2966,6 +2980,7 @@ div.ALTtaAdminCockpit {
 				}
 		}
 }
+
 
 div.ALPlUploaderComponent {
 		span.uploadFile {

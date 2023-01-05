@@ -1,10 +1,7 @@
 # coding: utf-8
 require 'rubygems'
 
-# puts $LOAD_PATH
-
 $LOAD_PATH.push('./modified_gems/spreadsheet-1.1.2/lib')
-#gem 'ruby-ole', '=1.2.11.1' # Wegen spreadsheet
 require 'spreadsheet'
 
 
@@ -64,9 +61,9 @@ def cell_name(col, row)
 end
 
 $CSV = []
-$CSV << "Klasse\tFach\tFachgruppe\tLehrer\tTag\tLektion"
-def add_csv(klasse, subject, subjects_group, teacher, day, lesson)
-  row = [klasse, subject, subjects_group, teacher, day, lesson].join("\t")
+$CSV << "Klasse\tFach\tHalbklasse\tFachgruppe\tLehrer\tTag\tLektion"
+def add_csv(klasse, subject, halbklasse, subjects_group, teacher, day, lesson)
+  row = [klasse, subject, (halbklasse ? 'HK' : ''), subjects_group, teacher, day, lesson].join("\t")
   $CSV << row
   # puts(row)
 end
@@ -81,6 +78,9 @@ end
 # Vorbereitung:
 # - Excel-Farbtabelle muss angepasst werden mit den korrekten Fachkürzeln!
 # - Excel-File muss im Format Excel 97/2000 gespeichert werden, sonst werden die Farben nicht gelesen.
+
+# 2023 TODO: Wir lesen keine Farben mehr, deshalb kann evt. das oben beschriebene vereinfacht werden?!?
+
 
 # Regeln des Imports:
 # - Fachlegende einlesen und loggen. Nur Fächer matchen, welche ein korrektes Kürzel haben. Andere ignorieren und loggen.
@@ -100,52 +100,52 @@ Spreadsheet.client_encoding = 'UTF-8'
 book = Spreadsheet.open './plan_excel.xls'
 sheet = book.worksheet(0)
 
-# ignored_colors = ['2860', '2871', '2998'] # Grautöne
 # Ich glaube, ignorieren bringt nichts. Wir finden schon intelligent raus, welches Fach es wäre:
-ignored_colors = ['2860', '2871', '2998', '5654', '3359', '3990', '5407'] # Grautöne
+#ignored_colors = ['2860', '2871', '2998', '5654', '3359', '3990', '5407'] # Grautöne
 
 
-###############################
-# Farbtabelle einlesen
-#
+# Ab 2023 FS verwenden wir die Farbe nicht mehr. Jacqueline schreibt im Text das Fach immer explizit
+# ###############################
+# # Farbtabelle einlesen
+# #
 
-# Farbtabelle muss ab Zeile 2 beginnen und in Spalte BF/BG sein
+# # Farbtabelle muss ab Zeile 2 beginnen und in Spalte BF/BG sein
 
-# Struktur: {Farbwert => Fach}
-color_subject_map = {}
+# # Struktur: {Farbwert => Fach}
+# color_subject_map = {}
 
-COLOR_COLUMN_INDEX = 57 # Spalte BF
-SUBJECT_COLUMN_INDEX = 58 # Spalte BG
-row_index = 1
+# COLOR_COLUMN_INDEX = 57 # Spalte BF
+# SUBJECT_COLUMN_INDEX = 58 # Spalte BG
+# row_index = 1
 
-log("Farbzuweisungs-Tabelle:")
+# log("Farbzuweisungs-Tabelle:")
 
-# Wir suchen den Anfang der Tabelle
-while true do
-  subject_code = sheet.row(row_index)[SUBJECT_COLUMN_INDEX].to_s.gsub("\n", '')
-  break if not subject_code.empty?
-  row_index += 1
-  if row_index > 100
-    log('Keine Farbtabelle gefunden. Muss in Spalte BF/BG seind')
-    exit
-  end
-end
+# # Wir suchen den Anfang der Tabelle
+# while true do
+#   subject_code = sheet.row(row_index)[SUBJECT_COLUMN_INDEX].to_s.gsub("\n", '')
+#   break if not subject_code.empty?
+#   row_index += 1
+#   if row_index > 100
+#     log('Keine Farbtabelle gefunden. Muss in Spalte BF/BG seind')
+#     exit
+#   end
+# end
 
-while true do
-  color = sheet.row(row_index).format(COLOR_COLUMN_INDEX).pattern_bg_color.to_s
-  subject_code = sheet.row(row_index)[SUBJECT_COLUMN_INDEX].to_s.gsub("\n", '')
-  subject_code.gsub!('(f)', '')
+# while true do
+#   color = sheet.row(row_index).format(COLOR_COLUMN_INDEX).pattern_bg_color.to_s
+#   subject_code = sheet.row(row_index)[SUBJECT_COLUMN_INDEX].to_s.gsub("\n", '')
+#   subject_code.gsub!('(f)', '')
 
-  # Wir gehen durch die Tabelle, bis zum ersten leeren Feld
-  break if subject_code.empty?
+#   # Wir gehen durch die Tabelle, bis zum ersten leeren Feld
+#   break if subject_code.empty?
   
-  raise "Doppelte Farbe #{color}!" if color_subject_map.has_key?(color)
-  color_subject_map[color] = subject_code
-  log("#{color} zu #{subject_code}")
+#   raise "Doppelte Farbe #{color}!" if color_subject_map.has_key?(color)
+#   color_subject_map[color] = subject_code
+#   log("#{color} zu #{subject_code}")
   
-  row_index += 1
+#   row_index += 1
 
-end
+# end
 
 
 
@@ -185,19 +185,19 @@ while go_ahead
         # Explizit unbekannte Details. Ignorieren.
         next if text.to_s.strip == '???'
         
-        # Fach rausfinden anhand der Farbe
-        color = row.format(column_index).pattern_bg_color.to_s
+        # # Fach rausfinden anhand der Farbe
+        # color = row.format(column_index).pattern_bg_color.to_s
       
-        # Wenn wir das Fach nicht erkennen (bei einem nicht-leeren Feld, an dieser Stelle)
-        if color_subject_map.has_key?(color)
-          subject = color_subject_map[color]
-          invalid_color = false
-        else
-          subject = ''
-          unless ignored_colors.include?(color)
-            invalid_color = true
-          end
-        end
+        # # Wenn wir das Fach nicht erkennen (bei einem nicht-leeren Feld, an dieser Stelle)
+        # if color_subject_map.has_key?(color)
+        #   subject = color_subject_map[color]
+        #   invalid_color = false
+        # else
+        #   subject = ''
+        #   unless ignored_colors.include?(color)
+        #     invalid_color = true
+        #   end
+        # end
 
 
         # Vorberechnung aller Lehrer. Nicht ganz optimiert und redundant weil unten nochmals, aber pragmatisch.
@@ -222,8 +222,9 @@ while go_ahead
         end
 
 
-        # Jedes Token in der Zelle verarbeiten. Konvention ist: Lehrer[/Fach[/Fachgruppe]]
-        # Für jeden Lehrer je eine Lektion finden (ISU vorbereitet) oder neu erstellen
+        # Jedes Token in der Zelle verarbeiten. Konvention ist: Lehrer[/Fach[-HK][/Fachgruppe]]
+        # HK = Halbklasse
+        # Für jeden Lehrer je eine Lektion finden oder neu erstellen
         for token in tokens
 
           # Optional kommt auch Fach und Fachgruppe darin vor
@@ -235,30 +236,36 @@ while go_ahead
           # Lehrer können Teamteaching sein, kommagetrennt
           subteachers = token_teacher.split(',')
 
-          # Wenn mehrere Lehrer angegeben wurden dann müssen wir das Fach immer wieder vergessen.
-          # Mehrere Lehrer im Excel können nicht mehrere Fächer zugewiesen werden, weil das mehrere Farben pro
-          # Excel-Zelle sein müssten. Deshalb können wir das korrekte Fach nicht rauslesen.
-          if teachers.size > 1
-            subject = ''
+          if token_subject.end_with?('HK')
+            halbklasse = true
+            subject = token_subject.chomp('-HK')
+          else
+            halbklasse = false
+            subject = token_subject
           end
+          
+          # # Wenn mehrere Lehrer angegeben wurden dann müssen wir das Fach immer wieder vergessen.
+          # # Mehrere Lehrer im Excel können nicht mehrere Fächer zugewiesen werden, weil das mehrere Farben pro
+          # # Excel-Zelle sein müssten. Deshalb können wir das korrekte Fach nicht rauslesen.
+          # if teachers.size > 1
+          #   subject = ''
+          # end
 
 
-          # Fach von Farbe nehmen, falls nichts angegeben im Token
-          if token_subject.empty?
-            token_subject = subject
+          # # Fach von Farbe nehmen, falls nichts angegeben im Token
+          # if token_subject.empty?
+          #   token_subject = subject
 
-            if invalid_color
-              log_cell("Fach nicht aus Farbe erkannt und fehlende Fachangabe. Farbe #{color}, Zellinhalt: #{text}")
-            end
+          #   if invalid_color
+          #     log_cell("Fach nicht aus Farbe erkannt und fehlende Fachangabe. Farbe #{color}, Zellinhalt: #{text}")
+          #   end
             
-          end
+          # end
 
-#          token_subject.gsub!('(f)', '')
-        
         
           # In CSV schreiben
           for t in subteachers
-            add_csv(students_group_code, token_subject, token_subjects_group, t, day_index, lesson_index)
+            add_csv(students_group_code, subject, halbklasse, token_subjects_group, t, day_index, lesson_index)
           end
         
         end

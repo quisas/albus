@@ -198,7 +198,8 @@ function speak(aText) {
 //   bounceTimeout = setTimeout(aFunction, delay);
 // }
 
-function debounce(func, timeout = 300){
+// Returns a function which encapsulates the debounced call to another func
+function debounce(func, timeout = 300) {
   let timer;
   return (...args) => {
     clearTimeout(timer);
@@ -207,15 +208,23 @@ function debounce(func, timeout = 300){
 }
 
 
-function debouncedSpeak(aText, delay) {
-	if (!delay) {
-		delay = 500;
-	}
+// function debouncedSpeak(aText, delay) {
+
+// 	if (!delay) {
+// 		delay = 500;
+// 	}
 	
-	debounce(function(){
-		speak(aText);
-	}, delay);
-}
+// 	const func = debounce(function(){
+// 		speak(aText);
+// 	}, delay);
+
+// 	func();
+// }
+
+
+const debouncedSpeak = debounce(function(aText) {
+	speak(aText);
+}, 800);
 
 function speakSchoolMark(aText) {
 	var phonetic;
@@ -229,7 +238,7 @@ function speakSchoolMark(aText) {
 		if(phonetic.substr(-1) === '0') {
       phonetic = phonetic.substr(0, phonetic.length - 1);
 		}
-		debouncedSpeak(phonetic, 600);
+		debouncedSpeak(phonetic);
 	}
 }
 

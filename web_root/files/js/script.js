@@ -186,6 +186,7 @@ function speak(aText) {
 		var msg = new SpeechSynthesisUtterance(aText);
 
 		msg.lang = 'de-DE';
+		msg.rate = 0.8;
 
 //Not Safari?		window.speechSynthesis.stop();
 		window.speechSynthesis.speak(msg);
@@ -224,7 +225,7 @@ function debounce(func, timeout = 300) {
 
 const debouncedSpeak = debounce(function(aText) {
 	speak(aText);
-}, 800);
+}, 300);
 
 function speakSchoolMark(aText) {
 	var phonetic;
@@ -238,6 +239,7 @@ function speakSchoolMark(aText) {
 		if(phonetic.substr(-1) === '0') {
       phonetic = phonetic.substr(0, phonetic.length - 1);
 		}
+		window.speechSynthesis.cancel();
 		debouncedSpeak(phonetic);
 	}
 }

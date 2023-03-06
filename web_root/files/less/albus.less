@@ -1621,8 +1621,18 @@ div.ALReportsComponent {
 				padding: 2px 4px;
 		}
 
-		
+
+		div.reportSection, div.reportsGroup {
+				+ div.reportSection, + div.reportsGroup {
+						margin-top: 5px;
+//						padding-top: 5px;
+						border-top: 1px dotted gray;
+				}
+		}
+
 		div.reportSection {
+
+				padding-top: 5px;
 
 				div.execution {
 						text-align: right;
@@ -1645,16 +1655,21 @@ div.ALReportsComponent {
 								background-color: @gray-lighter;
 						}
 				}
+
+				&.heading {
+						padding-top: 2em;
+						
+						div.title {
+								font-weight: bold;
+								font-size: 120%;
+								color: #666;
+//								margin-bottom: 0.2em;
+						}
+						
+				}
 				
 		}
 
-		div.reportSection, div.reportsGroup {
-				+ div.reportSection, + div.reportsGroup {
-						margin-top: 5px;
-						padding-top: 5px;
-						border-top: 1px dotted gray;
-				}
-		}
 		
 		div.reportsGroup {
 				&:hover {
@@ -1671,6 +1686,7 @@ div.ALReportsComponent {
 						border-top: none;
 				}
 		}
+
 
 }
 
@@ -3230,3 +3246,16 @@ div.ALGraduationMarksReportSimulator {
 }
 
 
+div.ALTeachersBlockedForeignBookingCockpit {
+
+
+		table.schedule {
+				cursor: crosshair;
+
+				.ui-selecting {
+						background-color: lightgreen;
+				}
+
+		}
+
+}

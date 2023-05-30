@@ -571,6 +571,11 @@ ul.errors {
 	}
 }
 
+div.alert-danger.systemMessage {
+		padding-top: 3em;
+		padding-bottom: 3em;
+}
+
 th.error {
   color: red;
 }
@@ -2471,9 +2476,38 @@ div.ALMyStudentHomeComponent {
 				border: 1px solid #ccc;
 				margin-bottom: 0.5em;
 
-				div.absenceEntry {
-						margin: 3px 1px;
-						clear: both;
+				table.absences {
+						width: 100%;
+						tr.absenceEntry {
+								// margin: 3px 1px;
+								// clear: both;
+								
+								td {
+										padding-bottom: 3px;
+										&:not(:last-child) {
+												padding-right: 5px;
+										}
+
+										&.time {
+												white-space: nowrap;
+												width: 1%;
+										}
+
+										&.type {
+												
+										}
+
+										&.lessons {
+												.text-muted();
+										}
+
+										&:last-child {
+												text-align: right;
+										}
+
+								}
+						}
+						
 				}
 		}
 

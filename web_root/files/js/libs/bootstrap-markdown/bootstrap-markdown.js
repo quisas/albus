@@ -1053,7 +1053,7 @@
 
             link = prompt(e.__localize('Insert Hyperlink'),'https://');
 
-            var urlRegex = new RegExp('^((http|https)://|(mailto:)|(//))[a-z0-9]', 'i');
+            var urlRegex = new RegExp('^((http|https|webcal)://|(mailto:)|(//))[a-z0-9]', 'i');
             if (link !== null && link !== '' && link !== 'https://' && urlRegex.test(link)) {
               var sanitizedLink = $('<div>'+link+'</div>').text();
 

@@ -337,6 +337,18 @@ div.publicationPreviewSchedule {
 			border: 1px solid red;
 	}
 
+	ul.mutators {
+			.list-unstyled();
+			.threeColumns();
+
+			li {
+					break-inside: avoid-column;
+					// a.mutator {							
+					// 		display: inline-block;
+					// }
+			}
+	}
+	
   table.schedule {
 
     font-size: 90%;
@@ -1234,6 +1246,7 @@ div.well {
 				box-shadow: none;
 				border: none;
 				padding: 0;
+				margin-bottom: unset;
 		}
 }
 
@@ -2415,7 +2428,7 @@ table.maturarbeitList {
 		}
 }
 
-div.ALMaturarbeitCockpit {
+div.ALMaturarbeitManagerCockpit {
 		table.speechPlan {
 				th, td {
 						font-size: 80%;
@@ -2438,6 +2451,15 @@ div.ALMaturarbeitCockpit {
 
 
 div.ALMyHomeComponent {
+		ul.textList {
+				.list-unstyled();
+				li {
+						// white-space: nowrap;
+						// overflow: hidden;
+						// text-overflow: ellipsis;
+						margin-bottom: 0.5em;
+				}
+		}
 		
 }
 
@@ -3293,4 +3315,30 @@ div.ALTeachersBlockedForeignBookingCockpit {
 
 		}
 
+}
+
+div.ALMyTeacherAbsenceCockpit {
+		table.lessonsTable {
+				td.cancelType {
+						label.radio-inline {
+								margin-right: 1em;
+						}
+				}
+		}
+}
+
+div.flexContainer {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 10px;
+
+		&.left {
+				justify-content: flex-start;
+		}
+
+		&.center {
+				justify-content: space-between;
+		}
+		
 }

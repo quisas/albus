@@ -147,9 +147,13 @@ select.chosen-select {
 
 .chosen-container-single {
 
+		@rightSpace: 15px;
+		@closeWidth: 12px;
+
 		height: @input-height-base;
 
 		.chosen-single {
+				
 				height: @input-height-base;
 				padding: @padding-base-vertical @padding-base-horizontal;
 				line-height: @line-height-base;
@@ -175,7 +179,7 @@ select.chosen-select {
 				span {
 						display: block;
 						overflow: hidden;
-						margin-right: 26px;
+						margin-right: @rightSpace; // orig: 26px
 						text-overflow: ellipsis;
 						white-space: nowrap;
 				}
@@ -186,10 +190,10 @@ select.chosen-select {
 				.search-choice-close {
 						position: absolute;
 						top: (@iconsTopPx + 2);
-						right: 26px;
+						right: (@rightSpace/2 + @closeWidth);
 						display: block;
-						width: 12px;
-						height: 12px;
+						width: @closeWidth;
+						height: @closeWidth;
 						background: url("chosen-sprite.png") no-repeat -42px 1px;
 						font-size: 1px;
 
@@ -224,7 +228,7 @@ select.chosen-select {
 
 
 		.chosen-single-with-deselect span {
-				margin-right: 38px;
+				margin-right: @rightSpace + @closeWidth;
 		}
 
 

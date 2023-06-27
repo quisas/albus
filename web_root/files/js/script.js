@@ -251,7 +251,7 @@ function chooseOptionInChozen(text, chozenSelectorString) {
 
 	// TODO: Beim neusten dirtyforms gibts diese Funktion nicht mehr:
 	// TODO2 Hm weiter unten haben wir das manuell nachgerüstet. Vermutlich gibts das wieder.
-	//$(chozenSelectorString).closest('form').setDirty();
+	$(chozenSelectorString).closest('form').setDirty();
 }
 
 

@@ -53,17 +53,24 @@ table.schedule {
 
 				
 				// Nur stylen, wenn nicht schon mutiert
-				.ALAnnotatedLesson:not(.multiMutated) {
+				// TODO Veraltet? Meldung von Annette 24.Aug 2023
+				// .ALAnnotatedLesson:not(.multiMutated) {
+				// 		.ALLesson;
+				// 		> .lessonLabel {
+				// 				background-color: @annotationColor;
+				// 		}
+				// }
+				// .ALAnnotatedLesson.multiMutated {
+				// 		.ALLesson;
+				// 		> .lessonLabel {
+				// 				border-left: 4px solid @annotationColor;
+				// 				border-right: 4px solid @annotationColor;
+				// 		}
+				// }
+				.ALAnnotatedLesson {
 						.ALLesson;
 						> .lessonLabel {
 								background-color: @annotationColor;
-						}
-				}
-				.ALAnnotatedLesson.multiMutated {
-						.ALLesson;
-						> .lessonLabel {
-								border-left: 4px solid @annotationColor;
-								border-right: 4px solid @annotationColor;
 						}
 				}
 

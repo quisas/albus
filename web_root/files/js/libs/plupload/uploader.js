@@ -1,21 +1,27 @@
-// function seasideCallbackFileUploaded(ajaxParameter) {
-// 	// Must be defined dynamically
-// }
+//
+// Uploader helper script for seaside and plupload
+//
 
+// These functions must be defined dynamically from seaside:
+// function seasideCallbackFileUploaded(ajaxParameter) {
+// }
 // function seasideUploadSessionUuid() {
-// 	// Must be defined dynamically
 //  return 'qwer345qwefqwrqw';
 // }
-
 // function seasideAllowedFileExtensions() {
-// 	// Must be defined dynamically
 //  return 'jpg,gif,png';
 // }
-
 // function seasideMaxFileUploads() {
-// 	// Must be defined dynamically
 //  return 100;
 // }
+// function seasideUploadMaxFileSize() {
+// return 1024;
+//}
+
+// dynamically overwrite if you like
+function seasideCallbackUploadComplete() {
+	location.reload();
+}
 
 $(document).ready(function() {
 	
@@ -27,7 +33,7 @@ $(document).ready(function() {
 		max_retries: 3,
 
 	  filters: {
-	    max_file_size: pluploadMaxFileSize,
+	    max_file_size: seasideUploadMaxFileSize(),
 			max_files_count: 1,
 	    mime_types : [
 	      { title : "Erlaubte Dateiformate",
@@ -59,14 +65,8 @@ $(document).ready(function() {
 	uploader.bind("UploadProgress", function(up, file) {
 		var element = document.getElementById(file.id).querySelector("span.uploadStatus");
 		
-		// if (file.percent == 100) {
-		// 	element.innerHTML = "<span>100%</span>";
-		// } else {
-		// 	element.innerHTML = "<span>" + file.percent + "%</span>";
-		// }
-
 		if (file.percent == 100) {
-			element.innerHTML = '<progress value="100" max="100">100%</progress>';
+			element.innerHTML = '<span class="uploadOk">Upload OK</span>';
 		} else {
 			element.innerHTML = '<progress value="' + file.percent + '" max="100">' + file.percent + '%</progress>';
 		}
@@ -86,7 +86,7 @@ $(document).ready(function() {
 	// When all files have been uploaded
 	uploader.bind("UploadComplete", function(up, file) {
 		setTimeout(function() {
-			location.reload();
+			seasideCallbackUploadComplete();
 		}, 700)
 	});
 

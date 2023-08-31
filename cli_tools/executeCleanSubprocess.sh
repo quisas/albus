@@ -8,8 +8,6 @@
 # Find file descriptor of open socket on pharos port
 MYPID=$$
 
-#fileDescriptor=$(lsof -w -a -i tcp:$PORT -c /pharo/i -F f | tail -n 1)
-
 # Get tcp sockets. Ignoring first line, since lsof always outputs the PID there
 fileDescriptors=$(lsof -a -p $MYPID -i tcp -F f | tail -n +2)
 

@@ -589,8 +589,8 @@ div.validationWarnings {
 
 
 div.alert-danger.systemMessage {
-		padding-top: 3em;
-		padding-bottom: 3em;
+		padding-top: 2em;
+		padding-bottom: 2em;
 }
 
 th.error {
@@ -2853,18 +2853,21 @@ div.ALCourseExamsCockpit, div.ALKlassenbuchExamsViewer {
 				tr.groupHeader {
 						font-weight: bold;
 						background-color: #eee;
-						td.weekTitle {
-								border-bottom: none;
 
-								&.holiday {
-										background-color: #fee;
-								}
-								
-								span.dateRange {
-										.pull-right();
-										.text-muted();
-								}
+						td.holiday {
+								background-color: #fee;
 						}
+
+						td.weekTitle {
+//								border-bottom: none;
+
+						}								
+
+						span.dateRange {
+								.pull-right();
+								.text-muted();
+						}
+						
 				}
 
 
@@ -2883,28 +2886,19 @@ div.ALCourseExamsCockpit, div.ALKlassenbuchExamsViewer {
 				}
 				
 				td.examCandidate {
-						
-						span.planningTools {
-								visibility: hidden;
-						}
+						white-space: nowrap;
+						width: 1%;
+				}
 
-						// span.planningToolsEyeCatcher {
-						// 		color: @link-color;
-						// 		margin-left: 5px;
-						// 		margin-right: 5px;
-						// }
-
-						&:hover {
-//								background-color: #efefef;
-
-								span.planningTools {
-										visibility: visible;
-								}
-								// span.planningToolsEyeCatcher {
-								// 		color: @text-muted;
-								// }
-
-						}
+				td.infos {
+						border-right: none;
+				}
+				
+				td.planningTools {
+						border-left: none;
+						text-align: right;
+						white-space: nowrap;
+						width: 1%;
 				}
 		}
 }

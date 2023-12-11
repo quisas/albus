@@ -8,6 +8,19 @@
 @nonCurrentColor: #FCC;
 // @requiredColor: #ffffaa;
 
+
+// MIXINS
+.truncateWithEllipsis() {
+		text-overflow: ellipsis;
+
+		/* Required for text-overflow to do anything */
+		white-space: nowrap;
+		overflow: hidden;
+		line-height: 1.2; // otherwise it cuts off the deep characters (default: 1.1)
+}
+
+
+
 @import "schedule.less";
 
 
@@ -854,6 +867,8 @@ div.magritteTableContainer {
 				
 				&.table-form {
 
+						@formElementsWidth: 250px;
+						
 						> tbody > tr {
 								> th {
 										height: 34px;
@@ -882,12 +897,14 @@ div.magritteTableContainer {
 						
 						input.form-control,
 						select.form-control {
-								max-width: 220px;
+								max-width: @formElementsWidth;
 						}
 
 						select.chosen-select {
 								// visibility: hidden;
-								width: 220px;
+
+								// Chosen JS makes it 15px wider, because of additional UI elements
+								width: @formElementsWidth - 15px;
 						}
 
 						
@@ -895,7 +912,7 @@ div.magritteTableContainer {
 						textarea {
 								// Never limit markdown input
 								&.form-control:not(.md-input) {
-										width: 220px;
+										width: @formElementsWidth;
 								}
 								// Never limit markdown input
 								// &.md-input {
@@ -2452,7 +2469,8 @@ div.ALMaturarbeitManagerCockpit {
 		// 		white-space: nowrap;
 		// 		overflow: hidden;
 		// 		text-overflow: ellipsis;
-		// }		
+		// }
+		// truncateWithEllipsis...
 }
 
 
@@ -2546,7 +2564,7 @@ div.ALMyStudentHomeComponent {
 		
 		div.upcomingExams {
 				max-height: 200px;
-				overflow: scroll;
+				overflow-y: scroll;
 				border: 1px solid #999;
 				padding: 0.1em;
 				margin-bottom: 1em;
@@ -2824,6 +2842,7 @@ div.ALPortraitImageOverviewComponent {
 }
 
 span.bsIcon {
+//		font-weight: normal; // Never bold icons
 		&.requiredIcon {
 				color: green;
 		}
@@ -2838,8 +2857,16 @@ span.bsIcon {
 // }
 
 
-div.ALCourseExamsCockpit, div.ALKlassenbuchExamsViewer {
+div.ALCourseExecutionCockpit, div.ALKlassenbuchExamsViewer {
 
+		h1 {
+				.truncateWithEllipsis();
+		}
+		
+		h2 {
+				margin-top: 2em;
+		}
+		
 		span.day {
 				display: inline-block;
 				width: 30px;
@@ -2849,48 +2876,70 @@ div.ALCourseExamsCockpit, div.ALKlassenbuchExamsViewer {
 				display: inline-block;
 				width: 80px;
 		}
-				
+}
 
-		table.examPlanning {
+
+
+div.ALLearningObjectsAgendaComponent {
+
+
+		table.studentsAgenda {
 
 				margin-top: 20px;
 				
-				tr.groupHeader {
-						font-weight: bold;
-						background-color: #eee;
+				tr {
+						&.groupHeader {
+								font-weight: bold;
+								background-color: #eee;
 
-						td.holiday {
-								background-color: #fee;
+								td {
+										border-left: none;
+										border-right: none;
+								
+										&.holiday {
+												background-color: #eef4ff;
+										}
+
+										&.currentWeek {
+												color: green;
+										}
+
+										&.weekTitle {
+												//								border-bottom: none;
+												
+										}
+								}
+
+								span.dateRange {
+										.pull-right();
+										.text-muted();
+								}
+								
 						}
-
-						td.weekTitle {
-//								border-bottom: none;
-
-						}								
-
-						span.dateRange {
-								.pull-right();
-								.text-muted();
+						&.calendarEntries, &.courseProjects {
+								//								background-color: #f6f6f6;
+								// color: darkgreen;
 						}
-						
 				}
 
 
-				span.label.sign {
+				span.day {
+						display: inline-block;
+						width: 25px;
+				}
+
+				span.date {
+						display: inline-block;
+						width: 80px;
+				}
+				
+				span.sign {
 						display: inline-block;
 						width: 30px;
-						margin-right: 20px;
+						margin-right: 8px;
 				}
 
 				td.existingExam {
-						white-space: nowrap;
-				}
-
-				td.existingExamDetails {
-//						max-width: 300px;
-				}
-				
-				td.examCandidate {
 						white-space: nowrap;
 						width: 1%;
 				}
@@ -2898,15 +2947,29 @@ div.ALCourseExamsCockpit, div.ALKlassenbuchExamsViewer {
 				td.infos {
 						border-right: none;
 				}
-				
+
 				td.planningTools {
 						border-left: none;
 						text-align: right;
 						white-space: nowrap;
 						width: 1%;
 				}
+
+				&.isExamPlanning {
+						// td.infos {
+						// 		border-left-width: 1px;
+						// }
+						td.examCandidate {
+								white-space: nowrap;
+								width: 1%;
+						}
+				}
 		}
 }
+
+
+
+
 
 div.ALBackgroundJobIndicatorComponent {
 		display: inline-block;

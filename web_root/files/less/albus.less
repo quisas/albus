@@ -1729,6 +1729,16 @@ div.ALReportsComponent {
 				}
 		}
 
+		&.ALWebReportsComponent {
+
+				div.reportSection {
+						div.reportComponent {
+								border: 1px solid black;
+								padding: 1px;
+								margin-bottom: 20px;
+						}
+				}
+		}
 
 }
 
@@ -3405,4 +3415,49 @@ div.flexContainer {
 				justify-content: space-between;
 		}
 		
+}
+
+div.ALPeriodsAttendanceOverviewWebReport {
+		div.tableScrollContainer {
+				max-height: 80vh;
+				overflow-y: scroll;
+
+				table.attendanceOverview {
+						table-layout: fixed;
+						width: 100%;
+						margin-top: 1em;
+
+						colgroup {
+								col.person {
+										width: 15em;
+								}
+						}
+
+						
+						thead {
+								td, th {
+										position: sticky;
+										top: 0;
+										background-color: white;
+										height: 5em;
+										vertical-align: bottom;
+								}
+								
+								th span.columnLabel {
+										display: inline-block;
+										white-space: nowrap;
+										transform-origin: 0.5em 0.5em;
+										transform: rotate(270deg);
+										//				width: 1em;
+								}
+						}
+
+						tbody {
+								tr {
+										border-bottom: 1px solid gray;
+								}
+						}
+						
+				}
+		}
 }

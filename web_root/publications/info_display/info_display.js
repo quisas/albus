@@ -1,3 +1,20 @@
+// JS library for info screen
+// No external dependencies in here! Just plain JavaScript.
+
+
+// LIB ==============================================================
+
+// Reload whole page, but if Kiosk is visible wait and try again
+function niceReload() {
+	if (kioskIsVisible()) {
+		setTimeout(niceReload, 5000);
+	} else {
+		reloadSelf();
+	}
+}
+
+// CLOCK ============================================================
+
 function clockInit(size, canvasWrapperId) {
 	
 	const canvas = document.createElement("canvas");
@@ -71,22 +88,53 @@ function clockInit(size, canvasWrapperId) {
 }
 
 
-var pages = document.querySelectorAll("div.infoscreenPage");
-const pageCount = pages.length;
-var currentPage = 0;
+// KIOSK ===============================================
 
-function changePage() {
-	for (index = 0; index < pages.length; index++) {
-		pages[index].style.display = "none";
+var kioskUrls, kioskDelay, kioskDuration;
+var kioskIframe;
+var kioskCurrentIndex = 0;
+
+function kioskInit(urls, delay, duration) {
+	kioskUrls = urls;
+	kioskDelay = delay;
+	kioskDuration = duration;
+	shuffleArray(kioskUrls);
+
+	kioskIframe = document.getElementById('kioskIframe');
+
+	// Always after page has loaded make it visible and start the hide-timer
+	kioskIframe.onload = function() {
+		if (kioskIframe.src) {
+			kioskIframe.style.visibility = 'visible';
+			kioskIframe.style.opacity = 100;
+			setTimeout(kioskHide, kioskDuration);
+		}
 	}
-
-	pages[currentPage].style.display = "";
-	currentPage++;
-	if (currentPage >= pageCount) { currentPage = 0 }
 	
+	kioskHide();
 }
 
-changePage();
-setInterval(changePage, 3000);
-clockInit(200, "clockWrapper");
-setTimeout(reloadSelf, 300000);
+function kioskShowNext() {
+
+	kioskCurrentIndex++;
+	if ( kioskCurrentIndex >= kioskUrls.length ) { kioskCurrentIndex = 0 }	
+	const url = kioskUrls[kioskCurrentIndex];
+
+	kioskIframe.src = url;
+
+}
+
+function kioskHide() {
+	kioskIframe.style.visibility = 'hidden';
+	kioskIframe.style.opacity = 0;
+	setTimeout(kioskShowNext, kioskDelay);
+}
+
+function kioskIsVisible() {
+	return kioskIframe.style.visibility == 'visible'
+}
+
+
+// MAIN ===================================================
+
+setTimeout(niceReload, 300000);

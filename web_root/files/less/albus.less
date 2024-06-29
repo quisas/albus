@@ -2147,7 +2147,8 @@ div.marksList {
 		}
 		
 		table.marksList {
-				border: 2px solid black;
+				@border: 2px solid black;
+				border: @border;
 
 				// Warnfarbe bei nichtaktuellen Noten
 				@media screen {
@@ -2158,6 +2159,14 @@ div.marksList {
 								border: 5px solid @nonCurrentColor;
 						}
 				}
+
+				// tfoot {
+				// 		tr {
+				// 				th {
+				// 						border-bottom: @border;
+				// 				}
+				// 		}
+				// }
 				
 				colgroup {
 						border-left: 2px solid black;
@@ -2510,68 +2519,56 @@ div.ALMyStudentHomeComponent {
 				}
 		}
 
-		div.pastAbsences {
-				max-height: 200px;
-				overflow: auto;
+		div.absencesSection {
+				div.listTitle {
+						font-weight: semibold;
+				}
+				
+				div.pastAbsences {
+						max-height: 200px;
+						overflow: auto;
+						margin-top: 0.5em;
+				}
 
-				// div.topIndicator {
-				// 		.linearGradient(#f0f0f0);
-				// 		height: 0.5em;
-				// 		position: sticky;
-				// 		top: 0;
-				// }
+				div.pastAbsences, div.upcomingAbsences, div.currentAbsences {
+						border: 1px solid #ccc;
+						margin-bottom: 0.5em;
 
-				// &::-webkit-scrollbar {
-				// 		-webkit-appearance: none;
-				// 		width: 7px;
-				// }
+						table.absences {
+								width: 100%;
+								tr.absenceEntry {
+										// margin: 3px 1px;
+										// clear: both;
+										
+										td {
+												padding-bottom: 3px;
+												&:not(:last-child) {
+														padding-right: 5px;
+												}
 
-				// &::-webkit-scrollbar-thumb {
-				// 		border-radius: 4px;
-				// 		background-color: rgba(0, 0, 0, .5);
-				// 		-webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-				// }				
-		}
+												&.time {
+														white-space: nowrap;
+														width: 1%;
+												}
 
-		div.pastAbsences, div.upcomingAbsences {
-				border: 1px solid #ccc;
-				margin-bottom: 0.5em;
+												&.type {
+														
+												}
 
-				table.absences {
-						width: 100%;
-						tr.absenceEntry {
-								// margin: 3px 1px;
-								// clear: both;
-								
-								td {
-										padding-bottom: 3px;
-										&:not(:last-child) {
-												padding-right: 5px;
+												&.lessons {
+														.text-muted();
+												}
+
+												&:last-child {
+														text-align: right;
+												}
+
 										}
-
-										&.time {
-												white-space: nowrap;
-												width: 1%;
-										}
-
-										&.type {
-												
-										}
-
-										&.lessons {
-												.text-muted();
-										}
-
-										&:last-child {
-												text-align: right;
-										}
-
 								}
+								
 						}
-						
 				}
 		}
-
 		
 		div.upcomingExams {
 				max-height: 200px;
@@ -2639,42 +2636,95 @@ div.ALKlassenbuchComponentBase {
 	// 		}
 	// }
 
-	span.label {
-			&.late {
-					//							.label-warning();
-			}
-
-			&.absent {
-					.label-warning();
-			}
-
-			&.joker {
-					background-color: blue;
-			}
-
-			&.leave {
-					background-color: green;
-			}
-
-			&.entschuldigtDue {
-					background-color: red;
-			}
-
-
+	&.ALKlassenbuchAbsencesCockpit {
 			
-	}
+			span.label {
+					&.late {
+							//							.label-warning();
+					}
 
-	table.tableAbsencesList {
-			td.entry, td.entschuldigt, td.actions {
-					white-space: nowrap;
+					&.absent {
+							.label-warning();
+					}
+
+					&.joker {
+							background-color: blue;
+					}
+
+					&.leave {
+							background-color: green;
+					}
+
+					// &.entschuldigtDue  {
+					// 		background-color: red;
+					// }
+
+
+					
 			}
 
+			table.tableAbsencesSummary {
 
-			// col.lessons {
-			// 		max-width: 200px;
-			// }
+					// thead {
+					// 		position: sticky;
+					// 		top: @navbar-height;
+					// 		z-index: 1;
+					// 		> tr {
+					// 				> th, > td {
+					// 						background-color: white;
+					// 				}
+					// 		}
+					// }
+							
+					// th {
+					// 		position: sticky;
+					// 		top: @navbar-height;
+					// 		background-color: #f6f6f6;
+					// }
+			}
+			
+			table.tableAbsencesList {
+					// thead {
+					// 		position: sticky;
+					// 		top: @navbar-height;
+					// 		z-index: 1;
+					// 		> tr {
+					// 				> th, > td {
+					// 						background-color: white;
+					// 				}
+					// 		}
+					// }
+
+					td.entry, td.entschuldigt, td.actions {
+							white-space: nowrap;
+					}
+
+					td.entschuldigt {
+							span.label {
+									display: inline-block;
+									width: 3rem;
+									margin-right: 0.5rem;
+							}
+
+							a.removeVisum {
+//									float: right;
+									visibility: hidden;
+									margin-left: 0.1em;
+							}
+
+							&:hover {
+									a.removeVisum {
+											visibility: visible;
+									}
+							}
+					}
+
+
+					// col.lessons {
+					// 		max-width: 200px;
+					// }
+			}
 	}
-
 }
 
 span.progressBar {
@@ -3464,5 +3514,16 @@ div.ALPeriodsAttendanceOverviewWebReport {
 						}
 						
 				}
+		}
+}
+
+div.ALUserFinderComponent {
+		div.inputGrid {
+				display: inline-grid;
+				margin: 0.2em 0;
+				align-items: center;
+				grid-template-columns: 1fr 1fr;
+				row-gap: 0.2em;
+//				grid-template-rows: 1fr 1fr;
 		}
 }

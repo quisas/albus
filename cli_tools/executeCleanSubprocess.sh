@@ -5,6 +5,8 @@
 # and if Pharo saves the image, it releases the sockets and immediately wants to get them again, but that will fail,
 # since the subprocess still has it (unused) open
 
+# TODO: This should be done in Pharo by OSSSubprocess, see stub method closeAllButStandardFileStreams
+
 # Find file descriptor of open socket on pharos port
 MYPID=$$
 

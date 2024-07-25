@@ -37,7 +37,7 @@ require 'spreadsheet'
 #
 
 # Farbangaben in Excel soll als Fach eingelesen werden? (Default: false, nur Charlotte verwendet das evt.)
-$use_colors = true
+$use_colors = false
 
 
 

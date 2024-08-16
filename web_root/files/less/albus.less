@@ -2683,12 +2683,26 @@ div.ALKlassenbuchComponentBase {
 					// 		background-color: #f6f6f6;
 					// }
 
-					td.student {
-							display: flex;
-							justify-content: space-between;
-							align-items: flex-start;
-							gap: 5px;
+					td {
+							
+							&.student {
+									display: flex;
+									justify-content: space-between;
+									align-items: flex-start;
+									gap: 5px;
+							}
+
+							&.totalNotEntschuldigt, &.missedExams {
+									background-color: #f0f0f0;
+							}
+
+							span.zero {
+									color: #bbb;
+							}
+
 					}
+
+					
 			}
 			
 			table.tableAbsencesList {

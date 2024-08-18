@@ -2702,6 +2702,11 @@ div.ALKlassenbuchComponentBase {
 
 					}
 
+					// Give highlighting more precedence in this table
+					tr.highlight td {
+							background-color: @highlightColor;
+					}
+
 					
 			}
 			
@@ -2717,11 +2722,17 @@ div.ALKlassenbuchComponentBase {
 					// 		}
 					// }
 
+
+					
 					td.entry, td.entschuldigt, td.actions {
 							white-space: nowrap;
 					}
 
 					td.entschuldigt {
+
+							div.btn-group {
+									display: inline-flex; //Strange: Without that, it will overflow outside the cell ?!!
+							}
 							span.label {
 									display: inline-block;
 									width: 3rem;
@@ -2740,6 +2751,11 @@ div.ALKlassenbuchComponentBase {
 									}
 							}
 					}
+
+					td.lessons {
+						width: 100%;
+					}
+
 
 
 					// col.lessons {

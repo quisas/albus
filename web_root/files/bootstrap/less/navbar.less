@@ -15,7 +15,8 @@
   border: 1px solid transparent;
 
   // Prevent floats from breaking the navbar
-  &:extend(.clearfix all);
+	// Andreas Brodbeck: Strange behaviour when using bottom navbar as a flex container
+  //&:extend(.clearfix all);
 
   @media (min-width: @grid-float-breakpoint) {
     border-radius: @navbar-border-radius;

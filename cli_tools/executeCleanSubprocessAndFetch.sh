@@ -25,6 +25,8 @@ for fd in $fileDescriptors; do
 
 done
 
+OUTFILE=$1
+shift
 
 # Run the initially given command line.
-eval $@
+eval $@ > $OUTFILE

@@ -11,11 +11,13 @@ ohne spezifische Dokumentation.
 
 ## 1. Basis-Installationsschritte
 
+Auf der Entwicklungsumgebung:
+
 * `git clone https://github.com/quisas/albus-vagrant.git`
 * `cd albus-vagrant`
 * `cp albus.yml.template albus.yml`
-* Eigenes monticello-Repository erstellen für den schulspezifischen Smalltalk-Code (z.B. auf smalltalkhub.com oder eigenem Entwicklungs-Server)
-* Eigenes git-Repository erstellen für die schulspezifischen Dateien (z.B. auf github.com)
+* Eigenes git-Repository erstellen für den schulspezifischen Smalltalk-Code ("albus-schuleXY"
+* Eigenes git-Repository erstellen für die schulspezifischen Dateien
 * albus.yml bearbeiten und darin die eigene Konfiguration speichern
 
 Fahren Sie weiter bei 2a oder 2b
@@ -29,7 +31,7 @@ weiterverwendet werden kann.
 * Alle folgenden Arbeiten auf dem VM-Host:
 * VirtualBox installieren (<https://www.virtualbox.org/wiki/Downloads>)
 * Vagrant installieren (<http://vagrantup.com>)
-* Basis-Installation wie oben
+* Basis-Installation, siehe Punkt 1
 * `vagrant up --provision dev`
 
 ## 2b. Installieren auf einem eigenen Server
@@ -39,14 +41,14 @@ Empfohlen für produktive Umgebung. Damit kann ein Linux-Server eigener Wahl auf
 * Eigener Linux-Server aufsetzen (z.B. Ubuntu Server)
 * Alle folgenden Arbeiten auf dem Linux-Server:
 * Ansible installieren (<http://docs.ansible.com/ansible/latest/intro_installation.html>)
-* Basis-Installation wie oben
+* Basis-Installation, siehe Punkt 1
 * `ansible-playbook playbook_install.yml`
 
 # Weitere Infos
 
 ## Smalltalk Quellcode
 
-Der Quellcode der Kernapplikation ist in einem eigenen Repository gespeichert: <http://smalltalkhub.com/#!/~quisas/albus>
+Der Quellcode der Kernapplikation ist in einem eigenen Repository gespeichert: <https://github.com/quisas/albus-smalltalk-code>
 
 ## Instant-Demo lokal installieren
 

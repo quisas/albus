@@ -2,7 +2,7 @@
 
 OUTPUTFILE="/tmp/albus_runTask_$1_output.txt"
 MAXTIME=${2:-60}
-HOSTNAME=`hostname`
+HOSTNAME=`uname -n`
 
 # Vorheriges Outputfile löschen
 rm -f $OUTPUTFILE

@@ -13,6 +13,10 @@ function niceReload() {
 	}
 }
 
+function getFileExtension(filename) {
+  return filename.slice((filename.lastIndexOf(".") - 1 >>> 0) + 2);
+}
+
 // CLOCK ============================================================
 
 function clockInit(size, canvasWrapperId) {
@@ -104,7 +108,7 @@ function kioskInit(urls, delay, duration) {
 
 	// Always after page has loaded make it visible and start the hide-timer
 	kioskIframe.onload = function() {
-		if (kioskIframe.src) {
+		if ( kioskIframe.src || kioskIframe.srcdoc ) {
 			kioskIframe.style.visibility = 'visible';
 			kioskIframe.style.opacity = 100;
 			setTimeout(kioskHide, kioskDuration);
@@ -119,8 +123,18 @@ function kioskShowNext() {
 	kioskCurrentIndex++;
 	if ( kioskCurrentIndex >= kioskUrls.length ) { kioskCurrentIndex = 0 }	
 	const url = kioskUrls[kioskCurrentIndex];
+  
+  const extension = getFileExtension(url); 
+  const imageExtensions = ['jpg', 'jpeg', 'gif', 'png', 'webp'];
+  const isImage = imageExtensions.includes(extension);
 
-	kioskIframe.src = url;
+  if (isImage) {
+	  kioskIframe.removeAttribute('src');
+    kioskIframe.setAttribute('srcdoc', '<img style="width:100%" src="' + url + '"></img>');
+  } else {
+    kioskIframe.removeAttribute('srcdoc');
+	  kioskIframe.setAttribute('src', url);
+  }
 
 }
 

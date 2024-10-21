@@ -96,7 +96,7 @@ function clockInit(size, canvasWrapperId) {
 
 var kioskUrls, kioskDelay, kioskDuration;
 var kioskIframe;
-var kioskCurrentIndex = 0;
+var kioskCurrentIndex = -1;
 
 function kioskInit(urls, delay, duration, shuffled = true) {
 	kioskUrls = urls;

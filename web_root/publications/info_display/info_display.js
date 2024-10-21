@@ -98,11 +98,14 @@ var kioskUrls, kioskDelay, kioskDuration;
 var kioskIframe;
 var kioskCurrentIndex = 0;
 
-function kioskInit(urls, delay, duration) {
+function kioskInit(urls, delay, duration, shuffled = true) {
 	kioskUrls = urls;
 	kioskDelay = delay;
 	kioskDuration = duration;
-	shuffleArray(kioskUrls);
+
+  if (shuffled) {
+	  shuffleArray(kioskUrls);
+  }
 
 	kioskIframe = document.getElementById('kioskIframe');
 

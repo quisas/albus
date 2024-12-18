@@ -29,6 +29,7 @@
 
 require 'rubygems'
 $LOAD_PATH.push('./modified_gems/spreadsheet-1.1.2/lib')
+$LOAD_PATH.push('./modified_gems/ruby-ole-1.2.12/lib')
 require 'spreadsheet'
 
 

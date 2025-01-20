@@ -1,4 +1,4 @@
-// -*- less-css-compile-at-save: t -*-
+// main: style.less
 
 
 @smallFontSize: 10px;
@@ -1532,9 +1532,17 @@ div.panel {
 		}
 }
 
-form.login input {
-  width: 200px;
+div.ALLoginComponent {
+
+  form.login input {
+    width: 200px;
+  }
+
+  div.loginMicrosoft {
+    margin: 2em 0;
+  }
 }
+
 
 div.ALLessonPlacingWizard {
   div.courseTitle {
@@ -2872,6 +2880,31 @@ div.ALMyBookingCockpit {
 		select.selectRooms {
 				width: 300px;
 		}
+
+    div.roomList {
+      li.room {
+        @left: 2rem;
+        div.checkbox {
+          label {
+            input[type=checkbox] {
+              position: absolute;
+              margin-right: 1rem;
+              margin-top: 0;
+              width: 1em;
+            }
+            span.checkboxLabel {
+              padding-left: @left;
+            }
+          }
+        }
+        div.description {
+          .small();
+          color: gray;
+          margin-left: @left;
+          margin-bottom: 3px;
+        }
+      }
+    }
 }
 
 div.ALBookingCockpit {

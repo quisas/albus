@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# source $(dirname "$0")/lib.sh
+
 # On Linux, all the opened files and sockets from the parent process (which is Pharo), will be inherited to subprocesses.
 # Thats kind of stupid, we have to explicitlty close them, since the web server socket will be kept by the subprocess
 # and if Pharo saves the image, it releases the sockets and immediately wants to get them again, but that will fail,
@@ -25,8 +27,29 @@ for fd in $fileDescriptors; do
 
 done
 
+PWD=$1
+shift
+
 OUTFILE=$1
 shift
 
+COMMAND=$1
+shift
+
 # Run the initially given command line.
-eval $@ > $OUTFILE
+# eval "$(token_quotes "$@")" > $OUTFILE
+
+pushd $PWD > /dev/null
+
+# Test, if we have arguments for the command, or not
+if [ "$#" -eq 0 ]; then
+  # If it is only one single command without arguments, then we evaluate it lierally,
+  # so that we can use that for a complex command which is given directly as a single string, even with
+  # bash syntax. Not the safest, but very handy sometimes.
+  ( eval $COMMAND ) 1> $OUTFILE 2> /tmp/albus-execute-subprocess-error.log
+else
+  $COMMAND "$@" 1> $OUTFILE 2> /tmp/albus-execute-subprocess-error.log
+fi
+
+
+popd > /dev/null

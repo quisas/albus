@@ -137,18 +137,18 @@
 				//        window.URL = window.URL || window.webkitURL || window.msURL || window.mozURL;
 				
         // check for camerasupport
-        if (navigator.getUserMedia) {
+        // if (navigator.mediaDevices) {
           headtrackerStatus("getUserMedia");
 
           // set up stream
           var videoSelector = {
 						audio: false,
             video: {
-							width: { min: 1000, ideal: 1920 },
-              height: { min: 800, ideal: 1080 }
+							width: { min: 800, ideal: 1920 },
+              height: { min: 600, ideal: 1080 }
               }
             }
-        };
+        // };
 				var me = this;
 				navigator.mediaDevices.getUserMedia(videoSelector).then(function(stream) {
 					headtrackerStatus("Kamera gefunden");
@@ -156,8 +156,8 @@
 					video.srcObject = stream;
 					video.play();
 				}).catch(function(err) {
-          headtrackerStatus("Keine Kamera mit genügender Auflösung gefunden!");
-          //insertAltVideo(video);
+          headtrackerStatus("Keine Kamera mit genügender Auflösung gefunden! (" + err.message + ")");
+          //insertAltVideo(video)
 				});
       } else {
         headtrackerStatus("Browser unterstützt keine Kamera");

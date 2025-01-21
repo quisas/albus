@@ -1,12 +1,11 @@
-
-// Login via schulegl (Microsoft). Benötigt msal.js von Microsoft
+// Login via Microsoft. Benötigt msal.js von Microsoft
 
 // https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/v2-migration.md
 let myMSALObj;
 
 function callApplication(accessToken) {
   myMSALObj.clearCache();
-  window.location.hash = null;
+  window.location.hash = ''; // Remove URL fragment, so that no MS redirect info will be sticky forwarded. Stupid MS.
   window.location.search = "?mstk=" + accessToken;
 }
 
@@ -54,17 +53,11 @@ async function ms_init(clientId, authority, redirect) {
     },
   };
 
-  //const requestObj = {
-  //  scopes: ["user.read"]
-  //};
-
   myMSALObj = new msal.PublicClientApplication(msalConfig);
-
-  // await myMSALObj.initialize();
 
   await myMSALObj.initialize().then(() => {
     myMSALObj.handleRedirectPromise().then((tokenResponse) => {
-      // console.log(tokenResponse);
+
       if (tokenResponse && tokenResponse.tokenType === "Bearer") {
         callApplication(tokenResponse.accessToken);
       }
@@ -72,28 +65,6 @@ async function ms_init(clientId, authority, redirect) {
   }).catch(error => {
     console.log(error);
   });
-
-
-
-
-  // const loginRequest = {
-  //   scopes: ["user.read"],
-  //   // state: "page_url"
-  // }
-  // 
-  // // Try silent login without dialog
-  // myMSALObj.acquireTokenSilent(loginRequest).then(tokenResponse => {
-  //   // Do something with the tokenResponse
-  //   callApplication(tokenResponse.accessToken);
-  // })
-  //   //.catch(error => {
-  //   //if (error instanceof InteractionRequiredAuthError) {
-  //     // fallback to interaction when silent call fails
-  //     //        return msalInstance.acquireTokenRedirect(request)
-  //   //}
-  //
-  // //});
-
 }
 
 
@@ -101,13 +72,15 @@ async function ms_signIn() {
 
   const loginRequest = {
     scopes: ["user.read"],
-    // state: "page_url"
   }
 
   await myMSALObj.loginRedirect(loginRequest);
 
-  // return myMSALObj.acquireTokenRedirect(loginRequest);
-
-    // handle other errors
 }
+
+// async function ms_logout(username) {
+//   const currentAccount = myMSALObj.getAccountByUsername(username);
+//   // The account's ID Token must contain the login_hint optional claim to avoid the account picker
+//   await myMSALObj.logoutRedirect({ account: currentAccount});
+// }
 

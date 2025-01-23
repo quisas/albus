@@ -274,21 +274,23 @@ function suppressEnterKey(event) {
 
 function handleSessionCheck(responseData) {
 
-	switch (responseData) {
-	case 'OK':
-		// alert('Session OK');
-	  break;
-	case 'expired':
-		alert('Ihre Sitzung ist wegen Inaktivität abgelaufen. Sie wurden ausgeloggt.');
-		location.reload(true);
-		break;
-	case 'nearlyExpired':
-		$('#sessionNearlyExpired').modal('show');
-		break;
-	default:
-		// alert('Sitzung meldet ' + responseData);
-	}
-	
+  switch (responseData) {
+    case 'OK':
+      // alert('Session OK');
+      break;
+    case 'expired':
+      alert('Ihre Sitzung ist wegen Inaktivität abgelaufen. Sie wurden ausgeloggt.');
+      // window.location.reload();
+      // reload without URL query part
+      window.location.replace(window.location.pathname);
+      break;
+    case 'nearlyExpired':
+      $('#sessionNearlyExpired').modal('show');
+      break;
+    default:
+      // alert('Sitzung meldet ' + responseData);
+  }
+
 }
 
 function copyToClipboard(selector) {

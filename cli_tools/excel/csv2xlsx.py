@@ -1,4 +1,4 @@
-#!/usr/bin/env 
+#!/usr/bin/env python3 
 """
 FUNCTION: Converts a CSV (tab delimited) file to an Excel xlsx file.
 
@@ -39,17 +39,12 @@ parser.add_argument("input_file")
 parser.add_argument("-d", "--delimiter", default="\t", help="select delimiter character")
 args = parser.parse_args()
 
-# if not ".csv" in args.input_file:
-#     sys.stderr.write("Error: File does not have the ending \".csv\".\n")
-#     sys.exit(2)
-
-input_fh = open(args.input_file)
 workbook = Workbook()
-sheet = workbook.create_sheet(0)
+sheet = workbook.worksheets[0] # create_sheet()
 
 for row_index, row in enumerate(
-    csv.reader(open(args.input_file, 'rU'), delimiter=args.delimiter)):
-    for col_index, col in enumerate(row):
+    csv.reader(open(args.input_file, 'r'), delimiter=args.delimiter), start=1):
+    for col_index, col in enumerate(row, start=1):
         sheet.cell(row = row_index, column = col_index).value = col
 
-workbook.save(open((args.input_file + ".xlsx"), "w"))
+workbook.save(args.input_file + ".xlsx")

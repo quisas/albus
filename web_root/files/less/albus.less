@@ -1910,82 +1910,89 @@ div.bazarEntry {
 
 div.ALFreeformDesignerComponent {
 		@handleHeight: 130px;
+    @leftWhitespace: 30px;
 		
-		ul.freeformBricks {
-				li {
 
-						&.insertPlaceholder {
-								background-color: lightyellow;
-								height: @handleHeight;
-								list-style-type: none;
-								margin-left: -30px;
-						}
+    div.freeformMainContainer {
 
-						
-						&.freeformBrick {
-								margin-top: 10px;
-								min-height: @handleHeight;
-								background-color: #f6f6f6;
+      margin-left: @leftWhitespace;
 
-								label {
-										font-weight: 500;
-										margin-top: 0.5em;
-								}
-								
-								input[type=text].brickLabel {
-										font-weight: bold;
-										font-size: 120%;
+      ul.freeformBricks {
+        li {
 
-										&::placeholder {
-												color: #bbb;
-												font-weight: normal;
-										}
-								}
+          &.insertPlaceholder {
+            background-color: lightyellow;
+            height: @handleHeight;
+            list-style-type: none;
+            margin-left: -@leftWhitespace;
+          }
 
-								div.brickCode {
-										float: right;
-										margin-top: 5px;
 
-										label {
-												.text-muted();
-												font-weight: normal;
-												display: inline;
-												margin-right: 3px;
-										}
+          &.freeformBrick {
+            margin-top: 10px;
+            min-height: @handleHeight;
+            background-color: #f6f6f6;
 
-										input[type=text] {
-												display: inline;
-												width: 100px;
-												padding: 0 3px;
-												height: 24px;
-										}
-								}
+            label {
+              font-weight: 500;
+              margin-top: 0.5em;
+            }
 
-								div.checkbox {
-										display: inline-block;
-										margin-right: 1em;
-								}
-						}
+            input[type=text].brickLabel {
+              font-weight: bold;
+              font-size: 120%;
 
-						&.ALFfDivider {
-								min-height: @handleHeight/2;
-								hr {
-										border-top-color: black;
-								}
-						}
+              &::placeholder {
+                color: #bbb;
+                font-weight: normal;
+              }
+            }
 
-						&.ALFfItemsReservation {
-								div.reservableItems {
-										input[type=text] {
-												display: inline;
-										}
+            div.brickCode {
+              float: right;
+              margin-top: 5px;
 
-								}
-						}
-						
+              label {
+                .text-muted();
+                font-weight: normal;
+                display: inline;
+                margin-right: 3px;
+              }
 
-				}
-		}
+              input[type=text] {
+                display: inline;
+                width: 100px;
+                padding: 0 3px;
+                height: 24px;
+              }
+            }
+
+            div.checkbox {
+              display: inline-block;
+              margin-right: 1em;
+            }
+          }
+
+          &.ALFfDivider {
+            min-height: @handleHeight/2;
+            hr {
+              border-top-color: black;
+            }
+          }
+
+          &.ALFfItemsReservation {
+            div.reservableItems {
+              input[type=text] {
+                display: inline;
+              }
+
+            }
+          }
+
+
+        }
+      }
+    }
 
 		fieldset {
 				border: 1px solid black;

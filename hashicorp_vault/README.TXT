@@ -9,3 +9,8 @@ sudo setcap cap_ipc_lock=+ep vault
 
 export VAULT_ADDR='https://127.0.0.1:8200'
 vault operator init
+
+- Dann den key value store "kv" einschalten für Pfad albus
+
+vault login <root-token>
+vault secrets enable -path albus -version 2 kv

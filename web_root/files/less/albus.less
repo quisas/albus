@@ -3408,24 +3408,32 @@ div.ALNewPeriodWizard {
 div.ALTodolistUsageComponent {
 		table.todoTable {
 
-				.topBuffer();
+			.topBuffer();
 
-				tr.isDue {
-						div.todoTitle, div.todoDueDate {
-								.text-danger();
-						}
-				}
+      > tbody {
+        > tr {
+          &.isDue {
+            div.todoTitle, div.todoDueDate {
+              .text-danger();
+            }
+          }
 
-				td.todoDescription {
-						width: 33%;
-						div.todoTitle {
-								font-weight: bold;
-								font-size: 120%;
-						}
-						div.todoDescriptionText {
-								margin-top: 0.5em;
-						}
-				}
+          > td.todoDescription {
+            width: 33%;
+            div.todoTitle {
+              font-weight: bold;
+              font-size: 120%;
+            }
+            div.todoDescriptionText {
+              margin-top: 0.5em;
+            }
+            div.todoInfoAttachments {
+            }
+
+           }
+          }
+        }
+      }
 		}
 		
 		table.answersTable {
@@ -3443,7 +3451,7 @@ div.ALTodolistUsageComponent {
 //						width: 5%;
 				}
 
-				tr {
+				> tbody > tr {
 						line-height: 1.8em;
 						
 						a.checkboxAnchor {
@@ -3452,13 +3460,20 @@ div.ALTodolistUsageComponent {
 										background-color: #ddd;
 								}
 						}
-						&.my.ok {
-								a.checkboxAnchor {
-										color: green;
-								}
-						}
+            &.my {
+              > td {
+                padding-bottom: 1em;
+              }
 
-						td {
+              &.ok {
+                a.checkboxAnchor {
+                  color: green;
+                }
+              }
+            }
+
+						> td {
+                vertical-align: top;
 								&.colCheckbox {
 										white-space: nowrap;
 										padding-right: 1em;
@@ -3468,7 +3483,7 @@ div.ALTodolistUsageComponent {
 										}
 								}
 								&.colText {
-										white-space: nowrap;
+										// white-space: nowrap;
 										input[type=text] {
 												font-style: italic;
 												width: 100%;
@@ -3479,7 +3494,7 @@ div.ALTodolistUsageComponent {
 														.bg-warning();
 												}
 										}
-										span.quote {
+										div.quote {
 												font-style: italic;
 										}
 								}
@@ -3493,6 +3508,24 @@ div.ALTodolistUsageComponent {
 						
 				}
 		}
+
+    div.downloads {
+      // ul {
+        //   .list-unstyled();
+        //   li {
+          //     text-indent: 2rem hanging;
+        //   }
+      // }
+      table {
+        td {
+          vertical-align: top;
+        }
+      }
+
+      span.fileName {
+        white-space: nowrap;
+      }
+
 }
 
 div.ALGraduationMarksReportSimulator {

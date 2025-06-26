@@ -1,3 +1,3 @@
 #!/bin/bash
 
-grep "\!\!\!" planer_data_import.log
+grep '!!!' planer_data_import.log

@@ -11,12 +11,12 @@
 
 // MIXINS
 .truncateWithEllipsis() {
-		text-overflow: ellipsis;
+    text-overflow: ellipsis;
 
-		/* Required for text-overflow to do anything */
-		white-space: nowrap;
-		overflow: hidden;
-		line-height: 1.2; // otherwise it cuts off the deep characters (default: 1.1)
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 1.2; // otherwise it cuts off the deep characters (default: 1.1)
 }
 
 
@@ -25,63 +25,63 @@
 
 
 a, span.likeAnchor {
-		&:hover i {
-				text-decoration: none;
-		}
+    &:hover i {
+        text-decoration: none;
+    }
 
-		// Icon at beginning of link
-		.icon:first-child {
-				margin-right: 2px;
-				width: 1.5em;
-				text-align: center;
-		}
-		
-		&.action {
-				margin-left: 3px;
-				margin-right: 3px;
+    // Icon at beginning of link
+    .icon:first-child {
+        margin-right: 2px;
+        width: 1.5em;
+        text-align: center;
+    }
+    
+    &.action {
+        margin-left: 3px;
+        margin-right: 3px;
 
-				.icon:first-child {
-//						margin-right: 2px;
-						width: unset;
-//						text-align: center;
-				}
-		}
+        .icon:first-child {
+//            margin-right: 2px;
+            width: unset;
+//            text-align: center;
+        }
+    }
 
-		&.lowlight {
-				color: inherit;
-				
-				&:hover {
-						color:@link-color;
-				}
-		}
+    &.lowlight {
+        color: inherit;
+        
+        &:hover {
+            color:@link-color;
+        }
+    }
 
-		&.block {
-				// & + & {
-				// 		margin-top: 0.5em;
-				// }
-				
-				margin-bottom: 0.5em;
-				display: block;
-		}
+    &.block {
+        // & + & {
+        //    margin-top: 0.5em;
+        // }
+        
+        margin-bottom: 0.5em;
+        display: block;
+    }
 
-		&.jump {
-				cursor: pointer;
-		}
+    &.jump {
+        cursor: pointer;
+    }
 
-		// &.jumpAnchor {
-		// 		display: block;
-		// 		position: relative;
-		// 		top: -45px;
-		// 		visibility: hidden;
-		// }
+    // &.jumpAnchor {
+    //    display: block;
+    //    position: relative;
+    //    top: -45px;
+    //    visibility: hidden;
+    // }
 
 }
 
 .jumpAnchor {
-		display: block;
-		position: relative;
-		top: -45px;
-		visibility: hidden;
+    display: block;
+    position: relative;
+    top: -45px;
+    visibility: hidden;
 }
 
 
@@ -104,25 +104,25 @@ html
 
 body
 {
-		min-height: 100%;
+    min-height: 100%;
 
-		&.betaTest {
-				background-image: url("/files/img/beta-ribbon.png");
-				background-repeat: no-repeat;
-				background-attachment: fixed;
-				background-position: right 35px;
-		}
+    &.betaTest {
+        background-image: url("/files/img/beta-ribbon.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: right 35px;
+    }
 
-		&.nonCurrentSemester {
-				//  background-color: #FFEEEE;
-				border-left: 30px solid @nonCurrentColor;
-				border-right: 30px solid @nonCurrentColor;
-		}
+    &.nonCurrentSemester {
+        //  background-color: #FFEEEE;
+        border-left: 30px solid @nonCurrentColor;
+        border-right: 30px solid @nonCurrentColor;
+    }
 
-		&.switchUserIsActive {
-				background-color: lighten(rgb(255,192,203), 10%);
-		}
-		
+    &.switchUserIsActive {
+        background-color: lighten(rgb(255,192,203), 10%);
+    }
+    
 }
 
 
@@ -158,69 +158,69 @@ body
 }
 
 #switchUserIsActiveWarning {
-		animation: shake 2s cubic-bezier(.36,.07,.19,.97) both;
-		// transform: translate3d(0, 0, 0);
-		// backface-visibility: hidden;
-		// perspective: 1000px;
+    animation: shake 2s cubic-bezier(.36,.07,.19,.97) both;
+    // transform: translate3d(0, 0, 0);
+    // backface-visibility: hidden;
+    // perspective: 1000px;
 
-		position: fixed;
-		top: 30px;
-		left: 15px;
-		color: darken(pink, 10%);
-		font-size: 30px;
+    position: fixed;
+    top: 30px;
+    left: 15px;
+    color: darken(pink, 10%);
+    font-size: 30px;
 }
 
 #sensitiveDataIsVisibleWarning {
-		animation: shake 2s cubic-bezier(.36,.07,.19,.97) both;
-		// transform: translate3d(0, 0, 0);
-		// backface-visibility: hidden;
-		// perspective: 1000px;
+    animation: shake 2s cubic-bezier(.36,.07,.19,.97) both;
+    // transform: translate3d(0, 0, 0);
+    // backface-visibility: hidden;
+    // perspective: 1000px;
 
-		position: fixed;
-		top: 90px;
-		left: 15px;
+    position: fixed;
+    top: 90px;
+    left: 15px;
 
-		.icon {
-				color: darken(red, 10%);
-				font-size: 30px;
-		}
+    .icon {
+        color: darken(red, 10%);
+        font-size: 30px;
+    }
 }
 
 // ol,
 // ul {
-// 		list-style-position: inside;
-// 		padding-left: 0;
-// 		// margin-left: -20px;
+//    list-style-position: inside;
+//    padding-left: 0;
+//    // margin-left: -20px;
 // }
 
 // ol ol,
 // ul ul {
-// 		padding-left: 10px;
+//    padding-left: 10px;
 // }
 
 
 // Für Submitbuttons welche wie ein Link aussehen sollen
 input[type="submit"], button[type="submit"] {
 
-		&.hideButton {
-				color: @link-color !important;
-				border: none !important;
-				background: transparent !important;
-				margin: 0 !important;
-				padding: 0 !important;
+    &.hideButton {
+        color: @link-color !important;
+        border: none !important;
+        background: transparent !important;
+        margin: 0 !important;
+        padding: 0 !important;
 
-				&:hover {
-						color: @link-hover-color !important;
-						text-decoration: @link-hover-decoration !important;
-				}
-		}
+        &:hover {
+            color: @link-hover-color !important;
+            text-decoration: @link-hover-decoration !important;
+        }
+    }
 
-		// Icon at beginning
-		.icon:first-child {
-				margin-right: 2px;
-				width: 1.5em;
-				text-align: center;
-		}
+    // Icon at beginning
+    .icon:first-child {
+        margin-right: 2px;
+        width: 1.5em;
+        text-align: center;
+    }
 
 
 }
@@ -233,46 +233,46 @@ input[type="submit"], button[type="submit"] {
 
 // Generell für Elemente, die markiert sind
 .selected {
-		background-color: @highlightColor;
-//		border: @highlightBorder;
+    background-color: @highlightColor;
+//    border: @highlightBorder;
 }
 
 .date,
 .time,
 .dateAndTime,
 .dateTime {
-		white-space: nowrap;
+    white-space: nowrap;
 }
 
 textarea.likeTextInput {
-		// Hm, nicht ganz elegant...
-		height: 40px;
+    // Hm, nicht ganz elegant...
+    height: 40px;
 }
 
 .small {
-		font-size: @smallFontSize;
+    font-size: @smallFontSize;
 }
 
 td.actions {
-		white-space: nowrap;
+    white-space: nowrap;
 
-		&:last-child {
-				text-align: right;
-		}
+    &:last-child {
+        text-align: right;
+    }
 }
 
 div.page-header {
-		span.pageHeaderIcon {
-				color: #444;
-		}
+    span.pageHeaderIcon {
+        color: #444;
+    }
 }
 
 div.backButton {
-		.bottomBuffer();
+    .bottomBuffer();
 }
 
 .log {
-		font-family: @font-family-monospace;
+    font-family: @font-family-monospace;
 }
 
 
@@ -294,72 +294,72 @@ div.ALWeekdayByTimeSchedule {
 }
 
 div.ALPublicationCockpit {
-		&.maximized {
-				.hideOnMaximize {display:none}
+    &.maximized {
+        .hideOnMaximize {display:none}
 
-				div.publicationPreviewSchedule {
-						table.schedule {
-								transform-origin: top left;
-								transform: scale(.8);
-						}
-				}
-		}
+        div.publicationPreviewSchedule {
+            table.schedule {
+                transform-origin: top left;
+                transform: scale(.8);
+            }
+        }
+    }
 
 
-		div.collissionWarning {
-				&.teacher, &.room, &.student {
-						.bg-danger();
-				}
-		}
-		
+    div.collissionWarning {
+        &.teacher, &.room, &.student {
+            .bg-danger();
+        }
+    }
+    
 }
 
 div.ALPublicationOutlookComponent {
-		div.collissionWarning {
-				&.teacher, &.room {
-						.bg-danger();
-				}
-		}		
+    div.collissionWarning {
+        &.teacher, &.room {
+            .bg-danger();
+        }
+    }   
 }
 
 @keyframes blinkRedBorder { 
-		0% {
-				border-color: #fee;
-		} 
-		50% {
-				border-color: red;
-		} 
+    0% {
+        border-color: #fee;
+    } 
+    50% {
+        border-color: red;
+    } 
 }
 
 // Eigene Styles für den Preview-Schedule fürs Sekretariat
 div.publicationPreviewSchedule {
 
-		// div.collissionWarning {
-		// 		&.teacher, &.room, &.student {
-		// 				.bg-danger();
-		// 		}
+    // div.collissionWarning {
+    //    &.teacher, &.room, &.student {
+    //        .bg-danger();
+    //    }
 
-		// 		// ol {
-		// 		// 		padding-left: 0;
-		// 		// }
-		// }
-		
+    //    // ol {
+    //    //    padding-left: 0;
+    //    // }
+    // }
+    
   .highlight {
-			border: 1px solid red;
-	}
+      border: 1px solid red;
+  }
 
-	ul.mutators {
-			.list-unstyled();
-			.threeColumns();
+  ul.mutators {
+      .list-unstyled();
+      .threeColumns();
 
-			li {
-					break-inside: avoid-column;
-					// a.mutator {							
-					// 		display: inline-block;
-					// }
-			}
-	}
-	
+      li {
+          break-inside: avoid-column;
+          // a.mutator {              
+          //    display: inline-block;
+          // }
+      }
+  }
+  
   table.schedule {
 
     font-size: 90%;
@@ -371,33 +371,33 @@ div.publicationPreviewSchedule {
     
     .lessonInCell {
       .highlight {
-					border-width: 2px;
-					border-color: red;
+          border-width: 2px;
+          border-color: red;
 
-			    // animation-name: blinkRedBorder ;
-					// animation-duration: .3s ;
-					// animation-timing-function: step-end ;
-					// animation-iteration-count: infinite ;
-					// animation-direction: alternate ;
+          // animation-name: blinkRedBorder ;
+          // animation-duration: .3s ;
+          // animation-timing-function: step-end ;
+          // animation-iteration-count: infinite ;
+          // animation-direction: alternate ;
       }
 
-			.mutatedBySimpleUser {
-					filter: brightness(80%);
-			}
+      .mutatedBySimpleUser {
+          filter: brightness(80%);
+      }
 
-			span.lessonMoreInfo {
-					.actionOnClick();
-					position: absolute;
-					visibility: hidden;
-					color: green;
-			}
+      span.lessonMoreInfo {
+          .actionOnClick();
+          position: absolute;
+          visibility: hidden;
+          color: green;
+      }
 
-			&:hover {
-					span.lessonMoreInfo {
-							visibility: visible;
-					}
-			}
-			
+      &:hover {
+          span.lessonMoreInfo {
+              visibility: visible;
+          }
+      }
+      
       white-space:nowrap;
 
     }
@@ -426,42 +426,42 @@ div.publicationPreviewSchedule {
       }
     }
 
-		.ALBookedLesson {
-				.lessonLabel {
-						border-bottom: 1px solid black;
-				}
-		}
+    .ALBookedLesson {
+        .lessonLabel {
+            border-bottom: 1px solid black;
+        }
+    }
 
-		tr.Fremd {
-				th, td {
-						border-top-width: 2px;
-						border-top-color: black;
-				}
-		}
-		
-		tr.Rest, tr.Fremd, tr.Instr {
+    tr.Fremd {
+        th, td {
+            border-top-width: 2px;
+            border-top-color: black;
+        }
+    }
+    
+    tr.Rest, tr.Fremd, tr.Instr {
 
-				td {
-						padding-top: 0.5em;
-						padding-bottom: 0.5em;
-						font-size: 75%;
-						// * {
-						// 		visibility: hidden;
-						// }
-				}
+        td {
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+            font-size: 75%;
+            // * {
+            //    visibility: hidden;
+            // }
+        }
 
-				th, td {
-						color: #666;
-				}
+        th, td {
+            color: #666;
+        }
 
-				// &:hover {
-				// 		td {
-				// 				* {
-				// 						visibility: visible;
-				// 				}
-				// 		}
-				// }
-		}
+        // &:hover {
+        //    td {
+        //        * {
+        //            visibility: visible;
+        //        }
+        //    }
+        // }
+    }
     
   }
 }
@@ -474,11 +474,11 @@ div.publicationPreviewSchedule {
 }
 
 div.flashMessages, div.flashError {
-		position: sticky;
-		top: @navbar-height + 5px;
-		z-index: @zindex-navbar; // 99999;
-		max-height: 40vh;
-		overflow: auto;
+    position: sticky;
+    top: @navbar-height + 5px;
+    z-index: @zindex-navbar; // 99999;
+    max-height: 40vh;
+    overflow: auto;
 }
 
 
@@ -489,87 +489,87 @@ div.flashMessages, div.flashError {
 //    background-color: #EEE;
 //  }
 
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 10px;
-		padding: 3px;
-		width: 100%;
-		
-		.brand {
-				padding-right: 0;
-				padding-left: 0;
-				margin-left: 20px;
-				float: right;
-		}
-		
-		form.navbar-form {
-				margin-right: 0;
-				margin-left: 0;
-				padding: 0;
-		}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 3px;
+    width: 100%;
+    
+    .brand {
+        padding-right: 0;
+        padding-left: 0;
+        margin-left: 20px;
+        float: right;
+    }
+    
+    form.navbar-form {
+        margin-right: 0;
+        margin-left: 0;
+        padding: 0;
+    }
 
-		img.schoolLogo {
-				// object-fit: cover;
-				// width:230px;
-				max-height: 30px;
-		}
+    img.schoolLogo {
+        // object-fit: cover;
+        // width:230px;
+        max-height: 30px;
+    }
 
-		
+    
 }
 
 
 #uiInteractionBlocker {
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		right: 0;
-		left: 0;
-//		background-color: rgba(100, 100, 100, 0.2);
-		background-color: transparent;
-//		vertical-align: middle;
-		padding: 20% 10px;
-		text-align: center;
-		font-weight: bold;
-//		letter-spacing: 0.1em;
-		color: transparent;
-		z-index: @zindex-modal + 99999;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+//    background-color: rgba(100, 100, 100, 0.2);
+    background-color: transparent;
+//    vertical-align: middle;
+    padding: 20% 10px;
+    text-align: center;
+    font-weight: bold;
+//    letter-spacing: 0.1em;
+    color: transparent;
+    z-index: @zindex-modal + 99999;
 
-		&:hover {
-				// background-color: rgba(100, 100, 100, 0.8);
-				// color: white;
+    &:hover {
+        // background-color: rgba(100, 100, 100, 0.8);
+        // color: white;
 
-				div.indicator {
-						color: yellow;
-						background-color: rgba(100, 100, 100, 0.8);
-				}
+        div.indicator {
+            color: yellow;
+            background-color: rgba(100, 100, 100, 0.8);
+        }
 
-		}
+    }
 
-		&.clicked {
-				background-color: rgba(100, 100, 100, 0.8);
-				color: white;
-		}
+    &.clicked {
+        background-color: rgba(100, 100, 100, 0.8);
+        color: white;
+    }
 
-		div.title {
-				font-size: 4rem;
-		}
+    div.title {
+        font-size: 4rem;
+    }
 
-		div.explanation {
-				
-		}
-		
-		div.indicator {
-				position: absolute;
-				left: 20px;
-				bottom: 20px;
-				color: white;
-				background-color: rgba(100, 100, 100, 0.8);
-				border-radius: 0.3em;
-				padding: 0.1em 0.3em;
-				font-size: 2.5rem;
-				text-align: center;
-		}
+    div.explanation {
+        
+    }
+    
+    div.indicator {
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        color: white;
+        background-color: rgba(100, 100, 100, 0.8);
+        border-radius: 0.3em;
+        padding: 0.1em 0.3em;
+        font-size: 2.5rem;
+        text-align: center;
+    }
 
 }
 
@@ -593,23 +593,23 @@ div.flashMessages, div.flashError {
 ul.errors {
   .alert;
   .alert-danger;
-//	.list-unstyled;
+//  .list-unstyled;
   margin: 10px 0;
-	padding-left: 30px;
+  padding-left: 30px;
 
-	ul {
-			.list-unstyled;
-	}
+  ul {
+      .list-unstyled;
+  }
 }
 
 div.validationWarnings {
-		
+    
 }
 
 
 div.alert-danger.systemMessage {
-		padding-top: 2em;
-		padding-bottom: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
 
 th.error {
@@ -639,86 +639,86 @@ form {
     visibility: hidden;
   }
 
-	div.checkbox {
-			input[type=checkbox] {
-					margin-right: 0.2em;
-			}
-	}
-	.checkbox-inline, .radio-inline {
-			label {
-					font-weight: normal;
-					cursor: pointer;
-			}
+  div.checkbox {
+      input[type=checkbox] {
+          margin-right: 0.2em;
+      }
+  }
+  .checkbox-inline, .radio-inline {
+      label {
+          font-weight: normal;
+          cursor: pointer;
+      }
 
-			&.disabled {
-					label {
-							.text-muted();
-					}
-			}
-	}
+      &.disabled {
+          label {
+              .text-muted();
+          }
+      }
+  }
 
 
 
-	&.dirty {
-			span.dirtyFlag {
-					display: inline;
-					color: black;
-					font-weight: bold;
-					/*    visibility: visible; */
-			}
-			
-			input.dirtyWarn,
-			button.dirtyWarn {
-					.btn-warning;
-			}
+  &.dirty {
+      span.dirtyFlag {
+          display: inline;
+          color: black;
+          font-weight: bold;
+          /*    visibility: visible; */
+      }
+      
+      input.dirtyWarn,
+      button.dirtyWarn {
+          .btn-warning;
+      }
 
-			.hiddenDirtyWarn {
-					visibility: visible;
-			}
+      .hiddenDirtyWarn {
+          visibility: visible;
+      }
 
-			div.hiddenDirtyWarn {
-					display: block;
-					margin: 5px 0px;
-			}
+      div.hiddenDirtyWarn {
+          display: block;
+          margin: 5px 0px;
+      }
 
-			input.hiddenDirtyWarn,
-			button.hiddenDirtyWarn,
-			a.btn.hiddenDirtyWarn {
-					.btn-warning;
-					display: inline;
-			}
+      input.hiddenDirtyWarn,
+      button.hiddenDirtyWarn,
+      a.btn.hiddenDirtyWarn {
+          .btn-warning;
+          display: inline;
+      }
 
-			.transparentDirtyWarn {
-					visibility: visible;
-			}
+      .transparentDirtyWarn {
+          visibility: visible;
+      }
 
-			input.transparentDirtyWarn,
-			button.transparentDirtyWarn,
-			a.btn.transparentDirtyWarn {
-					.btn-warning;
-			}
+      input.transparentDirtyWarn,
+      button.transparentDirtyWarn,
+      a.btn.transparentDirtyWarn {
+          .btn-warning;
+      }
 
-			
-			a.btn.showWhenDirty {
-					visibility: visible;
-					display: inline-block;
-			}
+      
+      a.btn.showWhenDirty {
+          visibility: visible;
+          display: inline-block;
+      }
 
-			.hideWhenDirty {
-					display: none;
-					visibility: hidden;
-			}
+      .hideWhenDirty {
+          display: none;
+          visibility: hidden;
+      }
 
-			.transparentWhenDirty {
-					visibility: hidden;
-			}
-			
-			.mutedWhenDirty {
-					pointer-events: none;
-					opacity: 0.5;
-			}
-			
-	}
+      .transparentWhenDirty {
+          visibility: hidden;
+      }
+      
+      .mutedWhenDirty {
+          pointer-events: none;
+          opacity: 0.5;
+      }
+      
+  }
 }
 
 div.row.row-highlight:hover {
@@ -728,35 +728,35 @@ div.row.row-highlight:hover {
 
 div.ALModelsFinder {
 
-		div.resultsSection {
+    div.resultsSection {
 
-				margin-top: 1em;
-				
-				div.searchResults {
-						@color: #EEF4E5;
-						//  border: 1px solid @gray-light;
-						background-color: @color;
-						max-width: 600px;
-						overflow: auto;
-						padding: 3px 5px;
-						margin: 3px 0 5px 0;
-						
-						ul {
-								margin: 0px;
+        margin-top: 1em;
+        
+        div.searchResults {
+            @color: #EEF4E5;
+            //  border: 1px solid @gray-light;
+            background-color: @color;
+            max-width: 600px;
+            overflow: auto;
+            padding: 3px 5px;
+            margin: 3px 0 5px 0;
+            
+            ul {
+                margin: 0px;
 
-								a.searchResult {
-										display: block;
+                a.searchResult {
+                    display: block;
 
-										&:hover {
-												background-color: darken(@color, 10%);
-										}
+                    &:hover {
+                        background-color: darken(@color, 10%);
+                    }
 
-								}
-								
-						}
-				}
-		}
-		
+                }
+                
+            }
+        }
+    }
+    
 }
 
 
@@ -772,222 +772,222 @@ th.ascending, th.descending {
 
 div.magritteTableContainer {
 
-		span.auxiliaryRowsToggler {
-				.text-muted();
-				.actionOnClick();
+    span.auxiliaryRowsToggler {
+        .text-muted();
+        .actionOnClick();
 
-				font-size: 90%;
-		}
+        font-size: 90%;
+    }
 
-		&:hover {
-				span.auxiliaryRowsToggler {
-						color: black;
-				}
-		}
+    &:hover {
+        span.auxiliaryRowsToggler {
+            color: black;
+        }
+    }
 
-		table.table-magritte {
-//				border: 1px solid #666;
-				> tbody {
-						> tr {
+    table.table-magritte {
+//        border: 1px solid #666;
+        > tbody {
+            > tr {
 
-								&.auxiliaryRow {
-										&.beHidden {
-												display: none;
-										}
+                &.auxiliaryRow {
+                    &.beHidden {
+                        display: none;
+                    }
 
-										&.beVisible, &.nonEmpty {
-												display: table-row;
-										}
+                    &.beVisible, &.nonEmpty {
+                        display: table-row;
+                    }
 
-										&.beVisible {
-												> th {
-														color: green;
-												}
-										}
+                    &.beVisible {
+                        > th {
+                            color: green;
+                        }
+                    }
 
-										// > th {
-										// 		color: green;
-										// 		// background-color: #f6f6f6;
-										// }
-								}
-								
-								> th {
-										//        white-space: nowrap;
-//										background-color: #f6f6f6;
-										background-color: #f0f0f0;
-										padding: 5px 3px 2px 5px;
-										border-top: 2px solid white;
-										border-bottom: 2px solid white;
-										width: 214px;
-										//        &:extend(.col-sm-4);
-										
-										// &.required {
-										// 		span.labelText {
-										// 				border-bottom: 1px dotted;
-										// 		}
-										// }
+                    // > th {
+                    //    color: green;
+                    //    // background-color: #f6f6f6;
+                    // }
+                }
+                
+                > th {
+                    //        white-space: nowrap;
+//                    background-color: #f6f6f6;
+                    background-color: #f0f0f0;
+                    padding: 5px 3px 2px 5px;
+                    border-top: 2px solid white;
+                    border-bottom: 2px solid white;
+                    width: 214px;
+                    //        &:extend(.col-sm-4);
+                    
+                    // &.required {
+                    //    span.labelText {
+                    //        border-bottom: 1px dotted;
+                    //    }
+                    // }
 
-										div.htmlRemarks {
-												font-size: 90%;
-												font-weight: normal;
-												color: #666;
-										}
+                    div.htmlRemarks {
+                        font-size: 90%;
+                        font-weight: normal;
+                        color: #666;
+                    }
 
-										span.commentIcon {
-												margin-left: 10px;
-												float: right;
-												font-size: 18px;
-												vertical-align: middle;
-												color: #888;
-												cursor: pointer;
-												font-weight: normal;
-										}
-										span.vaultIcon {
-												margin-left: 10px;
-												float: right;
-												font-size: 14px;
-												vertical-align: middle;
-												color: #888;
-												font-weight: normal;
-										}
+                    span.commentIcon {
+                        margin-left: 10px;
+                        float: right;
+                        font-size: 18px;
+                        vertical-align: middle;
+                        color: #888;
+                        cursor: pointer;
+                        font-weight: normal;
+                    }
+                    span.vaultIcon {
+                        margin-left: 10px;
+                        float: right;
+                        font-size: 14px;
+                        vertical-align: middle;
+                        color: #888;
+                        font-weight: normal;
+                    }
 
 
-								}
+                }
 
-								> td {
-										padding: 1px 2px 1px 4px;
-										border: none;
-										vertical-align: middle;
+                > td {
+                    padding: 1px 2px 1px 4px;
+                    border: none;
+                    vertical-align: middle;
 
-										ul {
-												margin-bottom: 0;
-										}
-										
-										div.htmlExtras {
-												.pull-right()
-										}
+                    ul {
+                        margin-bottom: 0;
+                    }
+                    
+                    div.htmlExtras {
+                        .pull-right()
+                    }
 
-								}
-						}
-				}
-				
-				&.table-form {
+                }
+            }
+        }
+        
+        &.table-form {
 
-						@formElementsWidth: 250px;
-						
-						> tbody > tr {
-								> th {
-										height: 34px;
+            @formElementsWidth: 250px;
+            
+            > tbody > tr {
+                > th {
+                    height: 34px;
 
-										&.required {
-												//          background-color: #f0f0f0;
-												// hässlich												border-left: 3px solid @requiredColor;
-												
-												span.labelText {
-														// text-decoration: underline;
-														border-bottom: 1px dotted;
-												}
-										}
-										
+                    &.required {
+                        //          background-color: #f0f0f0;
+                        // hässlich                       border-left: 3px solid @requiredColor;
+                        
+                        span.labelText {
+                            // text-decoration: underline;
+                            border-bottom: 1px dotted;
+                        }
+                    }
+                    
 
-								}
-								
-								> td.readonly {
-										padding-top: 5px;
-								}
-						}
+                }
+                
+                > td.readonly {
+                    padding-top: 5px;
+                }
+            }
 
-						.form-control {
-								display: inline;
-						}
-						
-						input.form-control,
-						select.form-control {
-								max-width: @formElementsWidth;
-						}
+            .form-control {
+                display: inline;
+            }
+            
+            input.form-control,
+            select.form-control {
+                max-width: @formElementsWidth;
+            }
 
-						select.chosen-select {
-								// visibility: hidden;
+            select.chosen-select {
+                // visibility: hidden;
 
-								// Chosen JS makes it 15px wider, because of additional UI elements
-								width: @formElementsWidth - 15px;
-						}
+                // Chosen JS makes it 15px wider, because of additional UI elements
+                width: @formElementsWidth - 15px;
+            }
 
-						
+            
 
-						textarea {
-								// Never limit markdown input
-								&.form-control:not(.md-input) {
-										width: @formElementsWidth;
-								}
-								// Never limit markdown input
-								// &.md-input {
-								// 		width: ;
-								// }
-						}
+            textarea {
+                // Never limit markdown input
+                &.form-control:not(.md-input) {
+                    width: @formElementsWidth;
+                }
+                // Never limit markdown input
+                // &.md-input {
+                //    width: ;
+                // }
+            }
 
-						div.suggestedTextblocks {
-								.text-muted();
-								max-width: 500px;
-								display: none;
-						}
-						
-						div.suggestedTags {
-								.text-muted();
-								max-width: 500px;
-								display: none;
-						}
+            div.suggestedTextblocks {
+                .text-muted();
+                max-width: 500px;
+                display: none;
+            }
+            
+            div.suggestedTags {
+                .text-muted();
+                max-width: 500px;
+                display: none;
+            }
 
-						div.uploader {
-								span.uploadStatus {
-										span.uploadOk {
-												color: green;
-										}
-								}
-						}
-				}
+            div.uploader {
+                span.uploadStatus {
+                    span.uploadOk {
+                        color: green;
+                    }
+                }
+            }
+        }
 
-				&.table-readonly {
-						> tbody > tr {
-								&:hover {
-										background-color: @table-border-color;
-								}
-								
-								> td, > th {
-										border-bottom: 1px solid @gray-lighter;
-								}
-						}
-				}
+        &.table-readonly {
+            > tbody > tr {
+                &:hover {
+                    background-color: @table-border-color;
+                }
+                
+                > td, > th {
+                    border-bottom: 1px solid @gray-lighter;
+                }
+            }
+        }
 
-				div.magritteInternalEditor {
-						border: 1px solid @table-border-color;
-						padding: 2px 2px 10px 5px;
-						margin-bottom: 10px;
-						width: 50%;
-						background-color: #f3f3f3;
-						
-						table.table-magritte {
-								width: 80%;
-								background-color: transparent;
-						}
-				}
+        div.magritteInternalEditor {
+            border: 1px solid @table-border-color;
+            padding: 2px 2px 10px 5px;
+            margin-bottom: 10px;
+            width: 50%;
+            background-color: #f3f3f3;
+            
+            table.table-magritte {
+                width: 80%;
+                background-color: transparent;
+            }
+        }
 
-		}
+    }
 }
 
 div.ALGenericTableEditorComponent {
-		table.genericTableEditor {
+    table.genericTableEditor {
 
-				td {
-						// &.required {
-						// 		border-left: 2px solid yellow;
-						// }
-						&.error {
-								background-color: red;
-						}
-				}
+        td {
+            // &.required {
+            //    border-left: 2px solid yellow;
+            // }
+            &.error {
+                background-color: red;
+            }
+        }
 
-		}
+    }
 }
 
 
@@ -1026,8 +1026,8 @@ div.protocol {
 //  margin-top: 50px;
   color: @gray-light;
 
-	a {
-			color: @gray-light;
+  a {
+      color: @gray-light;
   }
 
   td {
@@ -1057,20 +1057,20 @@ h1,
 h2, 
 h3, 
 h4 {
-		img {
-				vertical-align: bottom;
-		}
+    img {
+        vertical-align: bottom;
+    }
 
 }
 
 div.row {
-		h1, h2, h3, h4 {
-				
-				&:first-child {
-						margin-top: 0;
-				}
-		
-		}
+    h1, h2, h3, h4 {
+        
+        &:first-child {
+            margin-top: 0;
+        }
+    
+    }
 }
 
 //
@@ -1086,17 +1086,17 @@ table.outbox {
 }
 
 table.inbox {
-		span.icon.isKept {
-				color: #0b0;
-		}
+    span.icon.isKept {
+        color: #0b0;
+    }
 
-		tr.unread {
-				background-color: #FF9;
-		}
-		
-		td.dateAndTime {
-				white-space: nowrap;
-		}
+    tr.unread {
+        background-color: #FF9;
+    }
+    
+    td.dateAndTime {
+        white-space: nowrap;
+    }
 
 }
 
@@ -1124,19 +1124,19 @@ div.ALGenericTableReportComponent {
   
     th.filter {
       white-space: nowrap;
-			//      border-bottom-width: 1px;
+      //      border-bottom-width: 1px;
 
-			select.chosen-select {
-					min-width: 75px;
-			}
+      select.chosen-select {
+          min-width: 75px;
+      }
 
     }
   
     caption {
-				text-align: left;
-				font-weight: bold;
-				margin-bottom: 10px;
-				font-size: 120%;
+        text-align: left;
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 120%;
     }
 
     tfoot {
@@ -1153,17 +1153,17 @@ div.ALGenericTableReportComponent {
 }
 
 .actionOnClick {
-		cursor: pointer;
+    cursor: pointer;
 }
 
 .selectOnClick {
-		cursor: default;
-		border: 1px solid transparent;
+    cursor: default;
+    border: 1px solid transparent;
 
-		&:hover {
-				background-color: @gray-lighter;
-				border: 1px solid @gray-light;
-		}
+    &:hover {
+        background-color: @gray-lighter;
+        border: 1px solid @gray-light;
+    }
 }
 
 .twoColumns {
@@ -1179,8 +1179,8 @@ div.ALGenericTableReportComponent {
 }
 
 .fiveColumns {
-		.content-columns(5);
-// not Firefox		orphans: 3;
+    .content-columns(5);
+// not Firefox    orphans: 3;
 }
 
 .sixColumns {
@@ -1212,17 +1212,17 @@ input[type="text"].time {
 
 input[type="text"].datepicker,
 input[type="text"].monthpicker {
-		width: 100px;
-		display: inline;
+    width: 100px;
+    display: inline;
 }
 
 div.inlineDatepicker {
-		border: 1px solid black;
-		display: inline-block;
+    border: 1px solid black;
+    display: inline-block;
 }
 
 // div.datepicker.datepicker-dropdown {
-// 		z-index: @zindex-navbar + 10;
+//    z-index: @zindex-navbar + 10;
 // }
 
 input,
@@ -1266,161 +1266,161 @@ span.helpIcon {
 }
 
 div.helpText {
-		.well();
-		.well-sm();
+    .well();
+    .well-sm();
 }
 
 div.well {
-		div.helpText {
-				background-color: transparent;
-				box-shadow: none;
-				border: none;
-				padding: 0;
-				margin-bottom: unset;
-		}
+    div.helpText {
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        margin-bottom: unset;
+    }
 }
 
 
 // Hinweis: Wegen der Print-Funktion müssen diese Styles so ausgelegt werden, dass auch das alleinige Element assignmentsCockpitTable von den styles erfasst wird
 div.ALAssignmentsCockpit {
-		.btn-block {
-				text-align: left;
-		}
+    .btn-block {
+        text-align: left;
+    }
 
-		div.assignmentsCockpitTable {
+    div.assignmentsCockpitTable {
 
-				table.assignmentsCockpitTable {
-						
-						@cellWidth: 280px;
+        table.assignmentsCockpitTable {
+            
+            @cellWidth: 280px;
 
-						> thead {
-								th.rowActions {
-//										width: 10px
-								}
-						}
-						
-						> tbody {
+            > thead {
+                th.rowActions {
+//                    width: 10px
+                }
+            }
+            
+            > tbody {
 
-								// td {
-								// 		padding-top: 2px;
-								// 		padding-bottom: 0;
-								// }
-								
-								tr {
-										.unobtrusive {
-												visibility: hidden;
-										}
+                // td {
+                //    padding-top: 2px;
+                //    padding-bottom: 0;
+                // }
+                
+                tr {
+                    .unobtrusive {
+                        visibility: hidden;
+                    }
 
-										&:hover {
-												.unobtrusive {
-														visibility: visible;
-												}
-										}
-								}
-						}
-						
-						th.totalHours {
-								//    text-align: right;
-								padding-left: @cellWidth;
-								
-						}
+                    &:hover {
+                        .unobtrusive {
+                            visibility: visible;
+                        }
+                    }
+                }
+            }
+            
+            th.totalHours {
+                //    text-align: right;
+                padding-left: @cellWidth;
+                
+            }
 
-						a {
-								padding: 0px 2px;
-								
-								// &:hover {
-								// 		background-color: @gray-light;
-								// 		text-decoration: none;
-								// }
-						}
-						
-						a.letterIcon {
-								font-family: monospace;
-								font-weight: bold;
-								font-size: 130%;
-						}
+            a {
+                padding: 0px 2px;
+                
+                // &:hover {
+                //    background-color: @gray-light;
+                //    text-decoration: none;
+                // }
+            }
+            
+            a.letterIcon {
+                font-family: monospace;
+                font-weight: bold;
+                font-size: 130%;
+            }
 
-						td.assignmentsCell {
+            td.assignmentsCell {
 
-								&:hover {
-										div.courseAssignments {
-												div.tools {
-														visibility: visible;
-//														opacity: 1;
-														transition-delay: 0.7s;
-												}
-										}
-								}
+                &:hover {
+                    div.courseAssignments {
+                        div.tools {
+                            visibility: visible;
+//                            opacity: 1;
+                            transition-delay: 0.7s;
+                        }
+                    }
+                }
 
-								div.courseAssignments {
+                div.courseAssignments {
 
-										position: relative;
+                    position: relative;
 
-										+ div.courseAssignments {
-												margin-top: 10px;
-												padding-top: 10px;
-												border-top: 1px solid red;
-										}
+                    + div.courseAssignments {
+                        margin-top: 10px;
+                        padding-top: 10px;
+                        border-top: 1px solid red;
+                    }
 
-										div.tools {
-												@border: 1px solid black;
-												position: absolute;
-												left: 0;
-												top: 115%;
-												
-												background: @table-bg-hover;
-												margin: 0;
-												padding: 10px;
-												border: @border;
-												box-shadow: 5px 5px 5px #333;
-												// border-right: @border;
-												// border-left: @border;
-												// border-bottom: @border;
-												visibility: hidden;
-												z-index: 100;
+                    div.tools {
+                        @border: 1px solid black;
+                        position: absolute;
+                        left: 0;
+                        top: 115%;
+                        
+                        background: @table-bg-hover;
+                        margin: 0;
+                        padding: 10px;
+                        border: @border;
+                        box-shadow: 5px 5px 5px #333;
+                        // border-right: @border;
+                        // border-left: @border;
+                        // border-bottom: @border;
+                        visibility: hidden;
+                        z-index: 100;
 
-//												opacity: 0;
-//												transition: visibility 0s linear 0.5s,opacity 0.5s linear;
-												transition: visibility 0s linear 0.2s;
+//                        opacity: 0;
+//                        transition: visibility 0s linear 0.5s,opacity 0.5s linear;
+                        transition: visibility 0s linear 0.2s;
 
-										}
+                    }
 
 
-										table.assignmentsSubTable {
-												width: 100%;
-												border-collapse: collapse;
+                    table.assignmentsSubTable {
+                        width: 100%;
+                        border-collapse: collapse;
 
-												tr:hover {
-														background-color: white;
-												}
-												
-												td {
-														border: none;
-														background-color: transparent;
-														padding: 0;
-														vertical-align: top;
-														line-height: 1.1em;
+                        tr:hover {
+                            background-color: white;
+                        }
+                        
+                        td {
+                            border: none;
+                            background-color: transparent;
+                            padding: 0;
+                            vertical-align: top;
+                            line-height: 1.1em;
 
-														&.assignmentLabel {
-																width: @cellWidth;
-														}
+                            &.assignmentLabel {
+                                width: @cellWidth;
+                            }
 
-														&.hours {
-																width: 30px;
-														}
+                            &.hours {
+                                width: 30px;
+                            }
 
-														&.actions {
-																//        width: 50px;
-																text-align: right;
-																// padding-right: 3px;
-														}
-												}
-										}
-								}
-						}
-				}
+                            &.actions {
+                                //        width: 50px;
+                                text-align: right;
+                                // padding-right: 3px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
-		}
+    }
 }
 
 table.statistics {
@@ -1438,14 +1438,14 @@ div.navbar {
     color: darken(pink, 10%);
   }
 
-	ul.dropdown-menu {
-			li {
-					i.icon {
-							text-align: center;
-							width: 1.5em;
-					}
-			}
-	}
+  ul.dropdown-menu {
+      li {
+          i.icon {
+              text-align: center;
+              width: 1.5em;
+          }
+      }
+  }
 }
 
 
@@ -1460,9 +1460,9 @@ div.ALAddressLabelReportComponent {
     max-height: 400px;
     overflow: auto;
 
-		address {
-				margin-bottom: 0;
-		}
+    address {
+        margin-bottom: 0;
+    }
 //    div.well {
 //      width: 200px;
 //    }
@@ -1527,9 +1527,9 @@ div.panelDecoration {
 }
 
 div.panel {
-		.panel-title {
-				font-weight: bold;
-		}
+    .panel-title {
+        font-weight: bold;
+    }
 }
 
 div.ALLoginComponent {
@@ -1553,11 +1553,11 @@ div.ALLessonPlacingWizard {
   }
 
   div.assignmentsList {
-			padding-right: 5px;
-			border-right: 1px dotted black;
-			tr.current td {
-					background-color: #9D9;
-			}
+      padding-right: 5px;
+      border-right: 1px dotted black;
+      tr.current td {
+          background-color: #9D9;
+      }
   }
   
   div.assignmentsEditor {
@@ -1601,8 +1601,8 @@ div.ALLessonCollissionsWizard {
 }
 
 .bothBuffer {
-		.topBuffer();
-		.bottomBuffer();
+    .topBuffer();
+    .bottomBuffer();
 }
 
 .noBuffer {
@@ -1648,113 +1648,113 @@ div.ALStudentsMassWizardBase {
     background-color: @highlightColor;
   }
 
-	table td {
-			vertical-align: top;
-	}
+  table td {
+      vertical-align: top;
+  }
 
-	&.ALStudentsSubjectChoicesWizard {
-			
-			label.choice {
-					display: inline-block;
-					//					padding-left: 2px;
-					font-weight: normal;
-					white-space: nowrap;
-					width: 4.5em;
+  &.ALStudentsSubjectChoicesWizard {
+      
+      label.choice {
+          display: inline-block;
+          //          padding-left: 2px;
+          font-weight: normal;
+          white-space: nowrap;
+          width: 4.5em;
 
-					input {
-							margin-right: 1px;
-					}
+          input {
+              margin-right: 1px;
+          }
 
-					// span {
-					// 		margin-right: 5px;
-					// }
-			}
-	}
+          // span {
+          //    margin-right: 5px;
+          // }
+      }
+  }
 }
 
 // Report Generator
 div.ALReportsComponent {
-		div.adminTools {
-				border: 1px solid black;
-				padding: 2px 4px;
-		}
+    div.adminTools {
+        border: 1px solid black;
+        padding: 2px 4px;
+    }
 
 
-		div.reportSection, div.reportsGroup {
-				+ div.reportSection, + div.reportsGroup {
-						margin-top: 5px;
-//						padding-top: 5px;
-						border-top: 1px dotted gray;
-				}
-		}
+    div.reportSection, div.reportsGroup {
+        + div.reportSection, + div.reportsGroup {
+            margin-top: 5px;
+//            padding-top: 5px;
+            border-top: 1px dotted gray;
+        }
+    }
 
-		div.reportSection {
+    div.reportSection {
 
-				padding-top: 5px;
+        padding-top: 5px;
 
-				div.execution {
-						text-align: right;
+        div.execution {
+            text-align: right;
 
-						div.downloadLinks {
-								margin: 5px 0;
-								white-space: nowrap;
-						}
-				}
+            div.downloadLinks {
+                margin: 5px 0;
+                white-space: nowrap;
+            }
+        }
 
-				div.longContent {
-						overflow: auto;
-						max-height: 200px;
-				}
+        div.longContent {
+            overflow: auto;
+            max-height: 200px;
+        }
 
-				div.row {
-						padding-top: 5px;
-						padding-bottom: 5px;
-						&:hover {
-								background-color: @gray-lighter;
-						}
-				}
+        div.row {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            &:hover {
+                background-color: @gray-lighter;
+            }
+        }
 
-				&.heading {
-						padding-top: 2em;
-						
-						div.title {
-								font-weight: bold;
-								font-size: 120%;
-								color: #666;
-//								margin-bottom: 0.2em;
-						}
-						
-				}
-				
-		}
+        &.heading {
+            padding-top: 2em;
+            
+            div.title {
+                font-weight: bold;
+                font-size: 120%;
+                color: #666;
+//                margin-bottom: 0.2em;
+            }
+            
+        }
+        
+    }
 
-		
-		div.reportsGroup {
-				&:hover {
-						div.reportSection {
-								div.row {
-										background-color: @gray-lighter;
-								}
-						}
-				}
+    
+    div.reportsGroup {
+        &:hover {
+            div.reportSection {
+                div.row {
+                    background-color: @gray-lighter;
+                }
+            }
+        }
 
-				div.reportSection:not(:first-child) {
-						margin-top: 0px;
-						padding-top: 0px;
-						border-top: none;
-				}
-		}
+        div.reportSection:not(:first-child) {
+            margin-top: 0px;
+            padding-top: 0px;
+            border-top: none;
+        }
+    }
 
-		&.ALWebReportsComponent {
+    &.ALWebReportsComponent {
 
-				div.reportSection {
-						div.reportComponent {
-								border: 1px solid black;
-								padding: 1px;
-								margin-bottom: 20px;
-						}
-				}
-		}
+        div.reportSection {
+            div.reportComponent {
+                border: 1px solid black;
+                padding: 1px;
+                margin-bottom: 20px;
+            }
+        }
+    }
 
 }
 
@@ -1763,19 +1763,19 @@ div.ALReportsComponent {
 }
 
 div.ALPhotoboothComponent {
-		// video.camera {
-		// 	filter: hue-rotate(90deg);	
-		// }
-		.keyboardCatcher {
-				&:focus {
-						background-color: #C1F6C1;
-						color: black;
-				}
-				background-color: #EEE;
-				color: #CCC;
-				cursor: pointer;
-				padding: 2px;
-		}
+    // video.camera {
+    //  filter: hue-rotate(90deg);  
+    // }
+    .keyboardCatcher {
+        &:focus {
+            background-color: #C1F6C1;
+            color: black;
+        }
+        background-color: #EEE;
+        color: #CCC;
+        cursor: pointer;
+        padding: 2px;
+    }
 }
 
 ul.ui-sortable {
@@ -1824,28 +1824,28 @@ div.ALFreeRoomWizard {
       white-space: nowrap;
 
       .lessonLabel {
-					display: block;
-					background-color: transparent;
-					text-align: center;
-			}
+          display: block;
+          background-color: transparent;
+          text-align: center;
+      }
 
-		}
+    }
 
     .freeLesson {
         text-align: center;
-				background-color: lightgreen;
+        background-color: lightgreen;
     
-				a {
-						color: transparent;
-						display: block;
-						text-align: center;
+        a {
+            color: transparent;
+            display: block;
+            text-align: center;
 
-						&:hover {
-								color: black;
-						}
+            &:hover {
+                color: black;
+            }
 
-				}
-				
+        }
+        
     }
   
     // Nicht freie Lektion blenden wir Text aus
@@ -1855,63 +1855,63 @@ div.ALFreeRoomWizard {
 
     }
 
-		.canceled {
-				text-decoration: line-through;
-		}
+    .canceled {
+        text-decoration: line-through;
+    }
   }
 }
 
 
 div.ALCalendarCockpit {
 
-		img.noJokerday {
-				width: 1.5em;
-				height: 1.5em;
-				float: right;
-		}
-		
-		tr.ALSchoolHolidaysCalendarEntry {
-				background-color: @gray-lighter;
-		}
+    img.noJokerday {
+        width: 1.5em;
+        height: 1.5em;
+        float: right;
+    }
+    
+    tr.ALSchoolHolidaysCalendarEntry {
+        background-color: @gray-lighter;
+    }
 
-		tr.ALHolidayCalendarEntry {
-				background-color: @gray-lighter;
-		}
+    tr.ALHolidayCalendarEntry {
+        background-color: @gray-lighter;
+    }
 
-		tr.ALStudyTripCalendarEntry {
-				background-color: yellow;
-		}
+    tr.ALStudyTripCalendarEntry {
+        background-color: yellow;
+    }
 
 }
 
 div.bazarEntry {
-		h4 {
-				margin-top: 0;
-		}
+    h4 {
+        margin-top: 0;
+    }
 
-		.status {
-				position: absolute;
-				right: 23px;
-				text-align: right;
-		}
+    .status {
+        position: absolute;
+        right: 23px;
+        text-align: right;
+    }
 
-		div.selfStatement {
-				margin: 10px 0;
-				clear: both;
-				float: left;
-				width: 100%;
-		}
+    div.selfStatement {
+        margin: 10px 0;
+        clear: both;
+        float: left;
+        width: 100%;
+    }
 
-		img.portraitImage {
-				float: left;
-				margin-right: 10px;
-		}
+    img.portraitImage {
+        float: left;
+        margin-right: 10px;
+    }
 }
 
 div.ALFreeformDesignerComponent {
-		@handleHeight: 130px;
+    @handleHeight: 130px;
     @leftWhitespace: 30px;
-		
+    
 
     div.freeformMainContainer {
 
@@ -1994,903 +1994,911 @@ div.ALFreeformDesignerComponent {
       }
     }
 
-		fieldset {
-				border: 1px solid black;
-				padding: 20px;
-		}
+    fieldset {
+        border: 1px solid black;
+        padding: 20px;
+    }
 
-		div.brickHandle {
-				@transformOrigin: 100% 100%;
-				@transform: rotate(-90deg); 
-				
-				display: inline-block;
-				white-space: nowrap;
-				position: absolute;
-				left: (-1 * @handleHeight) - 3;
-				top: -22px;
-				width: @handleHeight;
-				background-color: #ddfadd;
-				color: #333;
-				font-weight: bold;
-				border: 1px solid #ccc;
-				padding: 1px 3px;
-				text-align: right;
-				transform: @transform;
-				-moz-transform: @transform;
-				-ms-transform: @transform;
-				-o-transform: @transform;
-				-webkit-transform: @transform;
-				transform-origin: @transformOrigin;
-				-moz-transform-origin: @transformOrigin;
-				-ms-transform-origin: @transformOrigin;
-				-o-transform-origin: @transformOrigin;
-				-webkit-transform-origin: @transformOrigin;
-		}
+    div.brickHandle {
+        @transformOrigin: 100% 100%;
+        @transform: rotate(-90deg); 
+        
+        display: inline-block;
+        white-space: nowrap;
+        position: absolute;
+        left: (-1 * @handleHeight) - 3;
+        top: -22px;
+        width: @handleHeight;
+        background-color: #ddfadd;
+        color: #333;
+        font-weight: bold;
+        border: 1px solid #ccc;
+        padding: 1px 3px;
+        text-align: right;
+        transform: @transform;
+        -moz-transform: @transform;
+        -ms-transform: @transform;
+        -o-transform: @transform;
+        -webkit-transform: @transform;
+        transform-origin: @transformOrigin;
+        -moz-transform-origin: @transformOrigin;
+        -ms-transform-origin: @transformOrigin;
+        -o-transform-origin: @transformOrigin;
+        -webkit-transform-origin: @transformOrigin;
+    }
 
 }
 
 div.ALFreeformFillinComponent, div.ALFreeformFillinTestComponent {
-		// input[type=text].freeformTextInput {
+    // input[type=text].freeformTextInput {
 
-		// }
+    // }
 
-		// textarea.freeformTextInput {
-		// 		height: 20px;
-		// }
+    // textarea.freeformTextInput {
+    //    height: 20px;
+    // }
 
-		// p.freeformText {
-		// 		background-color: lightyellow;
-		// }
+    // p.freeformText {
+    //    background-color: lightyellow;
+    // }
 
-		div.insightArea {
-				div.ALGenericTableReportComponent {
-						overflow: visible;
-						table.table.table-bordered.genericTableReport {
-								background-color: white;
-								thead {
-										position: sticky;
-										top: 0; // required for the stickiness
-										> tr {
-												> th {
-														background-color: white;
-												}
-										}
-								}
-						}
-				}
-		}
-		
-		div.freeformBrick {
-				&.important {
-						background-color: lightyellow;
-				}
+    div.insightArea {
+        div.ALGenericTableReportComponent {
+            overflow: visible;
+            table.table.table-bordered.genericTableReport {
+                background-color: white;
+                thead {
+                    position: sticky;
+                    top: 0; // required for the stickiness
+                    > tr {
+                        > th {
+                            background-color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    div.freeformBrick {
+        &.important {
+            background-color: lightyellow;
+        }
 
-				&.required {
-//						border-left: 3px solid green;
-				}
+        &.required {
+//            border-left: 3px solid green;
+        }
 
-				&.invalid {
-						> label {
-								color: red;
-						}
-				}
+        &.invalid {
+            > label {
+                color: red;
+            }
+        }
 
-				&.ALFfItemsReservation {
+        &.ALFfItemsReservation {
 
-						div.reservableItem {
-								padding-top: 7px;
+            div.reservableItem {
+                padding-top: 7px;
 
-								label.checkbox-inline {
-										padding-top: 0;
-								}
-								
-								span.itemQuantity {
-										display: inline-block;
-										//								position: relative;
-										//								padding-top: 7px;
-										vertical-align: middle;
-								}
-						}
-						
-				}
-				
-		}
+                label.checkbox-inline {
+                    padding-top: 0;
+                }
+                
+                span.itemQuantity {
+                    display: inline-block;
+                    //                position: relative;
+                    //                padding-top: 7px;
+                    vertical-align: middle;
+                }
+            }
+            
+        }
+        
+    }
 
-		span.priorityIndex {
-				display: inline-block;
-				border: 2px solid #888;
-				padding: 0 4px;
-				margin-bottom: 4px;
-		}
+    span.priorityIndex {
+        display: inline-block;
+        border: 2px solid #888;
+        padding: 0 4px;
+        margin-bottom: 4px;
+    }
 }
 
 div.ALFreeformDisplayerComponent {
-		div.freeformBrick {
-				background-color: #efefef;
-				border-top: 1px solid #f9f9f9;
-				padding: 5px 0;
+    div.freeformBrick {
+        background-color: #efefef;
+        border-top: 1px solid #f9f9f9;
+        padding: 5px 0;
 
-				div.formValue {
-						color: green;
+        div.formValue {
+            color: green;
 
-				}
-				
-				&.ALFfText {
-						div.formValue {
-								color: grey;
-						}
-				}
+        }
+        
+        &.ALFfText {
+            div.formValue {
+                color: grey;
+            }
+        }
 
-				&.ALFfDivider {
-						hr {
-								border-top-color: black;
-						}						
-				}
-		}		
+        &.ALFfDivider {
+            hr {
+                border-top-color: black;
+            }           
+        }
+    }   
 }
 
 #documentProgressbar {
-		position: fixed;
-		z-index: @zindex-modal-background;
-//		background-color: gray;
-		font-size: 120%;
+    position: fixed;
+    z-index: @zindex-modal-background;
+//    background-color: gray;
+    font-size: 120%;
 
-		// margin: 0 auto;
-		// top: 40%;
-		// left: 20%;
-		// right: 20%;
-		// bottom: 40%;
-		// text-align: center;
-		// padding: 50px 0;
+    // margin: 0 auto;
+    // top: 40%;
+    // left: 20%;
+    // right: 20%;
+    // bottom: 40%;
+    // text-align: center;
+    // padding: 50px 0;
 
 
-		margin: 0;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-color: rgba(50,50,50, 0.7);
-//		text-align: center;
-		padding: 20% 20%;
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(50,50,50, 0.7);
+//    text-align: center;
+    padding: 20% 20%;
 
-		div.alert {
-				z-index: @zindex-modal;
-				min-height: 20vh;
-				text-align: center;
-				padding: 50px 0;
-		}
-		
+    div.alert {
+        z-index: @zindex-modal;
+        min-height: 20vh;
+        text-align: center;
+        padding: 50px 0;
+    }
+    
 }
 
 // Zeugnisse
 div.marksList {
-		h1 {
-				white-space: nowrap;
-		}
-		
-		table.marksList {
-				@border: 2px solid black;
-				border: @border;
+    h1 {
+        white-space: nowrap;
+    }
+    
+    table.marksList {
+        @border: 2px solid black;
+        border: @border;
 
-				// Warnfarbe bei nichtaktuellen Noten
-				@media screen {
-						&.nonCurrentSeries {
-								border: 5px solid yellow;
-						}
-						&.nonCurrentPeriod {
-								border: 5px solid @nonCurrentColor;
-						}
-				}
+        // Warnfarbe bei nichtaktuellen Noten
+        @media screen {
+            &.nonCurrentSeries {
+                border: 5px solid yellow;
+            }
+            &.nonCurrentPeriod {
+                border: 5px solid @nonCurrentColor;
+            }
+        }
 
-				// tfoot {
-				// 		tr {
-				// 				th {
-				// 						border-bottom: @border;
-				// 				}
-				// 		}
-				// }
-				
-				colgroup {
-						border-left: 2px solid black;
-						border-right: 2px solid black;
+        // tfoot {
+        //    tr {
+        //        th {
+        //            border-bottom: @border;
+        //        }
+        //    }
+        // }
+        
+        colgroup {
+            border-left: 2px solid black;
+            border-right: 2px solid black;
 
-						col {
+            col {
 
-								&.markNumber, &.promotionsstand, &.repetition {
-										text-align: center;
-								}
+                &.markNumber, &.promotionsstand, &.repetition {
+                    text-align: center;
+                }
 
-								// doppelt gemoppelt, wegen wkhtmltopdf
-								&:first-child {
-										border-left: 2px solid black !important;
-										border-right: 1px solid #ccc;
-								}
-								
-								&:last-child {
-										border-left: 1px solid #ccc;
-										border-right: 2px solid black !important;
-								}
+                // doppelt gemoppelt, wegen wkhtmltopdf
+                &:first-child {
+                    border-left: 2px solid black !important;
+                    border-right: 1px solid #ccc;
+                }
+                
+                &:last-child {
+                    border-left: 1px solid #ccc;
+                    border-right: 2px solid black !important;
+                }
 
-								&:not(:last-child):not(:first-child) {
-										border-left: 1px solid #ccc;
-										border-right: 1px solid #ccc;
-								}
+                &:not(:last-child):not(:first-child) {
+                    border-left: 1px solid #ccc;
+                    border-right: 1px solid #ccc;
+                }
 
-								&.Abs {
-										border-left: 2px solid black !important;
-								}
+                &.Abs {
+                    border-left: 2px solid black !important;
+                }
 
 
-						}
+            }
 
-				}
+        }
 
-				
-				th {
-						div.columnHeader {
-								text-align: center;
-								&.long {
-										white-space: nowrap;
-										transform: rotate(270deg);
-										width: 1em;
-								}
-								
-								// &.BG, &.Mu {
-								// 		font-style: italic;
-								// }
-						}
-				}
+        
+        th {
+            div.columnHeader {
+                text-align: center;
+                &.long {
+                    white-space: nowrap;
+                    transform: rotate(270deg);
+                    width: 1em;
+                }
+                
+                // &.BG, &.Mu {
+                //    font-style: italic;
+                // }
+            }
+        }
 
-				td {
-						//text-align: right;
+        td {
+            //text-align: right;
 
-						&.markNumber {
-								text-align: center;
-						}
+            &.markNumber {
+                text-align: center;
+            }
 
-						&.number {
-								text-align: right;
-						}
+            &.number {
+                text-align: right;
+            }
 
-						&.studentName {
-								text-align: left;
-								white-space: nowrap;
-						}
-				}
+            &.studentName {
+                text-align: left;
+                white-space: nowrap;
+            }
+        }
 
-				// col {
-				// 		&.newSection {
-				// 				border-left: 1px solid black;
-				// 		}
-				// 		&.endSection {
-				// 				border-right: 1px solid black;
-				// 		}
-				// }
-		}
+        // col {
+        //    &.newSection {
+        //        border-left: 1px solid black;
+        //    }
+        //    &.endSection {
+        //        border-right: 1px solid black;
+        //    }
+        // }
+    }
 
-		span.marksChecksum {
-				float: right;
-//				margin-bottom: 20px;
-		}
+    span.marksChecksum {
+        float: right;
+//        margin-bottom: 20px;
+    }
 }
 
 span.marksChecksum {
-		.text-muted();
-		font-family: monospace;
-		font-size: 85%;
-		padding: 1px;
-		border: 1px dotted gray;
+    .text-muted();
+    font-family: monospace;
+    font-size: 85%;
+    padding: 1px;
+    border: 1px dotted gray;
 }
 
 div.ALMarksReportSubmitterBase {
 
-		div.compactView & {
-				background-color: #eee;
-//				margin-top: 10px;
-				border-top: 2px solid black;
-//				padding-bottom: 1px;
-		}
+    div.compactView & {
+        background-color: #eee;
+//        margin-top: 10px;
+        border-top: 2px solid black;
+//        padding-bottom: 1px;
+    }
 
-		tr.dirty {
-				background-color: @btn-warning-bg;
-		}
-		
-		div.nonInputEntries {
-				margin-top: 50px;
-		}
+    tr.dirty {
+        background-color: @btn-warning-bg;
+    }
+    
+    div.nonInputEntries {
+        margin-top: 50px;
+    }
 
-		table.marksReportInputTable {
+    table.marksReportInputTable {
 
-				td {
-						padding-left: 2px;
-						padding-right: 2px;
-				}
-				
-				&.compactView {
-						margin-bottom: 0;	
-				}
-				
-				col.colStudent {
-						width: 250px;
-				}
+        td {
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+        
+        &.compactView {
+            margin-bottom: 0; 
+        }
+        
+        col.colStudent {
+            width: 250px;
+        }
 
-				col.colSubjectCode {
-						width: 30px;
-				}
+        col.colSubjectCode {
+            width: 30px;
+        }
 
-				col.colSubjectTitle {
-						width: 120px;
-				}
+        col.colSubjectTitle {
+            width: 120px;
+        }
 
-				col.colAttributes {
-						width: 80px;
-				}
+        col.colAttributes {
+            width: 80px;
+        }
 
-				col.colTeachers {
-						width: 200px;
-				}
+        col.colTeachers {
+            width: 200px;
+        }
 
-				col.colMark {
-						width: 350px;
-						white-space: nowrap;
-				}
+        col.colMark {
+            width: 350px;
+            white-space: nowrap;
+        }
 
-				col.colVisum {
-						width: 200px;
-				}
+        col.colVisum {
+            width: 200px;
+        }
 
-				// col.colActions {
-				// 		width: 1px;
-				// }
+        // col.colActions {
+        //    width: 1px;
+        // }
 
-				@radioLabelGap: 15px;
-				label.radio-inline {
-						padding-left: @radioLabelGap;
-//						margin-right: 15px;
+        @radioLabelGap: 15px;
+        label.radio-inline {
+            padding-left: @radioLabelGap;
+//            margin-right: 15px;
 
-						+.radio-inline {
-								margin-left: 15px;
-						}
+            +.radio-inline {
+                margin-left: 15px;
+            }
 
-						input.radio {
-								margin-left: -@radioLabelGap;
-						}
-				}
+            input.radio {
+                margin-left: -@radioLabelGap;
+            }
+        }
 
-				input.markInput, select.markTextualInput {
-						padding: 2px 5px;
-						margin: 0 10px 0 0;
-						// border: none;
-						height: 100%;
-				}
+        input.markInput, select.markTextualInput {
+            padding: 2px 5px;
+            margin: 0 10px 0 0;
+            // border: none;
+            height: 100%;
+        }
 
-		}
+    }
 
-		&.ALGraduationMarksReportSubmitter {
-				// Andere Platzverhältnisse bei Graduation Zeugnis
-				table.marksReportInputTable {
-						col.colMark {
-								width: 250px;
-								white-space: nowrap;
-						}
-				
-				}
-		}
+    &.ALGraduationMarksReportSubmitter {
+        // Andere Platzverhältnisse bei Graduation Zeugnis
+        table.marksReportInputTable {
+            col.colMark {
+                width: 250px;
+                white-space: nowrap;
+            }
+        
+        }
+    }
 
-		div.logNotes {
-				.topBuffer();
-				
-				div.panel-body {
-						.small();
-						.text-muted();
-						.log();
-						max-height: 300px;
-						overflow: auto;
-				}
-		}
+    div.logNotes {
+        .topBuffer();
+        
+        div.panel-body {
+            .small();
+            .text-muted();
+            .log();
+            max-height: 300px;
+            overflow: auto;
+        }
+    }
 
 }
 
 div.ALMarksReportsMassWizard {
-		li.active, li.active a {
-				background-color: @component-active-bg;
-				color: @component-active-color;
-		}
+    li.active, li.active a {
+        background-color: @component-active-bg;
+        color: @component-active-color;
+    }
 }
 
 // div.page-header.affix {
-// 		top: 20px;
-// 		width: 100%;
+//    top: 20px;
+//    width: 100%;
 // }
 
 div.ALStudentsCoursesAllocationWizard {
-		select.chosen-select {
-				width: 500px;
-		}
+    select.chosen-select {
+        width: 500px;
+    }
 }
 
 // Spezielle Styles für Markdown formattierte Abschnitte
 div.markdownTarget {
-		.generate-headers(4);
+    .generate-headers(4);
 
-		.generate-headers(@n, @i: 1) when (@i =< @n) {
-				h@{i} {
-				margin-top: 0;
-				font-size: 150% - (@i * 10%);
-		}
-				.generate-headers(@n, (@i + 1));
-		}
+    .generate-headers(@n, @i: 1) when (@i =< @n) {
+        h@{i} {
+        margin-top: 0;
+        font-size: 150% - (@i * 10%);
+    }
+        .generate-headers(@n, (@i + 1));
+    }
 
-		ul, ol {
-//				margin-left: 0;
-				padding-left: 1em;
-		}
+    ul, ol {
+//        margin-left: 0;
+        padding-left: 1em;
+    }
 }
 
 div.ALAdminMarksReportsCockpit {
-		div.progress {
-				margin-bottom: 5px;
-				
-				div.progress-bar.empty {
-						// min-width: 2em;
-						color: #666;
-				}
-		}
+    div.progress {
+        margin-bottom: 5px;
+        
+        div.progress-bar.empty {
+            // min-width: 2em;
+            color: #666;
+        }
+    }
 }
 
 div.ALCoursesStudentsAllocationWizard {
-		div.highlight {
-				background-color: @highlightColor;
-				border: @highlightBorder;
-		}
+    div.highlight {
+        background-color: @highlightColor;
+        border: @highlightBorder;
+    }
 
-		div.highlightLastChecked {
-				background-color: lightgreen;
-//				border: @highlightBorder;
-		}
+    div.highlightLastChecked {
+        background-color: lightgreen;
+//        border: @highlightBorder;
+    }
 
-		div.student {
-				font-size: 85%;
+    div.student {
+        font-size: 85%;
 
-				label {
-						font-weight:normal;
-						padding: 0;
-						margin: 0;
-				}
-		}
+        label {
+            font-weight:normal;
+            padding: 0;
+            margin: 0;
+        }
+    }
 
-		.table {
-				margin-bottom: 20px;
-		}
+    .table {
+        margin-bottom: 20px;
+    }
 
-		.col-sm-2 {
-				padding-left: 3px;
-				padding-right: 3px;
-		}
-		
-		.course {
-				h4 {
-						font-size: 100%;
-				}
-				
-				background-color: @gray-lighter;
-				padding: 0 2px;
-		}
+    .col-sm-2 {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+    
+    .course {
+        h4 {
+            font-size: 100%;
+        }
+        
+        background-color: @gray-lighter;
+        padding: 0 2px;
+    }
 }
 
 table.maturarbeitList {
 
-		td {
-				white-space: nowrap;
+    td {
+        white-space: nowrap;
 
-				&.title {
-						white-space: normal;
-				}
-		}
-		
-		th.title {
-				width: 50%;
-		}
+        &.title {
+            white-space: normal;
+        }
+    }
+    
+    th.title {
+        width: 50%;
+    }
 }
 
 div.ALMaturarbeitManagerCockpit {
-		table.speechPlan {
-				th, td {
-						font-size: 80%;
-						line-height: 1em;
-						vertical-align: top;
-				}
-		}
+    table.speechPlan {
+        th, td {
+            font-size: 80%;
+            line-height: 1em;
+            vertical-align: top;
+        }
+    }
 
-		div.maturarbeitTitle {
-				margin-bottom: 5px;
-		}
-		
-		// .truncate {
-		// 		width: 250px;
-		// 		white-space: nowrap;
-		// 		overflow: hidden;
-		// 		text-overflow: ellipsis;
-		// }
-		// truncateWithEllipsis...
+    div.maturarbeitTitle {
+        margin-bottom: 5px;
+    }
+    
+    // .truncate {
+    //    width: 250px;
+    //    white-space: nowrap;
+    //    overflow: hidden;
+    //    text-overflow: ellipsis;
+    // }
+    // truncateWithEllipsis...
 }
 
 
 div.ALMyHomeComponent {
-		ul.textList {
-				.list-unstyled();
-				li {
-						// white-space: nowrap;
-						// overflow: hidden;
-						// text-overflow: ellipsis;
-						margin-bottom: 0.5em;
-				}
-		}
+    ul.textList {
+        .list-unstyled();
+        li {
+            // white-space: nowrap;
+            // overflow: hidden;
+            // text-overflow: ellipsis;
+            margin-bottom: 0.5em;
+        }
+    }
 
-		div.well.topMessage {
-				background-color: lightyellow;
-		}
-		
+    div.well.topMessage {
+        background-color: lightyellow;
+    }
+    
 }
 
 div.ALMyStudentHomeComponent {
 
-		table.myTutorships {
-				thead th {
-						white-space: nowrap;
-				}
-		}
+    table.myTutorships {
+        thead th {
+            white-space: nowrap;
+        }
+    }
 
-		div.absencesSection {
+    div.absencesSection {
 
-				a.btn.newAbsenceDisabled {
-						.text-muted();
-						text-decoration-line: line-through;
-				}
-				
-				div.listTitle {
-						font-weight: semibold;
-				}
-				
-				div.pastAbsences {
-						max-height: 200px;
-						overflow: auto;
-						margin-top: 0.5em;
-				}
+        a.btn.newAbsenceDisabled {
+            .text-muted();
+            text-decoration-line: line-through;
+        }
+        
+        div.listTitle {
+            font-weight: semibold;
+        }
+        
+        div.pastAbsences {
+            max-height: 200px;
+            overflow: auto;
+            margin-top: 0.5em;
+        }
 
-				div.pastAbsences, div.upcomingAbsences, div.currentAbsences {
-						border: 1px solid #ccc;
-						margin-bottom: 0.5em;
+        div.pastAbsences, div.upcomingAbsences, div.currentAbsences {
+            border: 1px solid #ccc;
+            margin-bottom: 0.5em;
 
-						table.absences {
-								width: 100%;
-								tr.absenceEntry {
-										// margin: 3px 1px;
-										// clear: both;
-										
-										td {
-												padding-bottom: 3px;
-												vertical-align: top;
-												&:not(:last-child) {
-														padding-right: 5px;
-												}
+            table.absences {
+                width: 100%;
+                tr.absenceEntry {
+                    // margin: 3px 1px;
+                    // clear: both;
+                    
+                    td {
+                        padding-bottom: 3px;
+                        vertical-align: top;
+                        &:not(:last-child) {
+                            padding-right: 5px;
+                        }
 
-												&.time {
-														white-space: nowrap;
-														width: 1%;
-												}
+                        &.time {
+                            white-space: nowrap;
+                            width: 1%;
+                        }
 
-												&.type {
-														
-												}
+                        &.type {
+                            
+                        }
 
-												&.lessons {
-														.text-muted();
-												}
+                        &.lessons {
+                            .text-muted();
+                        }
 
-												&:last-child {
-														text-align: right;
-												}
+                        &:last-child {
+                            text-align: right;
+                        }
 
-										}
-								}
-								
-						}
-				}
-		}
-		
-		div.upcomingExams {
-				max-height: 200px;
-				overflow-y: scroll;
-				border: 1px solid #999;
-				padding: 0.1em;
-				margin-bottom: 1em;
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    div.upcomingExams {
+        max-height: 200px;
+        overflow-y: scroll;
+        border: 1px solid #999;
+        padding: 0.1em;
+        margin-bottom: 1em;
 
-				table {
-						tr {
-								td {
-										vertical-align: top;
-								}
-								
-								td + td {
-										padding-left: 0.2em;
-								}
-						}
-				}
-		}
-		
+        table {
+            tr {
+                td {
+                    vertical-align: top;
+                }
+                
+                td + td {
+                    padding-left: 0.2em;
+                }
+            }
+        }
+    }
+    
 }
 
 div.ALMyTeacherHomeComponent {
-		ul.coursesList {
-				li {
-						white-space: nowrap;
-						overflow: hidden;
-						text-overflow: ellipsis;
-						//						max-width: 100%;
-				}
-		}
+    ul.coursesList {
+        li {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            //            max-width: 100%;
+        }
+    }
 }
 
 div.ALTeacherMarksReportsCockpit {
-		table {
-				td:first-child {
-						width: 250px;
-				}
-		}
+    table {
+        td:first-child {
+            width: 250px;
+        }
+    }
 }
 
 div.ALKlassenbuchComponentBase {
-		// span.absenceIcon, span.lateIcon {
-		// 		font-weight: bold;
-		// 		font-family: monospace;
-		// 		font-size: 12pt;
-		// 		padding-left: 5px;
-		// 		padding-right: 5px;
-		// 		margin: 0 5px;
-		// 		border: 1px solid black;
-		// }
+    // span.absenceIcon, span.lateIcon {
+    //    font-weight: bold;
+    //    font-family: monospace;
+    //    font-size: 12pt;
+    //    padding-left: 5px;
+    //    padding-right: 5px;
+    //    margin: 0 5px;
+    //    border: 1px solid black;
+    // }
 
   tr.highlight {
     background-color: @highlightColor;
   }
 
-	// span.studentLabel {
-	// 		cursor: pointer;
-	// }
+  // span.studentLabel {
+  //    cursor: pointer;
+  // }
 
-	// tr:hover {
-	// 		span.studentLabel {
-	// 				color: @link-color;
-	// 		}
-	// }
+  // tr:hover {
+  //    span.studentLabel {
+  //        color: @link-color;
+  //    }
+  // }
 
-	&.ALKlassenbuchAbsencesCockpit {
-			
-			span.label {
-					&.late {
-							//							.label-warning();
-					}
+  &.ALKlassenbuchAbsencesCockpit {
+      
+      span.label {
+          &.late {
+              //              .label-warning();
+          }
 
-					&.absent {
-							.label-warning();
-					}
+          &.absent {
+              .label-warning();
+          }
 
-					&.joker {
-							background-color: blue;
-					}
+          &.joker {
+              background-color: blue;
+          }
 
-					&.leave {
-							background-color: green;
-					}
+          &.leave {
+              background-color: green;
+          }
 
-					// &.entschuldigtDue  {
-					// 		background-color: red;
-					// }
-
-
-					
-			}
-
-			table.tableAbsencesSummary {
-
-					// thead {
-					// 		position: sticky;
-					// 		top: @navbar-height;
-					// 		z-index: 1;
-					// 		> tr {
-					// 				> th, > td {
-					// 						background-color: white;
-					// 				}
-					// 		}
-					// }
-							
-					// th {
-					// 		position: sticky;
-					// 		top: @navbar-height;
-					// 		background-color: #f6f6f6;
-					// }
-
-					td {
-							
-							&.student {
-									display: flex;
-									justify-content: space-between;
-									align-items: flex-start;
-									gap: 5px;
-							}
-
-							&.totalNotEntschuldigt, &.missedExams {
-									background-color: #f0f0f0;
-							}
-
-							span.zero {
-									color: #bbb;
-							}
-
-					}
-
-					// Give highlighting more precedence in this table
-					tr.highlight td {
-							background-color: @highlightColor;
-					}
-
-					
-			}
-			
-			table.tableAbsencesList {
-					// thead {
-					// 		position: sticky;
-					// 		top: @navbar-height;
-					// 		z-index: 1;
-					// 		> tr {
-					// 				> th, > td {
-					// 						background-color: white;
-					// 				}
-					// 		}
-					// }
+          // &.entschuldigtDue  {
+          //    background-color: red;
+          // }
 
 
-					
+          
+      }
+
+      table.tableAbsencesSummary {
+
+          // thead {
+          //    position: sticky;
+          //    top: @navbar-height;
+          //    z-index: 1;
+          //    > tr {
+          //        > th, > td {
+          //            background-color: white;
+          //        }
+          //    }
+          // }
+              
+          // th {
+          //    position: sticky;
+          //    top: @navbar-height;
+          //    background-color: #f6f6f6;
+          // }
+
+          td {
+              
+              &.student {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                  gap: 5px;
+
+                  .studentLabel {
+                    white-space: nowrap;
+                  }
+
+                  .btn-group {
+                    display: inline-flex;
+                  }
+              }
+
+              &.totalNotEntschuldigt, &.missedExams {
+                  background-color: #f0f0f0;
+              }
+
+              span.zero {
+                  color: #bbb;
+              }
+
+          }
+
+          // Give highlighting more precedence in this table
+          tr.highlight td {
+              background-color: @highlightColor;
+          }
+
+          
+      }
+      
+      table.tableAbsencesList {
+          // thead {
+          //    position: sticky;
+          //    top: @navbar-height;
+          //    z-index: 1;
+          //    > tr {
+          //        > th, > td {
+          //            background-color: white;
+          //        }
+          //    }
+          // }
+
+
+          
           td.entry, td.type, td.entschuldigt, td.actions {
-							white-space: nowrap;
-					}
+              white-space: nowrap;
+          }
 
-					td.entschuldigt {
+          td.entschuldigt {
 
             // display: flex;
             // justify-content: space-between;
             // align-items: center;
 
-							div.btn-group {
-									display: inline-flex; //Strange: Without that, it will overflow outside the cell ?!!
-							}
-							span.label {
-									display: inline-block;
-									width: 3rem;
-									margin-right: 0.5rem;
-							}
+              div.btn-group {
+                  display: inline-flex; //Strange: Without that, it will overflow outside the cell ?!!
+              }
+              span.label {
+                  display: inline-block;
+                  width: 3rem;
+                  margin-right: 0.5rem;
+              }
 
-							a.removeVisum {
-//									float: right;
-									visibility: hidden;
-									margin-left: 0.1em;
-							}
+              a.removeVisum {
+//                  float: right;
+                  visibility: hidden;
+                  margin-left: 0.1em;
+              }
 
-							&:hover {
-									a.removeVisum {
-											visibility: visible;
-									}
-							}
-					}
+              &:hover {
+                  a.removeVisum {
+                      visibility: visible;
+                  }
+              }
+          }
 
-					td.lessons {
-						width: 100%;
-					}
+          td.lessons {
+            width: 100%;
+          }
 
 
 
-					// col.lessons {
-					// 		max-width: 200px;
-					// }
-			}
-	}
+          // col.lessons {
+          //    max-width: 200px;
+          // }
+      }
+  }
 }
 
 span.progressBar {
-		display: inline-block;
-		margin: 3px 0px;
+    display: inline-block;
+    margin: 3px 0px;
 
-		progress {
-				vertical-align: middle;
-		}
+    progress {
+        vertical-align: middle;
+    }
 }
 
 .invisibleDueToProgress {
-		// visibility: hidden;
-		opacity: 0.8;
-		filter: grayscale(50%);
+    // visibility: hidden;
+    opacity: 0.8;
+    filter: grayscale(50%);
 }
 
 
 div.ALMyTeachingCockpit {
-		div.ALDateByTimeSchedule {
-				th {
-						white-space: nowrap;
-				}
-		}
+    div.ALDateByTimeSchedule {
+        th {
+            white-space: nowrap;
+        }
+    }
 
     h2 {
-				margin-top: 0;
+        margin-top: 0;
     }
 
 
-		span.label {
-				// &.late {
-				// 		.label-warning
-				// }
+    span.label {
+        // &.late {
+        //    .label-warning
+        // }
 
-				&.absent {
-						.label-warning()
-				}
+        &.absent {
+            .label-warning()
+        }
 
-				// &.leave {
-				// 		background-color: green;
-				// }
+        // &.leave {
+        //    background-color: green;
+        // }
 
-		}
+    }
 
-		td.covid19 {
-				
-				.covid19Ok {
-						font-size: 1.3em;
-						color: green;
-				}
+    td.covid19 {
+        
+        .covid19Ok {
+            font-size: 1.3em;
+            color: green;
+        }
 
-				.covid19NotOk {
-						font-size: 1.3em;
-						color: red;
-				}
-		}
-		
+        .covid19NotOk {
+            font-size: 1.3em;
+            color: red;
+        }
+    }
+    
 }
 
 span.label {
-		margin-right: 2px; // Wegen aneinanderreihen von Labels
+    margin-right: 2px; // Wegen aneinanderreihen von Labels
 }
 
 .well > h3:first-child {
-		margin-top: 0;
+    margin-top: 0;
 }
 
 span.hover {
-		white-space: nowrap;
+    white-space: nowrap;
 
-		&:hover {
-				background-color: #ddd;
-		}
+    &:hover {
+        background-color: #ddd;
+    }
 }
 
 div.ALStudentsPromotionTypeWizard {
-		p.promotionComment {
-				max-width: 500px;
-		}
+    p.promotionComment {
+        max-width: 500px;
+    }
 
-		div.newPromotionType {
-				cursor: not-allowed; 
-				white-space: nowrap;
+    div.newPromotionType {
+        cursor: not-allowed; 
+        white-space: nowrap;
 
-				label {
-						pointer-events: none;
-				}
-		}
+        label {
+            pointer-events: none;
+        }
+    }
 }
 
 
 div.ALMyBookingCockpit {
-		select.selectRooms {
-				width: 300px;
-		}
+    select.selectRooms {
+        width: 300px;
+    }
 
     div.roomList {
       li.room {
@@ -2919,119 +2927,119 @@ div.ALMyBookingCockpit {
 }
 
 div.ALBookingCockpit {
-		//a.bookingLink
-		.ui-selecting {
-				background-color: lightgreen;
-		}
+    //a.bookingLink
+    .ui-selecting {
+        background-color: lightgreen;
+    }
 
-		table.schedule {
-				cursor: crosshair;
-		}
+    table.schedule {
+        cursor: crosshair;
+    }
 }
 
 .ui-selectable-helper {
-		background-color: rgba(255,255,30,0.2);
+    background-color: rgba(255,255,30,0.2);
 }
 
 
 div.ALBookingMultiSchedulesComponent,
 div.ALMyBookingMultiSchedulesComponent {
-		table.schedule {
+    table.schedule {
 
-				table-layout: fixed;
+        table-layout: fixed;
 
-				td {
-						// overflow: hidden;
-				}
-				
-				thead {
-						th {
-								&.Samstag, &.Sonntag {
-										background-color: #ddd;
-								}
-						}
-				}
+        td {
+            // overflow: hidden;
+        }
+        
+        thead {
+            th {
+                &.Samstag, &.Sonntag {
+                    background-color: #ddd;
+                }
+            }
+        }
 
-				font-size: 90%;
+        font-size: 90%;
 
-				.lessonInCell {
-						margin-right: 5px;
-						
-						&.inRoom {
-						}
+        .lessonInCell {
+            margin-right: 5px;
+            
+            &.inRoom {
+            }
 
-						&.myLesson {
-								span.myLessonInfo {
-										visibility: hidden;
-										// font-weight: bold;
-								}
-								
-								background-color: #dfd;
-						}
+            &.myLesson {
+                span.myLessonInfo {
+                    visibility: hidden;
+                    // font-weight: bold;
+                }
+                
+                background-color: #dfd;
+            }
 
-						&.canceled {
-								text-decoration: line-through;
-						}
-				}
+            &.canceled {
+                text-decoration: line-through;
+            }
+        }
 
-				a.bookingLink {
-						margin-right: 5px;
-				}
+        a.bookingLink {
+            margin-right: 5px;
+        }
 
-				&:hover {
-						.lessonInCell.myLesson {
+        &:hover {
+            .lessonInCell.myLesson {
 
-								span.myLessonInfo {
-										visibility: visible;
-								}
-						}
-				}
-		}
+                span.myLessonInfo {
+                    visibility: visible;
+                }
+            }
+        }
+    }
 }
 
 
 div.ALPortraitImageOverviewComponent {
-		span.placeholderPortrait {
-				font-size: 40px;
-		}
-		
+    span.placeholderPortrait {
+        font-size: 40px;
+    }
+    
 }
 
 span.bsIcon {
-//		font-weight: normal; // Never bold icons
-		&.requiredIcon {
-				color: green;
-		}
+//    font-weight: normal; // Never bold icons
+    &.requiredIcon {
+        color: green;
+    }
 }
 
 // div.panel-collapse.out {
-// 		// Das Problem ist, dass in einem kollabierten Panel, das select noch keine Breite hat, und
-// 		// deshalb das chosen-Plugin die Breite zu 0 setzt.
-// 		select.chosen-select {
-// 				width: 300px;
-// 		}
+//    // Das Problem ist, dass in einem kollabierten Panel, das select noch keine Breite hat, und
+//    // deshalb das chosen-Plugin die Breite zu 0 setzt.
+//    select.chosen-select {
+//        width: 300px;
+//    }
 // }
 
 
 div.ALCourseExecutionCockpit, div.ALKlassenbuchExamsViewer {
 
-		h1 {
-				.truncateWithEllipsis();
-		}
-		
-		h2 {
-				margin-top: 2em;
-		}
-		
-		span.day {
-				display: inline-block;
-				width: 30px;
-		}
+    h1 {
+        .truncateWithEllipsis();
+    }
+    
+    h2 {
+        margin-top: 2em;
+    }
+    
+    span.day {
+        display: inline-block;
+        width: 30px;
+    }
 
-		span.date {
-				display: inline-block;
-				width: 80px;
-		}
+    span.date {
+        display: inline-block;
+        width: 80px;
+    }
 }
 
 
@@ -3039,88 +3047,88 @@ div.ALCourseExecutionCockpit, div.ALKlassenbuchExamsViewer {
 div.ALLearningObjectsAgendaComponent {
 
 
-		table.studentsAgenda {
+    table.studentsAgenda {
 
-				margin-top: 20px;
-				
-				tr {
-						&.groupHeader {
-								font-weight: bold;
-								background-color: #eee;
+        margin-top: 20px;
+        
+        tr {
+            &.groupHeader {
+                font-weight: bold;
+                background-color: #eee;
 
-								td {
-										border-left: none;
-										border-right: none;
-								
-										&.holiday {
-												background-color: #eef4ff;
-										}
+                td {
+                    border-left: none;
+                    border-right: none;
+                
+                    &.holiday {
+                        background-color: #eef4ff;
+                    }
 
-										&.currentWeek {
-												color: green;
-										}
+                    &.currentWeek {
+                        color: green;
+                    }
 
-										&.weekTitle {
-												//								border-bottom: none;
-												
-										}
-								}
+                    &.weekTitle {
+                        //                border-bottom: none;
+                        
+                    }
+                }
 
-								span.dateRange {
-										.pull-right();
-										.text-muted();
-								}
-								
-						}
-						&.calendarEntries, &.courseProjects {
-								//								background-color: #f6f6f6;
-								// color: darkgreen;
-						}
-				}
+                span.dateRange {
+                    .pull-right();
+                    .text-muted();
+                }
+                
+            }
+            &.calendarEntries, &.courseProjects {
+                //                background-color: #f6f6f6;
+                // color: darkgreen;
+            }
+        }
 
 
-				span.day {
-						display: inline-block;
-						width: 25px;
-				}
+        span.day {
+            display: inline-block;
+            width: 25px;
+        }
 
-				span.date {
-						display: inline-block;
-						width: 80px;
-				}
-				
-				span.sign {
-						display: inline-block;
-						width: 30px;
-						margin-right: 8px;
-				}
+        span.date {
+            display: inline-block;
+            width: 80px;
+        }
+        
+        span.sign {
+            display: inline-block;
+            width: 30px;
+            margin-right: 8px;
+        }
 
-				td.existingExam {
-						white-space: nowrap;
-						width: 1%;
-				}
+        td.existingExam {
+            white-space: nowrap;
+            width: 1%;
+        }
 
-				td.infos {
-						border-right: none;
-				}
+        td.infos {
+            border-right: none;
+        }
 
-				td.planningTools {
-						border-left: none;
-						text-align: right;
-						white-space: nowrap;
-						width: 1%;
-				}
+        td.planningTools {
+            border-left: none;
+            text-align: right;
+            white-space: nowrap;
+            width: 1%;
+        }
 
-				&.isExamPlanning {
-						// td.infos {
-						// 		border-left-width: 1px;
-						// }
-						td.examCandidate {
-								white-space: nowrap;
-								width: 1%;
-						}
-				}
-		}
+        &.isExamPlanning {
+            // td.infos {
+            //    border-left-width: 1px;
+            // }
+            td.examCandidate {
+                white-space: nowrap;
+                width: 1%;
+            }
+        }
+    }
 }
 
 
@@ -3128,287 +3136,287 @@ div.ALLearningObjectsAgendaComponent {
 
 
 div.ALBackgroundJobIndicatorComponent {
-		display: inline-block;
-		span.indicator {
-				display: inline-block;
-				padding: 5px;
-		}
+    display: inline-block;
+    span.indicator {
+        display: inline-block;
+        padding: 5px;
+    }
 }
 
 div.ALAdminContentCenterComponent {
-		textarea.uiTextRemarks {
-				.text-muted();
-				padding: 0px;
-				//				border: 1px solid #eee;
-				border: none;
-				border-radius: 0;
-				box-shadow: none;
-				resize: none;
-		}
+    textarea.uiTextRemarks {
+        .text-muted();
+        padding: 0px;
+        //        border: 1px solid #eee;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        resize: none;
+    }
 }
 
 div.ALAdminEmailsComponent {
-		ul {
-				margin: 0;
-		}
+    ul {
+        margin: 0;
+    }
 }
 
 div.ALStudentViewer {
-		div.basicPersonInfo {
-				margin-bottom: 0.5em;
-		}
+    div.basicPersonInfo {
+        margin-bottom: 0.5em;
+    }
 
-		div.personContact, div.parentContact {
-				margin-bottom: 1em;
+    div.personContact, div.parentContact {
+        margin-bottom: 1em;
 
-				// > div {
-				// 		padding-left: 2em;
-				// 		text-indent: -2em;
-				// }
-		}
+        // > div {
+        //    padding-left: 2em;
+        //    text-indent: -2em;
+        // }
+    }
 
-		div.residentialInfo {
-				margin-bottom: 1em;
-		}
+    div.residentialInfo {
+        margin-bottom: 1em;
+    }
 
-		table.generalInfo {
-				th {
-						width: 10%;
-				}
-		}
+    table.generalInfo {
+        th {
+            width: 10%;
+        }
+    }
 
-		.covid19Ok {
-				color: green;
-		}
+    .covid19Ok {
+        color: green;
+    }
 
-		.covid19NotOk {
-				color: red;
-		}
+    .covid19NotOk {
+        color: red;
+    }
 
 }
 
 div.ALSecureTransfersCockpit {
-		div.document {
-				white-space: nowrap;
-		}
+    div.document {
+        white-space: nowrap;
+    }
 
-		div.toggler {
-				font-size: 175%;
-		}
+    div.toggler {
+        font-size: 175%;
+    }
 }
 
 div.infoText, span.infoText {
-		.text-muted();
-		// span.text {
-		// 		.text-muted();
-		// }
+    .text-muted();
+    // span.text {
+    //    .text-muted();
+    // }
 }
 
 div.infoText {
-		margin-top: 0.3em; // Wegen info-Icon
+    margin-top: 0.3em; // Wegen info-Icon
 }
 
 div.ALTeachingSubstitutionCockpit {
-		table.substitutionsTable {
-				tr.title {
-						td {
-								vertical-align: middle;
-						}
-				}
-				
-				tr.divider {
-						td {
-								border-left-color: transparent;
-								border-right-color: transparent;
-						}
-				}
-		}
+    table.substitutionsTable {
+        tr.title {
+            td {
+                vertical-align: middle;
+            }
+        }
+        
+        tr.divider {
+            td {
+                border-left-color: transparent;
+                border-right-color: transparent;
+            }
+        }
+    }
 }
 
 div.ALTeacherTimeAccountComponent {
-		div.legend {
-				.text-muted();
-				margin-top: 5px;
-				margin-bottom: 3px;
-				margin-left: 3px;
-//				text-align: right;
-		}
-		span.visum {
-				display: inline-block;
-				margin-left: 1em;
-				margin-right: 1em;
-				padding-top: 0.5em;
-		}
-		table.entries {
+    div.legend {
+        .text-muted();
+        margin-top: 5px;
+        margin-bottom: 3px;
+        margin-left: 3px;
+//        text-align: right;
+    }
+    span.visum {
+        display: inline-block;
+        margin-left: 1em;
+        margin-right: 1em;
+        padding-top: 0.5em;
+    }
+    table.entries {
 
-				td.number {
-						text-align: right;
+        td.number {
+            text-align: right;
 
-						&.saldo {
-								background-color: #eee;
-						}
+            &.saldo {
+                background-color: #eee;
+            }
 
-						span.decimalNumber {
-								&.digits2 {
-										padding-right: 1ch;
-								}
-						}
-				}
+            span.decimalNumber {
+                &.digits2 {
+                    padding-right: 1ch;
+                }
+            }
+        }
 
-				td.calculationInfo {
-						span + span {
-								margin-left: 0.5em;
-						}
-				}
-		}
+        td.calculationInfo {
+            span + span {
+                margin-left: 0.5em;
+            }
+        }
+    }
 
-		div.appendix {
-				margin-top: 7em;
-		}
-		
+    div.appendix {
+        margin-top: 7em;
+    }
+    
 }
 
 span.decimalNumber {
-		font-family: monospace;
+    font-family: monospace;
 
-		&.roundedForDisplay {
-				border-right: 2px dotted orange;
-				margin-right: -2px;
-		}
+    &.roundedForDisplay {
+        border-right: 2px dotted orange;
+        margin-right: -2px;
+    }
 }
 
 
 div.ALTtaAdminCockpit {
-		table {
-				tr.totals {
-						td {
-								border-top-width: 3px;
-								&.total {
-										text-align: right;
-										font-weight: bold;
-								}
-						}
-				}
-				td {
-						&.summe, &.saldo, &.saldoUnterricht, &.saldoIntern, &.saldoExtern {
-								text-align: right;
-						}
-						&.saldo {
-								background-color: #eee;
-						}
-				}
-		}
+    table {
+        tr.totals {
+            td {
+                border-top-width: 3px;
+                &.total {
+                    text-align: right;
+                    font-weight: bold;
+                }
+            }
+        }
+        td {
+            &.summe, &.saldo, &.saldoUnterricht, &.saldoIntern, &.saldoExtern {
+                text-align: right;
+            }
+            &.saldo {
+                background-color: #eee;
+            }
+        }
+    }
 }
 
 
 div.ALPlUploaderComponent {
-		span.uploadFile {
-				color: orange;
-		}
+    span.uploadFile {
+        color: orange;
+    }
 }
 
 
 
 div.ALPeriodsSyncingCockpit {
-		div.subSyncers {
-				a.btn {
-						display: block;
-						width: 33%;
-						margin: 0.5em 0;
-						text-align: left;
-				}
-		}
+    div.subSyncers {
+        a.btn {
+            display: block;
+            width: 33%;
+            margin: 0.5em 0;
+            text-align: left;
+        }
+    }
 }
 
 div.ALPeriodSyncer {
-		table.dataTable {
-				div.checkbox {
-						display: block;
-				}
-		}
+    table.dataTable {
+        div.checkbox {
+            display: block;
+        }
+    }
 }
 
 div.ALPeriodSyncer, div.ALGenericModelSyncer {
-		table.comparationTable {
-				th {
-						white-space: nowrap;
-				}
-		}
+    table.comparationTable {
+        th {
+            white-space: nowrap;
+        }
+    }
 
 }
 
 div.ALPeoplePicker {
 
-		div.selectedPeople {
-				span.selectedPerson {
-						.label-success();
-//						color: white;
-						// padding: 3px 5px;
-						padding: .2em .6em .3em;
-						display: inline-block;
-						line-height: 1;
-						color: @label-color;
-						text-align: center;
-						white-space: nowrap;
-						vertical-align: baseline;
-						border-radius: .25em;
-						margin-bottom: 0.5em;
-						margin-right: 5px;
+    div.selectedPeople {
+        span.selectedPerson {
+            .label-success();
+//            color: white;
+            // padding: 3px 5px;
+            padding: .2em .6em .3em;
+            display: inline-block;
+            line-height: 1;
+            color: @label-color;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: .25em;
+            margin-bottom: 0.5em;
+            margin-right: 5px;
 
-						a {
-								color: inherit;
-						}
-				}
-		}
-		
-		// Tighten up margin so it's only between panels
-		.panel {
-				margin-bottom: 0;
-				border-radius: @panel-border-radius;
+            a {
+                color: inherit;
+            }
+        }
+    }
+    
+    // Tighten up margin so it's only between panels
+    .panel {
+        margin-bottom: 0;
+        border-radius: @panel-border-radius;
 
-				+ .panel {
-						margin-top: 5px;
-				}
+        + .panel {
+            margin-top: 5px;
+        }
 
-				div.checkboxesGroup {
-						break-inside: avoid;
-						page-break-inside: avoid;
+        div.checkboxesGroup {
+            break-inside: avoid;
+            page-break-inside: avoid;
 
-						div.capitalLetter {
-								margin-top: 1em;
-						}
-						
-						div.checkbox {
-								margin-top: 0;
-								margin-bottom: 0;
-						}
-				}
-		}
+            div.capitalLetter {
+                margin-top: 1em;
+            }
+            
+            div.checkbox {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+    }
 }
 
 .collapseHandle {
-		&:not(.collapsed) {
-				span.icon.collapseIcon {
-						transform: scale(1, -1);
-//						transform: rotateX(180deg);
-				}
-		}
+    &:not(.collapsed) {
+        span.icon.collapseIcon {
+            transform: scale(1, -1);
+//            transform: rotateX(180deg);
+        }
+    }
 }
 
 div.ALNewPeriodWizard {
-		fieldset {
-				margin-bottom: 2em;
-				legend {
-						margin-bottom: 0;
-				}
-		}
+    fieldset {
+        margin-bottom: 2em;
+        legend {
+            margin-bottom: 0;
+        }
+    }
 }
 
 
 div.ALTodolistUsageComponent {
-		table.todoTable {
+    table.todoTable {
 
-			.topBuffer();
+      .topBuffer();
 
       > tbody {
         > tr {
@@ -3434,32 +3442,32 @@ div.ALTodolistUsageComponent {
           }
         }
       }
-		}
-		
-		table.answersTable {
-//				.table-hover();
-				
-				width: 100%;
+    }
+    
+    table.answersTable {
+//        .table-hover();
+        
+        width: 100%;
 
-				col.colCheckbox {
-						width: 1%;
-				}
-				col.colText {
-						width: 50%;
-				}
-				col.colTimestamp {
-//						width: 5%;
-				}
+        col.colCheckbox {
+            width: 1%;
+        }
+        col.colText {
+            width: 50%;
+        }
+        col.colTimestamp {
+//            width: 5%;
+        }
 
-				> tbody > tr {
-						line-height: 1.8em;
-						
-						a.checkboxAnchor {
-								&:hover {
-										text-decoration: none;
-										background-color: #ddd;
-								}
-						}
+        > tbody > tr {
+            line-height: 1.8em;
+            
+            a.checkboxAnchor {
+                &:hover {
+                    text-decoration: none;
+                    background-color: #ddd;
+                }
+            }
             &.my {
               > td {
                 padding-bottom: 1em;
@@ -3472,42 +3480,42 @@ div.ALTodolistUsageComponent {
               }
             }
 
-						> td {
+            > td {
                 vertical-align: top;
-								&.colCheckbox {
-										white-space: nowrap;
-										padding-right: 1em;
-										.icon {
-												font-size: 130%;
-												vertical-align: text-bottom;
-										}
-								}
-								&.colText {
-										// white-space: nowrap;
-										input[type=text] {
-												font-style: italic;
-												width: 100%;
-												height: 1.6em;
-												padding: 0 2px;
-												margin-right: 0.5em;
-												&.dirty {
-														.bg-warning();
-												}
-										}
-										div.quote {
-												font-style: italic;
-										}
-								}
-								&.colTimestamp {
-										white-space: nowrap;
-										text-align: right;
-								}
-								
-						}
+                &.colCheckbox {
+                    white-space: nowrap;
+                    padding-right: 1em;
+                    .icon {
+                        font-size: 130%;
+                        vertical-align: text-bottom;
+                    }
+                }
+                &.colText {
+                    // white-space: nowrap;
+                    input[type=text] {
+                        font-style: italic;
+                        width: 100%;
+                        height: 1.6em;
+                        padding: 0 2px;
+                        margin-right: 0.5em;
+                        &.dirty {
+                            .bg-warning();
+                        }
+                    }
+                    div.quote {
+                        font-style: italic;
+                    }
+                }
+                &.colTimestamp {
+                    white-space: nowrap;
+                    text-align: right;
+                }
+                
+            }
 
-						
-				}
-		}
+            
+        }
+    }
 
     div.downloads {
       // ul {
@@ -3529,129 +3537,129 @@ div.ALTodolistUsageComponent {
 }
 
 div.ALGraduationMarksReportSimulator {
-		@thickness: 5px;
-		@simColor: darkred;
-		
-		border: @thickness dotted @simColor;
-		padding: @thickness;
-		margin: 0px (-2 * @thickness);
+    @thickness: 5px;
+    @simColor: darkred;
+    
+    border: @thickness dotted @simColor;
+    padding: @thickness;
+    margin: 0px (-2 * @thickness);
 
-		> div.page-header:first-child h1 {
-				color: @simColor;
-		}
+    > div.page-header:first-child h1 {
+        color: @simColor;
+    }
 
-		div.ALMarksReportComponent {
-				div.page-header h1 {
-						font-size: 2.5rem;
-				}
-		}
-		
-		hr.bigDivider {
-				margin-top: 2em;
-				margin-bottom: 0.5em;
-//				border-top: @thickness solid black;
-				border-top: @thickness dotted @simColor;
-		}
+    div.ALMarksReportComponent {
+        div.page-header h1 {
+            font-size: 2.5rem;
+        }
+    }
+    
+    hr.bigDivider {
+        margin-top: 2em;
+        margin-bottom: 0.5em;
+//        border-top: @thickness solid black;
+        border-top: @thickness dotted @simColor;
+    }
 
-		div.dividerTitle {
-				font-weight: bold;
-				color: @simColor;
-		}
+    div.dividerTitle {
+        font-weight: bold;
+        color: @simColor;
+    }
 }
 
 
 div.ALTeachersBlockedForeignBookingCockpit {
 
 
-		table.schedule {
-				cursor: crosshair;
+    table.schedule {
+        cursor: crosshair;
 
-				.ui-selecting {
-						background-color: lightgreen;
-				}
+        .ui-selecting {
+            background-color: lightgreen;
+        }
 
-		}
+    }
 
 }
 
 div.ALMyTeacherAbsenceCockpit {
-		table.lessonsTable {
-				td.cancelType {
-						label.radio-inline {
-								margin-right: 1em;
-						}
-				}
-		}
+    table.lessonsTable {
+        td.cancelType {
+            label.radio-inline {
+                margin-right: 1em;
+            }
+        }
+    }
 }
 
 div.flexContainer {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		gap: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
 
-		&.left {
-				justify-content: flex-start;
-		}
+    &.left {
+        justify-content: flex-start;
+    }
 
-		&.center {
-				justify-content: space-between;
-		}
-		
+    &.center {
+        justify-content: space-between;
+    }
+    
 }
 
 div.ALPeriodsAttendanceOverviewWebReport {
-		div.tableScrollContainer {
-				max-height: 80vh;
-				overflow-y: scroll;
+    div.tableScrollContainer {
+        max-height: 80vh;
+        overflow-y: scroll;
 
-				table.attendanceOverview {
-						table-layout: fixed;
-						width: 100%;
-						margin-top: 1em;
+        table.attendanceOverview {
+            table-layout: fixed;
+            width: 100%;
+            margin-top: 1em;
 
-						colgroup {
-								col.person {
-										width: 15em;
-								}
-						}
+            colgroup {
+                col.person {
+                    width: 15em;
+                }
+            }
 
-						
-						thead {
-								td, th {
-										position: sticky;
-										top: 0;
-										background-color: white;
-										height: 5em;
-										vertical-align: bottom;
-								}
-								
-								th span.columnLabel {
-										display: inline-block;
-										white-space: nowrap;
-										transform-origin: 0.5em 0.5em;
-										transform: rotate(270deg);
-										//				width: 1em;
-								}
-						}
+            
+            thead {
+                td, th {
+                    position: sticky;
+                    top: 0;
+                    background-color: white;
+                    height: 5em;
+                    vertical-align: bottom;
+                }
+                
+                th span.columnLabel {
+                    display: inline-block;
+                    white-space: nowrap;
+                    transform-origin: 0.5em 0.5em;
+                    transform: rotate(270deg);
+                    //        width: 1em;
+                }
+            }
 
-						tbody {
-								tr {
-										border-bottom: 1px solid gray;
-								}
-						}
-						
-				}
-		}
+            tbody {
+                tr {
+                    border-bottom: 1px solid gray;
+                }
+            }
+            
+        }
+    }
 }
 
 div.ALUserFinderComponent {
-		div.inputGrid {
-				display: inline-grid;
-				margin: 0.2em 0;
-				align-items: center;
-				grid-template-columns: 1fr 1fr;
-				row-gap: 0.2em;
-//				grid-template-rows: 1fr 1fr;
-		}
+    div.inputGrid {
+        display: inline-grid;
+        margin: 0.2em 0;
+        align-items: center;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 0.2em;
+//        grid-template-rows: 1fr 1fr;
+    }
 }

@@ -2523,14 +2523,14 @@ div.ALMyHomeComponent {
             // white-space: nowrap;
             // overflow: hidden;
             // text-overflow: ellipsis;
-            margin-bottom: 0.5em;
+            margin-bottom: 0.4em;
         }
     }
 
     div.well.topMessage {
         background-color: lightyellow;
     }
-    
+
 }
 
 div.ALMyStudentHomeComponent {
@@ -2760,7 +2760,7 @@ div.ALKlassenbuchComponentBase {
 
 
           
-          td.entry, td.type, td.entschuldigt, td.actions {
+          td.entry, /*td.type,*/ td.entschuldigt, td.actions {
               white-space: nowrap;
           }
 
@@ -2898,6 +2898,10 @@ div.ALStudentsPromotionTypeWizard {
 div.ALMyBookingCockpit {
     select.selectRooms {
         width: 300px;
+    }
+
+    table.bookings {
+      table-layout: fixed;
     }
 
     div.roomList {

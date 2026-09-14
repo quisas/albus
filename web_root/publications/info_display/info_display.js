@@ -133,7 +133,7 @@ function kioskShowNext() {
 
   if (isImage) {
 	  kioskIframe.removeAttribute('src');
-    kioskIframe.setAttribute('srcdoc', '<img style="width:100%" src="' + url + '"></img>');
+    kioskIframe.setAttribute('srcdoc', '<!doctype html><body style="padding:0;margin:0;"><img style="width:100%" src="' + url + '"></img></body>');
   } else {
     kioskIframe.removeAttribute('srcdoc');
 	  kioskIframe.setAttribute('src', url);

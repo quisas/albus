@@ -1,4 +1,4 @@
-// -*- less-css-compile-at-save: t; -*-
+// out: info_display.css, rewrite-urls: all, clean-css: --s1
 
 
 // Nunito
@@ -17,76 +17,76 @@
 @smallfont: 0.8rem;
 
 .fixed() {
-		position: fixed;
-		z-index: 999;
+    position: fixed;
+    z-index: 999;
 }
 
 .smallfont() {
-		font-size: @smallfont;
-		line-height: 1.1em;
+    font-size: @smallfont;
+    line-height: 1.1em;
 }
 
 .todayLabel() {
-		background-color: @primaryColor;
-		padding-left: 4px;
-		padding-right: 4px;
-		color: white;
-//		border-radius: 5px;
-		font-weight: normal;
+    background-color: @primaryColor;
+    padding-left: 4px;
+    padding-right: 4px;
+    color: white;
+//    border-radius: 5px;
+    font-weight: normal;
 }
 
 body, html {
-		margin: 0;
-		padding: 0;
-		overflow: hidden;
-		font-family: 'Nunito Sans', Helvetica, Arial, sans-serif;
-//		font-size: @normalfont;
-		font-size: 1.3vw;
-		line-height: 1.2em;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Nunito Sans', Helvetica, Arial, sans-serif;
+//    font-size: @normalfont;
+    font-size: 1.3vw;
+    line-height: 1.2em;
 }
 
 table {
-		border-collapse: collapse;
-		width: 100%;
+    border-collapse: collapse;
+    width: 100%;
 }
 
 h1 {
-		font-size: 1.8rem;
-		font-weight: @weightBold;
-		margin-top: 0.1em;
-		margin-bottom: 0.5em;
+    font-size: 1.8rem;
+    font-weight: @weightBold;
+    margin-top: 0.1em;
+    margin-bottom: 0.5em;
 }
 
 
 div#schoolLogo {
-		.fixed();
-		top: @marginTop;
-		left: @marginLeft;
-		width: @logoWidth;
+    .fixed();
+    top: @marginTop;
+    left: @marginLeft;
+    width: @logoWidth;
 
-		img.schoolLogo {
-				width: 100%;
-		}
+    img.schoolLogo {
+        width: 100%;
+    }
 }
 
 
 div#schoolNameLogo {
-		.fixed();
-		top: @marginTop;
-		right: @marginRight;
+    .fixed();
+    top: @marginTop;
+    right: @marginRight;
 }
 
 div#clock {
-		.fixed();
-		bottom: @marginTop;
-		right: @marginTop;
-		width: @logoWidth;
-		div#clockWrapper {
-				width: 100%;
-				canvas {
-						width: 100%;
-				}
-		}
+    .fixed();
+    bottom: @marginTop;
+    right: @marginTop;
+    width: @logoWidth;
+    div#clockWrapper {
+        width: 100%;
+        canvas {
+            width: 100%;
+        }
+    }
 }
 
 // div.infoscreenPage {
@@ -94,218 +94,223 @@ div#clock {
 // }
 
 div#main {
-		display: flex;
-//		height: 100%;
-		width: 100%;
-		flex-direction: row;
-		align-items: stretch;
-		overflow: visible;
+    display: flex;
+//    height: 100%;
+    width: 100%;
+    flex-direction: row;
+    align-items: stretch;
+    overflow: visible;
 
-		box-sizing: border-box;
-		height: 100vh;
-		background: white;
-		padding-top: 1.4 * @logoWidth;
-		padding-bottom: @marginBottom;
-		padding-left: @logoWidth;
-		padding-right: @marginRight;
-		//	border: 2px solid white;
+    box-sizing: border-box;
+    height: 100vh;
+    background: white;
+    padding-top: 1.4 * @logoWidth;
+    padding-bottom: @marginBottom;
+    padding-left: @logoWidth;
+    padding-right: @marginRight;
+    //  border: 2px solid white;
 
-		mask-image: linear-gradient(to top, transparent 0%, black @marginBottom );
-		// background: radial-gradient(ellipse at 10% 45%, @tdu-language-color-fr, fadeout(@tdu-language-color-fr, 5%) 10%, fadeout(@tdu-language-color-fr, 80%) 30%, fadeout(@tdu-language-color-fr, 95%) 40%, transparent 50%),
-		// 						radial-gradient(circle at 5% 90%, @tdu-language-color-it, fadeout(@tdu-language-color-it, 80%) 30%, transparent 40%),
-		// 						radial-gradient(circle at 95% 50%, @tdu-language-color-de, fadeout(@tdu-language-color-de, 80%) 30%, transparent 70%),
-		// 						white;
+    mask-image: linear-gradient(to top, transparent 0%, black @marginBottom );
+    // background: radial-gradient(ellipse at 10% 45%, @tdu-language-color-fr, fadeout(@tdu-language-color-fr, 5%) 10%, fadeout(@tdu-language-color-fr, 80%) 30%, fadeout(@tdu-language-color-fr, 95%) 40%, transparent 50%),
+    //            radial-gradient(circle at 5% 90%, @tdu-language-color-it, fadeout(@tdu-language-color-it, 80%) 30%, transparent 40%),
+    //            radial-gradient(circle at 95% 50%, @tdu-language-color-de, fadeout(@tdu-language-color-de, 80%) 30%, transparent 70%),
+    //            white;
 
 
 }
 
 div#left, div#right {
-		width: 50%;
+    width: 50%;
 }
 div#divider {
-		//width:
-		border-left: 1px solid black;
-		margin: 0 (@logoWidth/1.5);
+    //width:
+    border-left: 1px solid black;
+    margin: 0 (@logoWidth/1.5);
 }
 
 
 
 .datishTableCell() {
-		padding: 0.7em 0;
-		border-bottom: 2px solid @primaryColor;
-		border-top: 2px solid @primaryColor;
-		vertical-align: top;
+    padding: 0.7em 0;
+    border-bottom: 2px solid @primaryColor;
+    border-top: 2px solid @primaryColor;
+    vertical-align: top;
 }
 
 @leftCellWidth: 5em;
 div#calendar {
-		margin-bottom: 2em;
+    margin-bottom: 2em;
 
-		h1 {
-				margin-bottom: 0.7em; // bisschen mehr als Standard
-				span.today {
-						float:right;
-				}
-		}
+    h1 {
+        margin-bottom: 0.7em; // bisschen mehr als Standard
+        span.today {
+            float:right;
+        }
+    }
 
-		table.calendarTable {
-				border-collapse: collapse;
-				width: 100%;
-				
-				tr.calendarEntry {
-						td {
-								.datishTableCell();
-						}
-						
-						td.shortDate {
-								width: @leftCellWidth;
-								font-weight: @weightBold;
-								div.weekday {
-										text-transform: uppercase;
-								}
-								span.today {
-										.todayLabel();
-								}
-						}
+    table.calendarTable {
+        border-collapse: collapse;
+        width: 100%;
+        
+        tr.calendarEntry {
+            td {
+                .datishTableCell();
+            }
+            
+            td.shortDate {
+                width: @leftCellWidth;
+                font-weight: @weightBold;
+                div.weekday {
+                    text-transform: uppercase;
+                }
+                span.today {
+                    .todayLabel();
+                }
+            }
 
-						td.description {
-								div.longDate {
-										font-weight: @weightDate;
-								}
-								div.title {
-										font-weight: @weightBold;										
-								}
-						}
-				}
+            td.description {
+                div.longDate {
+                    font-weight: @weightDate;
+                }
+                div.title {
+                    font-weight: @weightBold;                   
+                }
+            }
+        }
 
-		}
+    }
 }
 
 div#left.condensed {
-		@condensedPadding: 0.2em;
-		div#calendar {
-				table.calendarTable {
-						tr.calendarEntry {
-								td {
-										padding: @condensedPadding 0;
-								}
-						}		
-				}
-		}
+    @condensedPadding: 0.2em;
+    div#calendar {
+        table.calendarTable {
+            tr.calendarEntry {
+                td {
+                    padding: @condensedPadding 0;
+                }
+            }   
+        }
+    }
 
-		div#mensa {
-				table.mensaTable {
-						tr.mensaEntry {
-								td {
-										padding-bottom: @condensedPadding;
-								}
-						}
-				}
-		}
+    div#mensa {
+        table.mensaTable {
+            tr.mensaEntry {
+                td {
+                    padding-bottom: @condensedPadding;
+                }
+            }
+        }
+    }
 }
 
 div#mensa {
-		
-		table.mensaTable {
-				
-				tr.mensaEntry {
-						td {
-								.datishTableCell();
-								border-top: none;
-								padding-top: 0;
-						}
-						
-						td.shortDate {
-								width: @leftCellWidth;
-								font-weight: @weightBold;
-								div.weekday {
-										text-transform: uppercase;
-								}
-						}
+    
+    table.mensaTable {
+        
+        tr.mensaEntry {
+            td {
+                .datishTableCell();
+                border-top: none;
+                padding-top: 0;
+            }
+            
+            td.shortDate {
+                width: @leftCellWidth;
+                font-weight: @weightBold;
+                div.weekday {
+                    text-transform: uppercase;
+                }
+            }
 
-						td.menuDescription {
-								//								font-weight: @weightBold;
-								padding-top: 0.2em; // tweak horizontal alignment with left text
-								.smallfont();
-								div.menuLine + div.menuLine {
-										margin-top: 0.3em;
-								}
-						}
-				}
-		}
-		
+            td.menuDescription {
+                //                font-weight: @weightBold;
+                padding-top: 0.2em; // tweak horizontal alignment with left text
+                .smallfont();
+                div.menuLine + div.menuLine {
+                    margin-top: 0.3em;
+                }
+            }
+        }
+    }
+    
 }
 
 div#featuredEvents {
-		height: 100%;
-		div.eventsList {
-				height: 100%;
-				display: flex;
+    height: 100%;
+    div.eventsList {
+        height: 100%;
+        display: flex;
 
-				// Anordnung links rechts
-//				flex-flow: row wrap;
-				justify-content: space-between;
-				align-content: flex-start;
+        // Anordnung links rechts
+//        flex-flow: row wrap;
+        justify-content: space-between;
+        align-content: flex-start;
 
-				// Anordnung oben nach unten
-				// flex-flow: column wrap;
-				// justify-content: flex-start;
-				// align-content: space-between;
+        // Anordnung oben nach unten
+        // flex-flow: column wrap;
+        // justify-content: flex-start;
+        // align-content: space-between;
 
-				div.eventsColumn {
-						width: 45%;
-				
-						div.eventEntry {
-//								width: 45%;
-								margin-bottom: 1.2em;
-//								background-color: #eee;
-								div.longDate {
-										font-weight: @weightDate;
-										span.today {
-												.todayLabel();
-//												margin-right: 0.1em;
-										}
-								}
-								div.title {
-										font-weight: @weightBold;
-								}
-								div.timeAndLocation {
-										span.time {
-												//										margin-right: 1ch;
-										}
-								}
-								div.image {
-										margin-top: 0.2em;
-										padding-bottom: 0;
-										margin-bottom: 0;
-										img {
-												border-bottom: 8px solid @primaryColor;
-												width: 100%;
-										}
-								}
-								div.description {
-										.smallfont();
-								}
-						}
-				}
-		}
+        div.eventsColumn {
+            width: 45%;
+        
+            div.eventEntry {
+//                width: 45%;
+                margin-bottom: 1.2em;
+//                background-color: #eee;
+                div.longDate {
+                    font-weight: @weightDate;
+                    span.today {
+                        .todayLabel();
+//                        margin-right: 0.1em;
+                    }
+                }
+                div.title {
+                    font-weight: @weightBold;
+                }
+                div.timeAndLocation {
+                    span.time {
+                        //                    margin-right: 1ch;
+                    }
+                }
+                div.image {
+                    margin-top: 0.2em;
+                    padding-bottom: 0;
+                    margin-bottom: 0;
+                    img {
+                        border-bottom: 8px solid @primaryColor;
+                        width: 100%;
+                    }
+                }
+                div.description {
+                    .smallfont();
+                }
+            }
+        }
+    }
 }
 
 iframe#kioskIframe {
-		display: block;
-		position: fixed;
-		z-index: 9999;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		border: none;
-		width: 100vw;
-		height: 100vh;
-		overflow: hidden;
-		background-color: white;
+    display: block;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: none;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: white;
 
-		visibility: hidden;
-		opacity: 0;
+    visibility: hidden;
+    opacity: 0;
     transition: visibility 0.3s linear, opacity 0.3s linear;
+
+    body {
+      padding: 0;
+      margin: 0;
+    }
 }
